@@ -1,13 +1,179 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-05-13T02:11:18+09:00</updated><id>http://localhost:4000/</id><title type="html">Laon Dreams • Simple, blog-aware, static sites</title><subtitle>Dreams come true!</subtitle><entry><title type="html">Jekyll 1.0.0 Released</title><link href="http://localhost:4000/news/2013/05/06/jekyll-1-0-0-released/" rel="alternate" type="text/html" title="Jekyll 1.0.0 Released" /><published>2013-05-06T09:12:52+09:00</published><updated>2013-05-06T09:12:52+09:00</updated><id>http://localhost:4000/news/2013/05/06/jekyll-1-0-0-released</id><content type="html" xml:base="http://localhost:4000/news/2013/05/06/jekyll-1-0-0-released/">&lt;p&gt;Hey! After many months of hard work by Jekyll’s contributors, we’re excited
-to announce the first major release of the project in a long while. v1.0.0 is
-finally here! While the list of improvements and bug fixes is &lt;a href=&quot;/docs/history/#v1-0-0&quot;&gt;quite lengthy&lt;/a&gt;,
-here are the highlights (thanks to &lt;a href=&quot;https://twitter.com/BenBalter&quot;&gt;@benbalter&lt;/a&gt; for the
-examples and for compiling this list):&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-05-13T02:26:52+09:00</updated><id>http://localhost:4000/</id><title type="html">Laon Dreams • Simple, blog-aware, static sites</title><subtitle>Dreams come true!</subtitle><entry><title type="html">Kotlin Programming Language</title><link href="http://localhost:4000/news/2018/05/13/kotlin-01/" rel="alternate" type="text/html" title="Kotlin Programming Language" /><published>2018-05-13T02:24:52+09:00</published><updated>2018-05-13T02:24:52+09:00</updated><id>http://localhost:4000/news/2018/05/13/kotlin-01</id><content type="html" xml:base="http://localhost:4000/news/2018/05/13/kotlin-01/">&lt;p&gt;&lt;a href=&quot;https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub&quot;&gt;&lt;img src=&quot;http://jb.gg/badges/official.svg&quot; alt=&quot;official project&quot; /&gt;&lt;/a&gt;
+&lt;a href=&quot;http://slack.kotlinlang.org/&quot;&gt;&lt;img src=&quot;http://slack.kotlinlang.org/badge.svg&quot; height=&quot;20&quot; /&gt;&lt;/a&gt;
+&lt;a href=&quot;https://teamcity.jetbrains.com/viewType.html?buildTypeId=Kotlin_dev_Compiler&amp;amp;branch_Kotlin_dev=%3Cdefault%3E&amp;amp;tab=buildTypeStatusDiv&quot;&gt;&lt;img src=&quot;https://img.shields.io/teamcity/http/teamcity.jetbrains.com/s/Kotlin_dev_Compiler.svg&quot; alt=&quot;TeamCity (simple build status)&quot; /&gt;&lt;/a&gt;
+&lt;a href=&quot;http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.jetbrains.kotlin%22&quot;&gt;&lt;img src=&quot;https://img.shields.io/maven-central/v/org.jetbrains.kotlin/kotlin-maven-plugin.svg&quot; alt=&quot;Maven Central&quot; /&gt;&lt;/a&gt;
+&lt;a href=&quot;http://www.apache.org/licenses/LICENSE-2.0&quot;&gt;&lt;img src=&quot;https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg?style=flat&quot; alt=&quot;GitHub license&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;kotlin-programming-language&quot;&gt;Kotlin Programming Language&lt;/h1&gt;
+
+&lt;p&gt;Welcome to &lt;a href=&quot;https://kotlinlang.org/&quot;&gt;Kotlin&lt;/a&gt;! Some handy links:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Support for the Gist tag for easily embedding Gists (&lt;a href=&quot;https://gist.github.com/benbalter/5555251&quot;&gt;example&lt;/a&gt;)&lt;/li&gt;
-  &lt;li&gt;Automatically generated post excerpts (&lt;a href=&quot;https://gist.github.com/benbalter/5555369&quot;&gt;example&lt;/a&gt;)&lt;/li&gt;
-  &lt;li&gt;Save and preview drafts before publishing (&lt;a href=&quot;https://gist.github.com/benbalter/5555992&quot;&gt;example&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://kotlinlang.org/&quot;&gt;Kotlin Site&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://kotlinlang.org/docs/tutorials/getting-started.html&quot;&gt;Getting Started Guide&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://try.kotlinlang.org/&quot;&gt;Try Kotlin&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://kotlinlang.org/api/latest/jvm/stdlib/index.html&quot;&gt;Kotlin Standard Library&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://youtrack.jetbrains.com/issues/KT&quot;&gt;Issue Tracker&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://discuss.kotlinlang.org/&quot;&gt;Forum&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://blog.jetbrains.com/kotlin/&quot;&gt;Kotlin Blog&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://twitter.com/kotlin&quot;&gt;Follow Kotlin on Twitter&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://slack.kotlinlang.org/&quot;&gt;Public Slack channel&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://teamcity.jetbrains.com/project.html?tab=projectOverview&amp;amp;projectId=Kotlin&quot;&gt;TeamCity CI build&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Take a look at the &lt;a href=&quot;/docs/upgrading/&quot;&gt;Upgrading&lt;/a&gt; page in the docs for more detailed information.&lt;/p&gt;</content><author><name>parkr</name></author><summary type="html">Hey! After many months of hard work by Jekyll’s contributors, we’re excited to announce the first major release of the project in a long while. v1.0.0 is finally here! While the list of improvements and bug fixes is quite lengthy, here are the highlights (thanks to @benbalter for the examples and for compiling this list):</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/img/twitter-card.png" /></entry></feed>
+&lt;h2 id=&quot;editing-kotlin&quot;&gt;Editing Kotlin&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://kotlinlang.org/docs/tutorials/getting-started.html&quot;&gt;Kotlin IntelliJ IDEA Plugin&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://kotlinlang.org/docs/tutorials/getting-started-eclipse.html&quot;&gt;Kotlin Eclipse Plugin&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/vkostyukov/kotlin-sublime-package&quot;&gt;Kotlin TextMate Bundle&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;build-environment-requirements&quot;&gt;Build environment requirements&lt;/h2&gt;
+
+&lt;p&gt;In order to build Kotlin distribution you need to have:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;JDK 1.6, 1.7, 1.8 and 9&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Setup environment variables as following:&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  JAVA_HOME=&quot;path to JDK 1.8&quot;
+  JDK_16=&quot;path to JDK 1.6&quot;
+  JDK_17=&quot;path to JDK 1.7&quot;
+  JDK_18=&quot;path to JDK 1.8&quot;
+  JDK_9=&quot;path to JDK 9&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;For local development, if you’re not working on bytecode generation or the standard library, it’s OK to have only JDK 1.8 and JDK 9 installed, and to point JDK_16 and JDK_17 environment variables to your JDK 1.8 installation.&lt;/p&gt;
+
+&lt;p&gt;You also can use &lt;a href=&quot;https://docs.gradle.org/current/userguide/build_environment.html#sec:gradle_properties_and_system_properties&quot;&gt;Gradle properties&lt;/a&gt; to setup JDK_* variables.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Note: The JDK 6 for MacOS is not available on Oracle’s site. You can &lt;a href=&quot;https://support.apple.com/kb/DL1572&quot;&gt;download it here&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;building&quot;&gt;Building&lt;/h2&gt;
+
+&lt;p&gt;The project is built with Gradle. Run Gradle to build the project and to run the tests 
+using the following command on Unix/macOS:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./gradlew &amp;lt;tasks-and-options&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;or the following command on Windows:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gradlew &amp;lt;tasks-and-options&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;On the first project configuration gradle will download and setup the dependencies on&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;intellij-core&lt;/code&gt; is a part of command line compiler and contains only necessary APIs.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;idea-full&lt;/code&gt; is a full blown IntelliJ IDEA Community Edition to be used in the plugin module.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;These dependencies are quite large, so depending on the quality of your internet connection 
+you might face timeouts getting them. In this case you can increase timeout by specifying the following 
+command line parameters on the first run:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./gradlew -Dhttp.socketTimeout=60000 -Dhttp.connectionTimeout=60000
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;important-gradle-tasks&quot;&gt;Important gradle tasks&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;clean&lt;/code&gt; - clean build results&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;dist&lt;/code&gt; - assembles the compiler distribution into &lt;code class=&quot;highlighter-rouge&quot;&gt;dist/kotlinc/&lt;/code&gt; folder&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ideaPlugin&lt;/code&gt; - assembles the Kotlin IDEA plugin distribution into &lt;code class=&quot;highlighter-rouge&quot;&gt;dist/artifacts/Kotlin&lt;/code&gt; folder&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;install&lt;/code&gt; - build and install all public artifacts into local maven repository&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;runIde&lt;/code&gt; - build IDEA plugin and run IDEA with it&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;coreLibsTest&lt;/code&gt; - build and run stdlib, reflect and kotlin-test tests&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;gradlePluginTest&lt;/code&gt; - build and run gradle plugin tests&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;compilerTest&lt;/code&gt; - build and run all compiler tests&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ideaPluginTest&lt;/code&gt; - build and run all IDEA plugin tests&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;OPTIONAL:&lt;/strong&gt; Some artifacts, mainly Maven plugin ones, are built separately with Maven.
+Refer to &lt;a href=&quot;libraries/ReadMe.md&quot;&gt;libraries/ReadMe.md&lt;/a&gt; for details.&lt;/p&gt;
+
+&lt;h2 id=&quot;-working-with-the-project-in-intellij-idea&quot;&gt;&lt;a name=&quot;working-in-idea&quot;&gt;&lt;/a&gt; Working with the project in IntelliJ IDEA&lt;/h2&gt;
+
+&lt;p&gt;Working with the Kotlin project requires IntelliJ IDEA 2017.3. You can download IntelliJ IDEA 2017.3 &lt;a href=&quot;https://www.jetbrains.com/idea/download&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;To import the project in Intellij choose project directory in Open project dialog. Then, after project opened, Select 
+&lt;code class=&quot;highlighter-rouge&quot;&gt;File&lt;/code&gt; -&amp;gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;New...&lt;/code&gt; -&amp;gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;Module from Existing Sources&lt;/code&gt; in the menu, and select &lt;code class=&quot;highlighter-rouge&quot;&gt;build.gradle.kts&lt;/code&gt; file in the project’s root folder.&lt;/p&gt;
+
+&lt;p&gt;In the import dialog, select &lt;code class=&quot;highlighter-rouge&quot;&gt;use default gradle wrapper&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;To be able to run tests from IntelliJ easily, check &lt;code class=&quot;highlighter-rouge&quot;&gt;Delegate IDE build/run actions to Gradle&lt;/code&gt; in the Gradle runner settings.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;At this time, you can use the latest released 1.2.x version of the Kotlin plugin for working with the code. To make sure you have the latest version installed, use Tools&lt;/td&gt;
+      &lt;td&gt;Kotlin&lt;/td&gt;
+      &lt;td&gt;Configure Kotlin Plugin Updates and press “Check for updates now”.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;compiling-and-running&quot;&gt;Compiling and running&lt;/h3&gt;
+
+&lt;p&gt;From this root project there are Run/Debug Configurations for running IDEA or the Compiler Tests for example; so if you want to try out the latest and greatest IDEA plugin&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;VCS -&amp;gt; Git -&amp;gt; Pull&lt;/li&gt;
+  &lt;li&gt;Run the “IDEA” run configuration in the project&lt;/li&gt;
+  &lt;li&gt;a child IntelliJ IDEA with the Kotlin plugin will then startup&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;including-into-composite-build&quot;&gt;Including into composite build&lt;/h3&gt;
+
+&lt;p&gt;To include kotlin compiler into &lt;a href=&quot;https://docs.gradle.org/current/userguide/composite_builds.html&quot;&gt;composite build&lt;/a&gt; you need to define &lt;code class=&quot;highlighter-rouge&quot;&gt;dependencySubstitution&lt;/code&gt; for &lt;code class=&quot;highlighter-rouge&quot;&gt;kotlin-compiler&lt;/code&gt; module in &lt;code class=&quot;highlighter-rouge&quot;&gt;settings.gradle&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;includeBuild('/path/to/kotlin') {
+    dependencySubstitution {
+        substitute module('org.jetbrains.kotlin:kotlin-compiler') with project(':include:kotlin-compiler')
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;contributing&quot;&gt;Contributing&lt;/h1&gt;
+
+&lt;p&gt;We love contributions! There’s &lt;a href=&quot;https://youtrack.jetbrains.com/issues/KT&quot;&gt;lots to do on Kotlin&lt;/a&gt; and on the
+&lt;a href=&quot;https://youtrack.jetbrains.com/issues/KT?q=%23Kotlin%20%23Unresolved%20and%20(links:%20KT-2554,%20KT-4089%20or%20%23Libraries)&quot;&gt;standard library&lt;/a&gt; so why not chat with us
+about what you’re interested in doing? Please join the #kontributors channel in &lt;a href=&quot;http://slack.kotlinlang.org/&quot;&gt;our Slack chat&lt;/a&gt;
+and let us know about your plans.&lt;/p&gt;
+
+&lt;p&gt;If you want to find some issues to start off with, try &lt;a href=&quot;https://youtrack.jetbrains.com/issues/KT?q=tag:%20%7BUp%20For%20Grabs%7D%20%23Unresolved&quot;&gt;this query&lt;/a&gt; which should find all Kotlin issues that marked as “up-for-grabs”.&lt;/p&gt;
+
+&lt;p&gt;Currently only committers can assign issues to themselves so just add a comment if you’re starting work on it.&lt;/p&gt;
+
+&lt;p&gt;A nice gentle way to contribute would be to review the &lt;a href=&quot;https://kotlinlang.org/api/latest/jvm/stdlib/index.html&quot;&gt;standard library docs&lt;/a&gt;
+and find classes or functions which are not documented very well and submit a patch.&lt;/p&gt;
+
+&lt;p&gt;In particular it’d be great if all functions included a nice example of how to use it such as for the
+&lt;a href=&quot;https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/hash-map-of.html&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;hashMapOf()&lt;/code&gt;&lt;/a&gt; function.
+This is implemented using the &lt;a href=&quot;https://github.com/JetBrains/kotlin/blob/1.1.0/libraries/stdlib/src/kotlin/collections/Maps.kt#L91&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;@sample&lt;/code&gt;&lt;/a&gt;
+macro to include code from a test function. The benefits of this approach are twofold; First, the API’s documentation is improved via beneficial examples that help new users and second, the code coverage is increased.&lt;/p&gt;
+
+&lt;p&gt;Also the &lt;a href=&quot;https://github.com/JetBrains/kotlin/blob/master/js/ReadMe.md&quot;&gt;JavaScript translation&lt;/a&gt; could really use your help. See the &lt;a href=&quot;https://github.com/JetBrains/kotlin/blob/master/js/ReadMe.md&quot;&gt;JavaScript contribution section&lt;/a&gt; for more details.&lt;/p&gt;
+
+&lt;p&gt;Some of the code in the standard library is created by generating code from templates. See the &lt;a href=&quot;libraries/stdlib/ReadMe.md&quot;&gt;README&lt;/a&gt; in the stdlib section for how to run the code generator. The existing templates can be used as examples for creating new ones.&lt;/p&gt;
+
+&lt;h2 id=&quot;submitting-patches&quot;&gt;Submitting patches&lt;/h2&gt;
+
+&lt;p&gt;The best way to submit a patch is to &lt;a href=&quot;https://help.github.com/articles/fork-a-repo/&quot;&gt;fork the project on github&lt;/a&gt; then send us a
+&lt;a href=&quot;https://help.github.com/articles/creating-a-pull-request/&quot;&gt;pull request&lt;/a&gt; via &lt;a href=&quot;https://github.com&quot;&gt;github&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;If you create your own fork, it might help to enable rebase by default
+when you pull by executing&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git config &lt;span class=&quot;nt&quot;&gt;--global&lt;/span&gt; pull.rebase &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;This will avoid your local repo having too many merge commits
+which will help keep your pull request simple and easy to apply.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://raw.githubusercontent.com/JetBrains/kotlin/master/ReadMe.md&quot;&gt;Source:https://raw.githubusercontent.com/JetBrains/kotlin/master/ReadMe.md&lt;/a&gt;&lt;/p&gt;</content><author><name>laondreams</name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/img/twitter-card.png" /></entry></feed>
