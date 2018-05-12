@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-05-13T01:12:31+09:00</updated><id>http://localhost:4000/</id><title type="html">Laon Dreams • Simple, blog-aware, static sites</title><subtitle>Dreams come true!</subtitle><entry><title type="html">Jekyll 1.0.0 Released</title><link href="http://localhost:4000/news/2013/05/06/jekyll-1-0-0-released/" rel="alternate" type="text/html" title="Jekyll 1.0.0 Released" /><published>2013-05-06T09:12:52+09:00</published><updated>2013-05-06T09:12:52+09:00</updated><id>http://localhost:4000/news/2013/05/06/jekyll-1-0-0-released</id><content type="html" xml:base="http://localhost:4000/news/2013/05/06/jekyll-1-0-0-released/">&lt;p&gt;Hey! After many months of hard work by Jekyll’s contributors, we’re excited
+to announce the first major release of the project in a long while. v1.0.0 is
+finally here! While the list of improvements and bug fixes is &lt;a href=&quot;/docs/history/#v1-0-0&quot;&gt;quite lengthy&lt;/a&gt;,
+here are the highlights (thanks to &lt;a href=&quot;https://twitter.com/BenBalter&quot;&gt;@benbalter&lt;/a&gt; for the
+examples and for compiling this list):&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Support for the Gist tag for easily embedding Gists (&lt;a href=&quot;https://gist.github.com/benbalter/5555251&quot;&gt;example&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Automatically generated post excerpts (&lt;a href=&quot;https://gist.github.com/benbalter/5555369&quot;&gt;example&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Save and preview drafts before publishing (&lt;a href=&quot;https://gist.github.com/benbalter/5555992&quot;&gt;example&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Take a look at the &lt;a href=&quot;/docs/upgrading/&quot;&gt;Upgrading&lt;/a&gt; page in the docs for more detailed information.&lt;/p&gt;</content><author><name>parkr</name></author><summary type="html">Hey! After many months of hard work by Jekyll’s contributors, we’re excited to announce the first major release of the project in a long while. v1.0.0 is finally here! While the list of improvements and bug fixes is quite lengthy, here are the highlights (thanks to @benbalter for the examples and for compiling this list):</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/img/twitter-card.png" /></entry></feed>
