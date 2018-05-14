@@ -1,0 +1,626 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="generator" content="Jekyll v3.8.1">
+  <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Laon Dreams • Simple, blog-aware, static sites" />
+  <link rel="alternate" type="application/atom+xml" title="Recent commits to Jekyll’s master branch" href="https://github.com/laondreams/laondreams/commits/master.atom">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic,900">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
+  <link rel="stylesheet" href="/css/screen.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>Android Gradle Tips | Laon Dreams • Simple, blog-aware, static sites</title>
+<meta name="generator" content="Jekyll v3.8.1" />
+<meta property="og:title" content="Android Gradle Tips" />
+<meta name="author" content="steve" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="토스랩 안드로이드 팀에서 사용하는 그래들 팁을 정리하였습니다." />
+<meta property="og:description" content="토스랩 안드로이드 팀에서 사용하는 그래들 팁을 정리하였습니다." />
+<link rel="canonical" href="http://localhost:4000/news/2016/12/03/gradle-tip/" />
+<meta property="og:url" content="http://localhost:4000/news/2016/12/03/gradle-tip/" />
+<meta property="og:site_name" content="Laon Dreams • Simple, blog-aware, static sites" />
+<meta property="og:image" content="http://localhost:4000/img/twitter-card.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-12-03T00:00:00+09:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@laondreams" />
+<meta name="twitter:creator" content="@steve" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/news/2016/12/03/gradle-tip/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/img/LaonDreams.png"},"name":"steve"},"author":{"@type":"Person","name":"steve"},"description":"토스랩 안드로이드 팀에서 사용하는 그래들 팁을 정리하였습니다.","headline":"Android Gradle Tips","dateModified":"2016-12-03T00:00:00+09:00","datePublished":"2016-12-03T00:00:00+09:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/news/2016/12/03/gradle-tip/"},"image":"http://localhost:4000/img/twitter-card.png","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <!--[if lt IE 9]>
+  <script src="/js/html5shiv.min.js"></script>
+  <script src="/js/respond.min.js"></script>
+  <![endif]-->
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-8484034453879329",
+          enable_page_level_ads: true
+      });
+  </script>
+</head>
+
+
+<body class="wrap">
+  <header>
+  <div class="flexbox">
+    <div class="center-on-mobiles">
+      <h1>
+        <a href="/" class="logo">
+          <span class="sr-only">Jekyll</span>
+          <img src="/img/LaonDreams.png" width="140" alt="LaonDreams Logo">
+        </a>
+      </h1>
+    </div>
+    <nav class="main-nav hide-on-mobiles">
+      <ul>
+  <li class="">
+    <a href="/">Home</a>
+  </li>
+  <li class="">
+    <a href="/docs/home/">Docs</a>
+  </li>
+  <li class="current">
+    <a href="/news/">Posts</a>
+  </li>
+</ul>
+
+    </nav>
+    <div class="meta hide-on-mobiles">
+    </div>
+    <div class="meta hide-on-mobiles">
+    </div>
+    <div class="meta hide-on-mobiles">
+    </div>
+    <div class="meta hide-on-mobiles">
+    </div>
+  </div>
+  <nav class="mobile-nav show-on-mobiles">
+    <ul>
+  <li class="">
+    <a href="/">Home</a>
+  </li>
+  <li class="">
+    <a href="/docs/home/">Docs</a>
+  </li>
+  <li class="current">
+    <a href="/news/">Posts</a>
+  </li>
+</ul>
+
+  </nav>
+</header>
+
+
+    <section class="news">
+    <div class="grid">
+
+      <div class="docs-nav-mobile unit whole show-on-mobiles">
+  <select onchange="if (this.value) window.location.href=this.value">
+    <option value="">Navigate the blog…</option>
+    <option value="/news/">Home</option>
+    <optgroup label="v1.x">
+      
+      <option value="/news/2018/05/13/android-01/">Kotlin Programming Language</option>
+      
+      <option value="/news/2016/12/03/gradle-tip/">Android Gradle Tips</option>
+      
+      <option value="/news/2016/07/26/android-database-tip/">Android 의 Sqlite Tip</option>
+      
+      <option value="/news/2016/04/16/migration-to-retrofit2/">Retrofit2 로 전환</option>
+      
+      <option value="/news/2016/02/12/Android-and-automation/">안드로이드와 자동화 툴</option>
+      
+      <option value="/news/2015/11/26/%EB%8D%94-%EB%B9%A0%EB%A5%B8-Andriod-App-Build/">더 빠른 Android App Build</option>
+      
+      <option value="/news/2015/03/10/.androidannotations-%EC%99%80-MVP/">AndroidAnnotations 와 MVP</option>
+      
+      <option value="/news/2015/03/01/04.androidannotation-%EA%B3%BC-%ED%85%8C%EC%8A%A4%ED%8A%B8/">AndroidAnnotations 과 테스트</option>
+      
+      <option value="/news/2015/03/01/03.androidannotation-%EA%B3%BC-mvc/">AndroidAnnotations 과 MVC 패턴</option>
+      
+      <option value="/news/2015/03/01/02.android-%EC%99%80-annotation/">Android 와 Annotation</option>
+      
+      <option value="/news/2015/03/01/01.Android-mvc-mvvm-mvp/">Android 와 개발 패턴</option>
+      
+    </optgroup>
+  </select>
+</div>
+
+
+      <div class="unit four-fifths">
+        <article>
+  <h2>
+    Android Gradle Tips
+    <a href="/news/2016/12/03/gradle-tip/" class="header-link" title="Permalink">
+      <span class="sr-only">Permalink</span>
+      <i class="fa fa-link"></i>
+    </a>
+  </h2>
+  <span class="post-category">
+    <span class="label">
+      android
+    </span>
+  </span>
+  <div class="post-meta">
+    <span class="post-date">
+      03 Dec 2016
+    </span>
+    
+    <a href="https://github.com/steve" class="post-author">
+      <img class="avatar avatar-small" alt="steve" width="24" height="24" data-proofer-ignore="true" src="https://avatars3.githubusercontent.com/steve?v=3&s=24" srcset="https://avatars3.githubusercontent.com/steve?v=3&s=24 1x, https://avatars3.githubusercontent.com/steve?v=3&s=48 2x, https://avatars3.githubusercontent.com/steve?v=3&s=72 3x, https://avatars3.githubusercontent.com/steve?v=3&s=96 4x" />
+      steve
+    </a>
+  </div>
+  <div class="post-content">
+    <p><img src="/img/GitHub-Mark-Light-24px.png" alt="Github" /> source: <a href="https://tosslab.github.io/">https://tosslab.github.io</a></p>
+<h1 id="안드로이드와-gradle">안드로이드와 Gradle</h1>
+
+<p>Android 가 Gradle 을 이용하기 시작한 것도 3년이 다 되어 갑니다. 이제는 많은 유저가 당연히 Gradle 을 Android 기본 개발 환경으로 사용하고 있습니다.</p>
+
+<p>하지만 기본 설정으로만 Gradle 을 사용하는 사용자들이 많습니다. 게다가 구글에서 Android Gradle Build DSL 을 끊임없이 변경했기 때문에 많은 사용자들이 이를 이해하기도 전에 변경이 되는 경우가 매우 빈번했습니다.</p>
+
+<blockquote>
+  <ol>
+    <li><a href="/android/2016/10/10/dependencies-of-gradle.html">Gradle Dependency 분리하기</a></li>
+    <li><a href="/android/2016/02/12/Android-and-automation.html">안드로이드 자동화 툴</a></li>
+  </ol>
+</blockquote>
+
+<p>위 두번의 포스팅을 통해서 TossLab 에서 사용하고 있는 Gradle 에 대해서 소개를 해드렸습니다.</p>
+
+<p>오늘은 Android 팀이 사용하는 Custom 설정들에 대해서 정리하도록 하겠습니다.</p>
+
+<h2 id="1-초기화-값-검증-및-설정하기">1. 초기화 값 검증 및 설정하기</h2>
+
+<p>개발자들이나 CI 에서 관리해야하는 속성 값에 대해서는 각각 다르게 설정할 필요가 있습니다.</p>
+
+<p>안드로이드 팀은 3개의 추가적인 속성값을 추가하여 사용하고 있습니다.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># gradle.properties</span>
+<span class="nv">inhouse_version</span><span class="o">=</span>2     <span class="c"># 배포/qa 버전의 hofix version 을 관리학 ㅣ위함</span>
+<span class="nv">report_coverage</span><span class="o">=</span><span class="nb">false</span> <span class="c"># coverage 측정에 대한 on/off 기능</span>
+<span class="nv">dev_min_sdk</span><span class="o">=</span>21        <span class="c"># minSDK 의 개별적인 관리를 위함</span>
+</code></pre></div></div>
+
+<p>위의 3개의 값은 존재 하지 않으면 빌드가 되지 않도록 하는 강제사항으로 만들었으나 새로운 개발자가 입사하게 되었을 때 또는 CI 서버에 실수로 기입하지 못하게 되었을 때 Project Import 나 빌드가 아예 되지 않는 현상이 발생하였기에 초기 값을 설정할 수 있도록 하였습니다.</p>
+
+<p>report_coverage 는 <code class="highlighter-rouge">5. Android Gradle DSL</code> 에서 <code class="highlighter-rouge">buildTypes.debug.testCoverageEnabled</code> 에서 사용되며 이 값은 설정에 따라서 디버그 과정에서 변수값들이 제대로 노출되지 않게 됩니다. report 가 필요한 CI 서버 용으로 만들어진 값입니다.</p>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// valid.gradle</span>
+
+<span class="kt">def</span> <span class="nf">checkValidProperties</span><span class="o">()</span> <span class="o">{</span>
+
+    <span class="n">println</span> <span class="s2">"Properties Valid Checking.........."</span>
+
+    <span class="k">if</span> <span class="o">(!</span><span class="n">project</span><span class="o">.</span><span class="na">hasProperty</span><span class="o">(</span><span class="s2">"inhouse_version"</span><span class="o">))</span> <span class="o">{</span>
+        <span class="n">println</span> <span class="s2">"set up to gradle.propeties --&gt; inhouse_version = 1 (default)"</span>
+        <span class="n">project</span><span class="o">.</span><span class="na">ext</span><span class="o">.</span><span class="na">inhouse_version</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="o">}</span>
+
+    <span class="k">if</span> <span class="o">(!</span><span class="n">project</span><span class="o">.</span><span class="na">hasProperty</span><span class="o">(</span><span class="s2">"report_coverage"</span><span class="o">))</span> <span class="o">{</span>
+        <span class="n">println</span> <span class="s2">"set up to gradle.propeties --&gt; report_coverage = false (default)"</span>
+        <span class="n">project</span><span class="o">.</span><span class="na">ext</span><span class="o">.</span><span class="na">report_coverage</span> <span class="o">=</span> <span class="kc">false</span>
+    <span class="o">}</span>
+
+    <span class="k">if</span> <span class="o">(!</span><span class="n">project</span><span class="o">.</span><span class="na">hasProperty</span><span class="o">(</span><span class="s2">"dev_min_sdk"</span><span class="o">))</span> <span class="o">{</span>
+        <span class="n">println</span> <span class="s2">"set up to gradle.propeties --&gt; dev_min_sdk = 19 (default)"</span>
+        <span class="n">project</span><span class="o">.</span><span class="na">ext</span><span class="o">.</span><span class="na">dev_min_sdk</span> <span class="o">=</span> <span class="mi">19</span>
+    <span class="o">}</span>
+
+    <span class="n">println</span> <span class="s2">"Properties Valid Check OK"</span>
+
+<span class="o">}</span>
+
+<span class="n">checkValidProperties</span><span class="o">()</span>
+
+
+<span class="c1">// -------------------------------</span>
+<span class="c1">// build.gradle</span>
+<span class="n">apply</span> <span class="nl">from:</span> <span class="s1">'valid.gradle'</span>
+
+</code></pre></div></div>
+
+<p>위와 같이 설정한 뒤 <code class="highlighter-rouge">gradle.properties</code> 에 아무런 값을 설정하지 않고 빌드를 하게 되면 빌드 최초에 다음과 같은 log 를 보실 수 있습니다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>================================================================================
+Properties Valid Checking..........
+set up to gradle.propeties --&gt; inhouse_version = 1 (default)
+set up to gradle.propeties --&gt; report_coverage = false (default)
+set up to gradle.propeties --&gt; dev_min_sdk = 19 (default)
+Properties Valid Check OK
+================================================================================
+</code></pre></div></div>
+
+<h2 id="2-apk-copy-하기">2. APK Copy 하기</h2>
+
+<p>QA 팀 전달 또는 스토어 배포시에 Android Studio 의 기본 기능을 이용하지 않고 Gradle Task 를 사용하여 빌드를 하게 되면 /app/build/outputs/apk 에 있는 패키지를 복사하는 것이 여간 귀찮은 작업이 아닐 수 없습니다.</p>
+
+<p>그래서 Gradle 에서 기본적으로 제공되는 Copy Task 를 이용하여 APK Copy Task 를 만들었습니다.</p>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// apk-copy.gradle</span>
+<span class="n">android</span><span class="o">.</span><span class="na">applicationVariants</span><span class="o">.</span><span class="na">all</span> <span class="o">{</span> <span class="n">variant</span> <span class="o">-&gt;</span>
+
+    <span class="c1">// 1. Copy Task 생성</span>
+    <span class="kt">def</span> <span class="n">task</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="na">tasks</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="s2">"copy${variant.name}Apk"</span><span class="o">,</span> <span class="n">Copy</span><span class="o">)</span>
+    <span class="n">task</span><span class="o">.</span><span class="na">from</span><span class="o">(</span><span class="n">variant</span><span class="o">.</span><span class="na">outputs</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">outputFile</span><span class="o">)</span>
+
+    <span class="c1">// 2. 바탕화면 Task 로 복사</span>
+    <span class="n">task</span><span class="o">.</span><span class="na">into</span><span class="o">(</span><span class="s2">"${System.properties['user.home']}/Desktop/"</span><span class="o">)</span>
+
+    <span class="c1">// 3. 복사하는 과정에서 APK 이름 변경</span>
+    <span class="kt">def</span> <span class="n">targetName</span> <span class="o">=</span> <span class="s2">"jandi-${variant.baseName}-${variant.versionName}.apk"</span>
+    <span class="n">task</span><span class="o">.</span><span class="na">rename</span> <span class="s2">".*"</span><span class="o">,</span> <span class="n">targetName</span>
+    <span class="n">task</span><span class="o">.</span><span class="na">doFirst</span> <span class="o">{</span>
+        <span class="n">println</span> <span class="s2">"copy from ${source.singleFile.name} to $destinationDir"</span>
+    <span class="o">}</span>
+
+    <span class="n">task</span><span class="o">.</span><span class="na">doLast</span> <span class="o">{</span> <span class="n">value</span> <span class="o">-&gt;</span>
+        <span class="n">println</span> <span class="s2">"completed to copy : $targetName"</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+
+<span class="c1">// ---------------</span>
+<span class="c1">// build.gradle</span>
+<span class="n">apply</span> <span class="nl">from:</span> <span class="s1">'apk-copy.gradle'</span>
+</code></pre></div></div>
+
+<p>위의 Task 는 총 3개의 단계로 구분할 수 있습니다.</p>
+
+<blockquote>
+  <ol>
+    <li>Copy Task 생성</li>
+    <li>~/Desktop 으로 복사</li>
+    <li>복사 할 때 APK 이름 변경</li>
+  </ol>
+</blockquote>
+
+<p>Task 를 정의하는 과정에서 application 의 flavor, build-type, version 을 기반으로 복사하도록 한 것입니다.</p>
+
+<p>위와 같이 설정하면 다음과 같이 사용할 수 있습니다.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># flavor : qa , build-type : Debug</span>
+<span class="nv">$&gt;</span> ./gradlew assembleQaDebug copyqaDebugApk
+<span class="c"># 또는 줄여서 아래와 같이 쓸 수 있습니다.</span>
+<span class="nv">$&gt;</span> ./gradlew aQD copyQDA
+</code></pre></div></div>
+
+<p>Application Variant 에 대한 변수는 <a href="http://tools.android.com/tech-docs/new-build-system/user-guide#TOC-Shrinking-Resources">링크</a>에서 확인하실 수 있습니다.</p>
+
+<h2 id="3-ci-tasks">3. CI Tasks</h2>
+
+<p>CI 용으로 CheckStyle 과 PMD 를 사용하기 때문에 관련 설정 또한 별도로 처리하였습니다.</p>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">task</span> <span class="nf">pmd</span><span class="o">(</span><span class="nl">type:</span> <span class="n">Pmd</span><span class="o">)</span> <span class="o">{</span>
+
+    <span class="n">source</span> <span class="s1">'src/main'</span>
+    <span class="n">include</span> <span class="s1">'**/*.java'</span>
+
+    <span class="n">ruleSetFiles</span> <span class="o">=</span> <span class="n">files</span><span class="o">(</span><span class="s1">'../pmd.xml'</span><span class="o">)</span>
+    <span class="n">ignoreFailures</span> <span class="o">=</span> <span class="kc">true</span>
+
+<span class="o">}</span>
+
+<span class="n">task</span> <span class="nf">checkstyles</span><span class="o">(</span><span class="nl">type:</span> <span class="n">Checkstyle</span><span class="o">)</span> <span class="o">{</span>
+
+    <span class="n">configFile</span> <span class="nf">file</span><span class="o">(</span><span class="s1">'../checkstyle.xml'</span><span class="o">)</span>
+    <span class="n">source</span><span class="o">(</span><span class="s1">'src/main'</span><span class="o">)</span>
+    <span class="n">include</span> <span class="s1">'**/*.java'</span>
+
+    <span class="n">classpath</span> <span class="o">=</span> <span class="n">files</span><span class="o">()</span>
+
+    <span class="n">showViolations</span> <span class="o">=</span> <span class="kc">true</span>
+    <span class="n">ignoreFailures</span> <span class="o">=</span> <span class="kc">true</span>
+
+<span class="o">}</span>
+
+<span class="c1">// ---------------</span>
+<span class="c1">// build.gradle</span>
+<span class="n">apply</span> <span class="nl">from:</span> <span class="s1">'ci-tasks.gradle'</span>
+</code></pre></div></div>
+
+<p>CheckStyle 과 PMD 설정에 필요한 정보 또한 별도의 script 로 설정하였습니다.</p>
+
+<h2 id="4-gradle-properties">4. Gradle Properties</h2>
+
+<p>빠른 빌드를 위해 추가적인 설정을 하고 있습니다.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># gradle.properties</span>
+<span class="c"># 백그라운드 빌드</span>
+org.gradle.daemon<span class="o">=</span><span class="nb">true</span>
+<span class="c"># 동시 빌드</span>
+org.gradle.parallel<span class="o">=</span><span class="nb">true</span>
+<span class="c"># jvm heap size</span>
+org.gradle.jvmargs<span class="o">=</span><span class="nt">-Xmx4346m</span>
+<span class="c"># build jdk</span>
+org.gradle.java.home<span class="o">=</span>/Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home
+</code></pre></div></div>
+
+<p>위의 설정 중에서 제일 보셔야 할 것이 <code class="highlighter-rouge">org.gradle.jvmargs</code> 입니다. Android Gradle 설정 중에서 위의 값이 적으면 빌드속도가 현저히 느려집니다.</p>
+
+<p>빌드 할 때 console log 를 확인하시고 값을 적절하게 맞춰주실 것을 권장합니다.</p>
+
+<h2 id="5-android-gradle-dsl-추가-정의하기">5. Android Gradle DSL 추가 정의하기</h2>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c1">// build.gradle</span>
+<span class="c1">// ...중략</span>
+<span class="n">android</span> <span class="o">{</span>
+  <span class="c1">// 특정 Flavor에서 Release Build 막기</span>
+  <span class="n">android</span><span class="o">.</span><span class="na">variantFilter</span> <span class="o">{</span> <span class="n">variant</span> <span class="o">-&gt;</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">variant</span><span class="o">.</span><span class="na">buildType</span><span class="o">.</span><span class="na">name</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s1">'release'</span><span class="o">)</span>
+              <span class="o">&amp;&amp;</span> <span class="o">(</span><span class="n">variant</span><span class="o">.</span><span class="na">getFlavors</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">).</span><span class="na">name</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s1">'qa'</span><span class="o">)</span>
+              <span class="o">||</span> <span class="n">variant</span><span class="o">.</span><span class="na">getFlavors</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">).</span><span class="na">name</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s1">'dev'</span><span class="o">)))</span> <span class="o">{</span>
+          <span class="n">variant</span><span class="o">.</span><span class="na">setIgnore</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+      <span class="o">}</span>
+  <span class="o">}</span>
+
+  <span class="n">buildTypes</span> <span class="o">{</span>
+      <span class="n">debug</span> <span class="o">{</span>
+          <span class="n">debuggable</span> <span class="kc">true</span>
+          <span class="n">testCoverageEnabled</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="na">hasProperty</span><span class="o">(</span><span class="s2">"report_coverage"</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="n">report_coverage</span><span class="o">.</span><span class="na">toBoolean</span><span class="o">()</span>
+      <span class="o">}</span>
+      <span class="c1">// ..중략...</span>
+  <span class="o">}</span>
+  <span class="n">productFlavors</span> <span class="o">{</span>
+      <span class="n">dev</span> <span class="o">{</span>       <span class="c1">// demo version</span>
+          <span class="n">applicationId</span> <span class="s1">'com.tosslab.jandi.app.dev'</span>
+          <span class="n">versionName</span><span class="o">(</span><span class="n">defaultConfig</span><span class="o">.</span><span class="na">versionName</span> <span class="o">+</span> <span class="s2">".dev."</span> <span class="o">+</span> <span class="n">inhouse_version</span><span class="o">)</span>
+          <span class="n">minSdkVersion</span> <span class="n">project</span><span class="o">.</span><span class="na">hasProperty</span><span class="o">(</span><span class="s2">"dev_min_sdk"</span><span class="o">)</span> <span class="o">?</span> <span class="n">dev_min_sdk</span> <span class="o">:</span> <span class="mi">19</span>
+      <span class="o">}</span>
+      <span class="c1">// ..중략..</span>
+  <span class="o">}</span>
+
+  <span class="c1">// 빌드 과정에서 CPU 와 Ram 최적화 하기</span>
+  <span class="n">dexOptions</span> <span class="o">{</span>
+      <span class="n">javaMaxHeapSize</span> <span class="s2">"2g"</span>
+      <span class="n">maxProcessCount</span> <span class="n">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="o">((</span><span class="kt">int</span><span class="o">)</span> <span class="o">(</span><span class="n">Runtime</span><span class="o">.</span><span class="na">getRuntime</span><span class="o">().</span><span class="na">availableProcessors</span><span class="o">()</span> <span class="o">/</span> <span class="mi">2</span><span class="o">)))</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p>variant-filter 를 이용해서 qa 나 dev 용 빌드는 release 버전이 빌드되지 않도록 하였습니다.</p>
+  </li>
+  <li>
+    <p>buildTypes 와 productFlavors 에서는 앞서 설정한 gradle-properties 에 대해서 설정에 따라 기본값이 지정되도록 하였습니다.</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">dexOptions</code> 설정은 개발하는 기기의 PC 환경에 따라 다를 수 있습니다.</p>
+  </li>
+</ul>
+
+<p>Android DSL 에 의하면 Dex 빌드 과정에서 최종적으로 사용하는 메모리는 <code class="highlighter-rouge">heapsize * process-count</code> 라고 합니다.</p>
+
+<blockquote>
+  <ol>
+    <li>heapsize 기본값 : 2048MB</li>
+    <li>process-count 기본값 : 4</li>
+    <li><a href="http://google.github.io/android-gradle-dsl/current/com.android.build.gradle.internal.dsl.DexOptions.html#com.android.build.gradle.internal.dsl.DexOptions:maxProcessCount">참고문서</a></li>
+  </ol>
+</blockquote>
+
+<h2 id="6-android-resource-image-의-exif-정보-삭제하기">6. Android Resource Image 의 EXIF 정보 삭제하기</h2>
+
+<p>보통 디자이너가 Photoshop 과 같은 툴을 이용하여 이미지를 만들게 되면 자동으로 adobe 와 관련된 exif 정보가 붙게 됩니다. 그래서 빌드 할 때 <code class="highlighter-rouge">libpng warning : iCCP ...</code> 와 같은 warning 메세지를 보실 수 있습니다. 이는 Android Build 과정에서 <code class="highlighter-rouge">aapt</code> 가 이미지 최적화 하는 과정에서 불필요한 exif 정보로 인해서 오류를 내게 됩니다.</p>
+
+<p>따라서 exif 정보를 초기화 해주는 작업이 필요합니다.</p>
+
+<blockquote>
+  <p>맥 사용자에 한해서 지원됩니다.</p>
+</blockquote>
+
+<p>HomeBrew 를 이용해서 exiftool 을 설치하셔야 합니다. <a href="http://brewformulas.org/Exiftool">exiftool 설명</a></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find <span class="nb">.</span> <span class="nt">-path</span> <span class="s1">'*src/main/res/*'</span> <span class="nt">-name</span> <span class="s1">'*.png'</span> <span class="nt">-exec</span> exiftool <span class="nt">-overwrite_original</span> <span class="nt">-all</span><span class="o">=</span> <span class="o">{}</span> <span class="se">\;</span>
+</code></pre></div></div>
+
+<p>저는 별도로 쉘 스크립트를 만들어서 실행합니다.</p>
+
+<p>아래를 복사해서 붙여넣기로 실행하시면 됩니다.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="s2">"find . -path '*src/main/res/*' -name '*.png' -exec exiftool -overwrite_original -all= {} </span><span class="se">\;</span><span class="s2">"</span> <span class="o">&gt;</span> exif_clean.sh
+<span class="nb">chmod </span>744 exif_clean.sh
+</code></pre></div></div>
+
+<p>관련 정보 : <a href="https://groups.google.com/forum/#!msg/adt-dev/rjTQ_STR3OE/-UcNQRISTKsJ">adt-dev google group 에서 제시된 해결책</a></p>
+
+<h1 id="wrap-up">Wrap up</h1>
+
+<p>안드로이드 팀은 Gradle 을 이용하여 반복적일 수 있는 작업을 자동화 하고 다양한 초기화 설정과 편의를 가지고자 하였습니다.</p>
+
+<ol>
+  <li>초기화 값 검증 및 설정</li>
+  <li>Apk 복사 자동화</li>
+  <li>CI Task 정의</li>
+  <li>Gradle Properties 지정</li>
+  <li>Android Gradle DSL 정의</li>
+  <li>Android Resource Image EXIF 삭제</li>
+</ol>
+
+<p>Gradle 을 얼마나 잘 활용하냐에 따라서 조직에 필요한 Task 를 금방 만드실 수 있습니다. 이번 포스팅이 도움이 되었기를 바라며 활용해보실 것을 권장합니다.</p>
+
+  </div>
+</article>
+
+      </div>
+
+      <div class="unit one-fifth hide-on-mobiles">
+  <aside>
+    <ul>
+      <li class="">
+        <a href="/news/">All Post</a>
+      </li>
+      <li class="">
+        <a href="/news/releases/">Kotlin Releases</a>
+      </li>
+    </ul>
+    <h4>Recent Releases</h4>
+    <ul>
+      
+    </ul>
+    <h4>Other Posts</h4>
+    <ul>
+        
+        
+        <li class="">
+          <a href="/news/2018/05/13/android-01/">Kotlin Programming Language</a>
+        </li>
+        
+        
+        
+        <li class="current">
+          <a href="/news/2016/12/03/gradle-tip/">Android Gradle Tips</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2016/07/26/android-database-tip/">Android 의 Sqlite Tip</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2016/04/16/migration-to-retrofit2/">Retrofit2 로 전환</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2016/02/12/Android-and-automation/">안드로이드와 자동화 툴</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2015/11/26/%EB%8D%94-%EB%B9%A0%EB%A5%B8-Andriod-App-Build/">더 빠른 Android App Build</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2015/03/10/.androidannotations-%EC%99%80-MVP/">AndroidAnnotations 와 MVP</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2015/03/01/04.androidannotation-%EA%B3%BC-%ED%85%8C%EC%8A%A4%ED%8A%B8/">AndroidAnnotations 과 테스트</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2015/03/01/03.androidannotation-%EA%B3%BC-mvc/">AndroidAnnotations 과 MVC 패턴</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2015/03/01/02.android-%EC%99%80-annotation/">Android 와 Annotation</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2015/03/01/01.Android-mvc-mvvm-mvp/">Android 와 개발 패턴</a>
+        </li>
+        
+        
+    </ul>
+  </aside>
+</div>
+
+
+      <div class="clear"></div>
+
+    </div>
+  </section>
+
+
+  <footer>
+  <div class="grid">
+    <div class="unit one-third center-on-mobiles">
+      <p>
+        &copy;&nbsp;2018 Laon Dreams
+      <br/>Contacts: <a href="mailto:laondreams@gmail.com">laondreams@gmail.com</a></p>
+    </div>
+    <div class="unit two-thirds align-right center-on-mobiles">
+      <p>
+        Proudly hosted by
+        <a href="https://github.com">
+          <img src="/img/footer-logo.png" width="100" height="30" alt="GitHub • Social coding">
+        </a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+  <script>
+  var anchorForId = function (id) {
+    var anchor = document.createElement("a");
+    anchor.className = "header-link";
+    anchor.href      = "#" + id;
+    anchor.innerHTML = "<span class=\"sr-only\">Permalink</span><i class=\"fa fa-link\"></i>";
+    anchor.title = "Permalink";
+    return anchor;
+  };
+
+  var linkifyAnchors = function (level, containingElement) {
+    var headers = containingElement.getElementsByTagName("h" + level);
+    for (var h = 0; h < headers.length; h++) {
+      var header = headers[h];
+
+      if (typeof header.id !== "undefined" && header.id !== "") {
+        header.appendChild(anchorForId(header.id));
+      }
+    }
+  };
+
+  document.onreadystatechange = function () {
+    if (this.readyState === "complete") {
+      var contentBlock = document.getElementsByClassName("docs")[0] || document.getElementsByClassName("news")[0];
+      if (!contentBlock) {
+        return;
+      }
+      for (var level = 1; level <= 6; level++) {
+        linkifyAnchors(level, contentBlock);
+      }
+    }
+  };
+</script>
+
+  
+  <!-- Google Analytics (https://www.google.com/analytics) -->
+  <script>
+    !function(j,e,k,y,l,L){j.GoogleAnalyticsObject=y,j[y]||(j[y]=function(){
+    (j[y].q=j[y].q||[]).push(arguments)}),j[y].l=+new Date,l=e.createElement(k),
+    L=e.getElementsByTagName(k)[0],l.src='https://www.google-analytics.com/analytics.js',
+    L.parentNode.insertBefore(l,L)}(window,document,'script','ga');
+
+    ga('create', 'UA-119113988-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript"> docsearch({
+apiKey: '50fe39c839958dfad797000f33e2ec17',
+indexName: 'jekyllrb',
+inputSelector: '#docsearch-input',
+enhancedSearchInput: true,
+debug: false // Set debug to true if you want to inspect the dropdown
+});
+</script>
+
+</body>
+</html>
