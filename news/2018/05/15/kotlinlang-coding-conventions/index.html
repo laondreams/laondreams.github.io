@@ -1,0 +1,2036 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="generator" content="Jekyll v3.8.1">
+  <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Laon Dreams • Simple, blog-aware, static sites" />
+  <link rel="alternate" type="application/atom+xml" title="Recent commits to Jekyll’s master branch" href="https://github.com/laondreams/laondreams/commits/master.atom">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic,900">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
+  <link rel="stylesheet" href="/css/screen.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>Coding Conventions | Laon Dreams • Simple, blog-aware, static sites</title>
+<meta name="generator" content="Jekyll v3.8.1" />
+<meta property="og:title" content="Coding Conventions" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Coding Conventions" />
+<meta property="og:description" content="Coding Conventions" />
+<link rel="canonical" href="http://localhost:4000/news/2018/05/15/kotlinlang-coding-conventions/" />
+<meta property="og:url" content="http://localhost:4000/news/2018/05/15/kotlinlang-coding-conventions/" />
+<meta property="og:site_name" content="Laon Dreams • Simple, blog-aware, static sites" />
+<meta property="og:image" content="http://localhost:4000/img/twitter-card.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-05-15T00:00:00+09:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@laondreams" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/news/2018/05/15/kotlinlang-coding-conventions/","image":"http://localhost:4000/img/twitter-card.png","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/img/LaonDreams.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/news/2018/05/15/kotlinlang-coding-conventions/"},"description":"Coding Conventions","@type":"BlogPosting","headline":"Coding Conventions","dateModified":"2018-05-15T00:00:00+09:00","datePublished":"2018-05-15T00:00:00+09:00","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <!--[if lt IE 9]>
+  <script src="/js/html5shiv.min.js"></script>
+  <script src="/js/respond.min.js"></script>
+  <![endif]-->
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-8484034453879329",
+          enable_page_level_ads: true
+      });
+  </script>
+</head>
+
+
+<body class="wrap">
+  <header>
+  <div class="flexbox">
+    <div class="center-on-mobiles">
+      <h1>
+        <a href="/" class="logo">
+          <span class="sr-only">Jekyll</span>
+          <img src="/img/LaonDreams.png" width="140" alt="LaonDreams Logo">
+        </a>
+      </h1>
+    </div>
+    <nav class="main-nav hide-on-mobiles">
+      <ul>
+  <li class="">
+    <a href="/">Home</a>
+  </li>
+  <li class="">
+    <a href="/docs/home/">Docs</a>
+  </li>
+  <li class="">
+    <a href="/news/">Posts</a>
+  </li>
+</ul>
+
+    </nav>
+    <div class="meta hide-on-mobiles">
+    </div>
+    <div class="meta hide-on-mobiles">
+    </div>
+    <div class="meta hide-on-mobiles">
+    </div>
+    <div class="meta hide-on-mobiles">
+    </div>
+  </div>
+  <nav class="mobile-nav show-on-mobiles">
+    <ul>
+  <li class="">
+    <a href="/">Home</a>
+  </li>
+  <li class="">
+    <a href="/docs/home/">Docs</a>
+  </li>
+  <li class="">
+    <a href="/news/">Posts</a>
+  </li>
+</ul>
+
+  </nav>
+</header>
+
+
+    <section class="news">
+    <div class="grid">
+
+      <div class="docs-nav-mobile unit whole show-on-mobiles">
+  <select onchange="if (this.value) window.location.href=this.value">
+    <option value="">Navigate the blog…</option>
+    <option value="/news/">Home</option>
+    <optgroup label="v1.x">
+      
+      <option value="/news/2018/05/15/kotlinlang-experimental-coroutines/">Using coroutines</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-command-line-library-js/">Creating a Kotlin JavaScript library with the Command Line Compiler</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-spring-boot-restful/">Creating a RESTful Web Service with Spring Boot</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-kotlin-android/">Getting started with Android and Kotlin</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-koans/">Kotlin Koans</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-index/">Tutorials</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-httpservlets/">Creating Web Applications with Http Servlets</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-edu-tools-learner/">Learning Kotlin with EduTools plugin</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-edu-tools-educator/">Teaching Kotlin with EduTools plugin</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-create-library-js/">Creating Kotlin/JavaScript library with IntelliJ IDEA</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-coroutines-basic-jvm/">Introduction to Kotlin Coroutines on the JVM</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-command-line/">Working with the Command Line Compiler</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-command-line-library-js/">Creating Kotlin/JavaScript library with the Command Line Compiler</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-build-tools/">Working with Build Tools</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-android-plugin/">Kotlin Android Extensions</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-android-frameworks/">Android Frameworks Using Annotation Processing</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-whatsnew12/">What's New in Kotlin 1.2</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-whatsnew11/">What's New in Kotlin 1.1</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-visibility-modifiers/">Visibility Modifiers</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-using-maven/">Using Maven</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-using-gradle/">Using Gradle</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-using-ant/">Using Ant</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-typecasts/">Type Checks and Casts: 'is' and 'as'</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-type-safe-builders/">Type-Safe Builders</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-type-aliases/">Type aliases (since 1.1)</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-this-expressions/">This expressions</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-server-overview/">Kotlin for Server Side</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-sealed-classes/">Sealed Classes</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-returns/">Returns and Jumps: break and continue</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-reflection/">Reflection</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-ranges/">Ranges</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-properties/">Properties and Fields: Getters, Setters, const, lateinit</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-packages/">Packages and Imports</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-operator-overloading/">Operator overloading</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-object-declarations/">Object Expressions, Object Declarations and Companion Objects</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-null-safety/">Null Safety</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-nested-classes/">Nested and Inner Classes</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-native-overview/">Kotlin/Native</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-multiplatform/">Multiplatform Projects</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-multi-declarations/">Destructuring Declarations</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-lambdas/">Higher-Order Functions and Lambdas</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-kotlin-osgi/">Kotlin and OSGi</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-kotlin-doc/">Documenting Kotlin Code</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-kotlin-build-tools/">Kotlin Build Tools</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-keyword-reference/">Keywords and Operators</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-kapt/">Using kapt</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-js-to-kotlin-interop/">Calling Kotlin from JavaScript</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-js-reflection/">JavaScript Reflection</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-js-overview/">Kotlin for JavaScript</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-js-modules/">JavaScript Modules</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-js-interop/">Calling JavaScript from Kotlin</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-javascript-dce/">JavaScript DCE</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-java-to-kotlin-interop/">Calling Kotlin from Java</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-java-interop/">Calling Java from Kotlin</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-interfaces/">Interfaces</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-inline-functions/">Inline Functions and Reified Type Parameters</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-index/">Reference</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-idioms/">Idioms</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-generics/">Generics: in, out, where</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-functions/">Functions: infix, vararg, tailrec</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-faq/">FAQ</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-extensions/">Extensions</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-exceptions/">Exceptions: try, catch, finally, throw, Nothing</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-equality/">Equality</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-enum-classes/">Enum Classes</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-dynamic-type/">Dynamic Type</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-delegation/">Delegation</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-delegated-properties/">Delegated Properties</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-data-classes/">Data Classes</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-coroutines/">Coroutines</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-control-flow/">Control Flow: if, when, for, while</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-compiler-plugins/">Compiler Plugins</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-compatibility/">Compatibility</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-comparison-to-java/">Comparison to Java</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-collections/">Collections: List, Set, Map</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-coding-conventions/">Coding Conventions</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-classes/">Classes and Inheritance</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-basic-types/">Basic Types: Numbers, Strings, Arrays</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-basic-syntax/">Basic Syntax</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-annotations/">Annotations</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-android-overview/">Kotlin for Android</option>
+      
+      <option value="/news/2018/05/13/android-01/">Kotlin Programming Language</option>
+      
+      <option value="/news/2018/01/24/kotlinlang-gradle-for-kotlin-native/">Gradle for Kotlin/Native</option>
+      
+      <option value="/news/2018/01/23/kotlinlang-kotlin-native-with-clion/">Kotlin/Native with CLion</option>
+      
+      <option value="/news/2018/01/22/kotlinlang-working-with-klib/">Working with Kotlin/Native Libraries</option>
+      
+      <option value="/news/2018/01/09/kotlinlang-interop-with-c/">Interop with C Libraries</option>
+      
+      <option value="/news/2017/12/03/kotlinlang-basic-kotlin-native-app/">A Basic Kotlin/Native Application</option>
+      
+      <option value="/news/2017/07/31/kotlinlang-debugging-javascript/">Debugging Kotlin in browser</option>
+      
+      <option value="/news/2017/05/04/kotlinlang-getting-started/">Getting Started with IntelliJ IDEA</option>
+      
+      <option value="/news/2017/02/27/kotlinlang-working-with-javascript/">Working with JavaScript</option>
+      
+      <option value="/news/2016/12/03/gradle-tip/">Android Gradle Tips</option>
+      
+      <option value="/news/2016/11/10/kotlinlang-getting-started-eclipse/">Getting Started with Eclipse Neon</option>
+      
+      <option value="/news/2016/11/04/kotlinlang-getting-started-with-maven/">Getting Started with Kotlin and JavaScript with Maven</option>
+      
+      <option value="/news/2016/11/04/kotlinlang-getting-started-with-gradle/">Getting Started with Kotlin and JavaScript with Gradle</option>
+      
+      <option value="/news/2016/10/07/kotlinlang-calling-javascript-from-kotlin/">Calling JavaScript from Kotlin</option>
+      
+      <option value="/news/2016/09/30/kotlinlang-working-with-modules/">Working with Kotlin and JavaScript Modules</option>
+      
+      <option value="/news/2016/09/30/kotlinlang-getting-started-with-intellij-idea/">Getting Started with Kotlin and JavaScript with IntelliJ IDEA</option>
+      
+      <option value="/news/2016/09/29/kotlinlang-kotlin-to-javascript/">Kotlin to JavaScript</option>
+      
+      <option value="/news/2016/07/26/android-database-tip/">Android 의 Sqlite Tip</option>
+      
+      <option value="/news/2016/04/16/migration-to-retrofit2/">Retrofit2 로 전환</option>
+      
+      <option value="/news/2016/02/12/Android-and-automation/">안드로이드와 자동화 툴</option>
+      
+      <option value="/news/2015/11/26/%EB%8D%94-%EB%B9%A0%EB%A5%B8-Andriod-App-Build/">더 빠른 Android App Build</option>
+      
+      <option value="/news/2015/03/10/.androidannotations-%EC%99%80-MVP/">AndroidAnnotations 와 MVP</option>
+      
+      <option value="/news/2015/03/01/04.androidannotation-%EA%B3%BC-%ED%85%8C%EC%8A%A4%ED%8A%B8/">AndroidAnnotations 과 테스트</option>
+      
+      <option value="/news/2015/03/01/03.androidannotation-%EA%B3%BC-mvc/">AndroidAnnotations 과 MVC 패턴</option>
+      
+      <option value="/news/2015/03/01/02.android-%EC%99%80-annotation/">Android 와 Annotation</option>
+      
+      <option value="/news/2015/03/01/01.Android-mvc-mvvm-mvp/">Android 와 개발 패턴</option>
+      
+      <option value="/news/2015/02/02/kotlinlang-kotlin-and-ci/">Kotlin and Continuous Integration with TeamCity</option>
+      
+      <option value="/news/2014/09/23/kotlinlang-mixing-java-kotlin-intellij/">Mixing Java and Kotlin in one project</option>
+      
+    </optgroup>
+  </select>
+</div>
+
+
+      <div class="unit four-fifths">
+        <article>
+  <h2>
+    Coding Conventions
+    <a href="/news/2018/05/15/kotlinlang-coding-conventions/" class="header-link" title="Permalink">
+      <span class="sr-only">Permalink</span>
+      <i class="fa fa-link"></i>
+    </a>
+  </h2>
+  <span class="post-category">
+    <span class="label">
+      Basics
+    </span>
+  </span>
+  <div class="post-meta">
+    <span class="post-date">
+      15 May 2018
+    </span>
+    
+    <a href="https://github.com/" class="post-author">
+      <img class="avatar avatar-small" alt="author" width="24" height="24" data-proofer-ignore="true" src="https://avatars3.githubusercontent.com/author?v=3&amp;s=24" srcset="https://avatars3.githubusercontent.com/author?v=3&amp;s=24 1x, https://avatars3.githubusercontent.com/author?v=3&amp;s=48 2x, https://avatars3.githubusercontent.com/author?v=3&amp;s=72 3x, https://avatars3.githubusercontent.com/author?v=3&amp;s=96 4x">
+      
+    </a>
+  </div>
+  <div class="post-content">
+    <h1 id="coding-conventions">Coding Conventions</h1>
+
+<p>This page contains the current coding style for the Kotlin language.</p>
+
+<ul>
+  <li><a href="#source-code-organization">Source code organization</a></li>
+  <li><a href="#naming-rules">Naming rules</a></li>
+  <li><a href="#formatting">Formatting</a></li>
+  <li><a href="#documentation-comments">Documentation comments</a></li>
+  <li><a href="#avoiding-redundant-constructs">Avoiding redundant constructs</a></li>
+  <li><a href="#idiomatic-use-of-language-features">Idiomatic use of language features</a></li>
+  <li><a href="#coding-conventions-for-libraries">Coding conventions for libraries</a></li>
+</ul>
+
+<h3 id="applying-the-style-guide">Applying the style guide</h3>
+
+<p>To configure the IntelliJ formatter according to this style guide, please install Kotlin plugin version
+1.2.20 or newer, go to Settings | Editor | Code Style | Kotlin, click on “Set from…” link in the upper
+right corner, and select “Predefined style / Kotlin style guide” from the menu.</p>
+
+<p>To verify that your code is formatted according to the style guide, go to the inspection settings and enable
+the “Kotlin | Style issues | File is not formatted according to project settings” inspection. Additional
+inspections that verify other issues described in the style guide (such as naming conventions) are enabled by default.</p>
+
+<h2 id="source-code-organization">Source code organization</h2>
+
+<h3 id="directory-structure">Directory structure</h3>
+
+<p>In mixed-language projects, Kotlin source files should reside in the same source root as the Java source files,
+and follow the same directory structure (each file should be stored in the directory corresponding to each package
+statement).</p>
+
+<p>In pure Kotlin projects, the recommended directory structure is to follow the package structure with
+the common root package omitted (e.g. if all the code in the project is in the “org.example.kotlin” package and its
+subpackages, files with the “org.example.kotlin” package should be placed directly under the source root, and
+files in “org.example.kotlin.foo.bar” should be in the “foo/bar” subdirectory of the source root).</p>
+
+<h3 id="source-file-names">Source file names</h3>
+
+<p>If a Kotlin file contains a single class (potentially with related top-level declarations), its name should be the same
+as the name of the class, with the .kt extension appended. If a file contains multiple classes, or only top-level declarations,
+choose a name describing what the file contains, and name the file accordingly. Use camel humps with an uppercase first letter
+(e.g. <code class="highlighter-rouge">ProcessDeclarations.kt</code>).</p>
+
+<p>The name of the file should describe what the code in the file does. Therefore, you should avoid using meaningless
+words such as “Util” in file names.</p>
+
+<h3 id="source-file-organization">Source file organization</h3>
+
+<p>Placing multiple declarations (classes, top-level functions or properties) in the same Kotlin source file is encouraged
+as long as these declarations are closely related to each other semantically and the file size remains reasonable
+(not exceeding a few hundred lines).</p>
+
+<p>In particular, when defining extension functions for a class which are relevant for all clients of this class,
+put them in the same file where the class itself is defined. When defining extension functions that make sense 
+only for a specific client, put them next to the code of that client. Do not create files just to hold 
+“all extensions of Foo”.</p>
+
+<h3 id="class-layout">Class layout</h3>
+
+<p>Generally, the contents of a class is sorted in the following order:</p>
+
+<ul>
+  <li>Property declarations and initializer blocks</li>
+  <li>Secondary constructors</li>
+  <li>Method declarations</li>
+  <li>Companion object</li>
+</ul>
+
+<p>Do not sort the method declarations alphabetically or by visibility, and do not separate regular methods
+from extension methods. Instead, put related stuff together, so that someone reading the class from top to bottom would
+be able to follow the logic of what’s happening. Choose an order (either higher-level stuff first, or vice versa)
+and stick to it.</p>
+
+<p>Put nested classes next to the code that uses those classes. If the classes are intended to be used externally and aren’t
+referenced inside the class, put them in the end, after the companion object.</p>
+
+<h3 id="interface-implementation-layout">Interface implementation layout</h3>
+
+<p>When implementing an interface, keep the implementing members in the same order as members of the interface (if necessary,
+interspersed with additional private methods used for the implementation)</p>
+
+<h3 id="overload-layout">Overload layout</h3>
+
+<p>Always put overloads next to each other in a class.</p>
+
+<h2 id="naming-rules">Naming rules</h2>
+
+<p>Kotlin follows the Java naming conventions. In particular:</p>
+
+<p>Names of packages are always lower case and do not use underscores (<code class="highlighter-rouge">org.example.myproject</code>). Using multi-word
+names is generally discouraged, but if you do need to use multiple words, you can either simply concatenate them together
+or use camel humps (<code class="highlighter-rouge">org.example.myProject</code>).</p>
+
+<p>Names of classes and objects start with an upper case letter and use camel humps:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">open</span> <span class="kd">class</span> <span class="nc">DeclarationProcessor</span> <span class="p">{</span> <span class="o">..</span><span class="p">.</span> <span class="p">}</span>
+
+<span class="kd">object</span> <span class="nc">EmptyDeclarationProcessor</span> <span class="p">:</span> <span class="n">DeclarationProcessor</span><span class="p">()</span> <span class="p">{</span> <span class="o">..</span><span class="p">.</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="function-names">Function names</h3>
+
+<p>Names of functions, properties and local variables start with a lower case letter and use camel humps and no underscores:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="n">processDeclarations</span><span class="p">()</span> <span class="p">{</span> <span class="o">..</span><span class="p">.</span> <span class="p">}</span>
+<span class="kd">var</span> <span class="py">declarationCount</span> <span class="p">=</span> <span class="o">..</span><span class="p">.</span>
+</code></pre></div></div>
+
+<p>Exception: factory functions used to create instances of classes can have the same name as the class being created:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">abstract</span> <span class="kd">class</span> <span class="nc">Foo</span> <span class="p">{</span> <span class="o">..</span><span class="p">.</span> <span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">FooImpl</span> <span class="p">:</span> <span class="n">Foo</span> <span class="p">{</span> <span class="o">..</span><span class="p">.</span> <span class="p">}</span>
+
+<span class="k">fun</span> <span class="n">Foo</span><span class="p">():</span> <span class="n">Foo</span> <span class="p">{</span> <span class="k">return</span> <span class="n">FooImpl</span><span class="p">(</span><span class="o">..</span><span class="p">.)</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="names-for-test-methods">Names for test methods</h4>
+
+<p>In tests (and only in tests), it’s acceptable to use method names with spaces enclosed in backticks.
+(Note that such method names are currently not supported by the Android runtime.) Underscores in method names are
+also allowed in test code.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">MyTestCase</span> <span class="p">{</span>
+     <span class="n">@Test</span> <span class="k">fun</span> <span class="err">`</span><span class="n">ensure</span> <span class="n">everything</span> <span class="n">works</span><span class="err">`</span><span class="p">()</span> <span class="p">{</span>
+     <span class="p">}</span>
+     
+     <span class="n">@Test</span> <span class="k">fun</span> <span class="n">ensureEverythingWorks_onAndroid</span><span class="p">()</span> <span class="p">{</span>
+     <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="property-names">Property names</h3>
+
+<p>Names of constants (properties marked with <code class="highlighter-rouge">const</code>, or top-level or object <code class="highlighter-rouge">val</code> properties with no custom <code class="highlighter-rouge">get</code> function
+that hold deeply immutable data) should use uppercase underscore-separated names:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">const</span> <span class="kd">val</span> <span class="py">MAX_COUNT</span> <span class="p">=</span> <span class="m">8</span>
+<span class="kd">val</span> <span class="py">USER_NAME_FIELD</span> <span class="p">=</span> <span class="s">"UserName"</span>
+</code></pre></div></div>
+
+<p>Names of top-level or object properties which hold objects with behavior or mutable data should use regular camel-hump names:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">mutableCollection</span><span class="p">:</span> <span class="n">MutableSet</span><span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;</span> <span class="p">=</span> <span class="n">HashSet</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>Names of properties holding references to singleton objects can use the same naming style as <code class="highlighter-rouge">object</code> declarations:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">PersonComparator</span><span class="p">:</span> <span class="n">Comparator</span><span class="p">&lt;</span><span class="n">Person</span><span class="p">&gt;</span> <span class="p">=</span> <span class="o">..</span><span class="p">.</span>
+</code></pre></div></div>
+
+<p>For enum constants, it’s OK to use either uppercase underscore-separated names
+(<code class="highlighter-rouge">enum class Color { RED, GREEN }</code>) or regular camel-humps names starting with an uppercase letter, depending on the usage.</p>
+
+<h4 id="names-for-backing-properties">Names for backing properties</h4>
+
+<p>If a class has two properties which are conceptually the same but one is part of a public API and another is an implementation
+detail, use an underscore as the prefix for the name of the private property:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">C</span> <span class="p">{</span>
+    <span class="k">private</span> <span class="kd">val</span> <span class="py">_elementList</span> <span class="p">=</span> <span class="n">mutableListOf</span><span class="p">&lt;</span><span class="n">Element</span><span class="p">&gt;()</span>
+
+    <span class="kd">val</span> <span class="py">elementList</span><span class="p">:</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">Element</span><span class="p">&gt;</span>
+         <span class="k">get</span><span class="p">()</span> <span class="p">=</span> <span class="n">_elementList</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="choosing-good-names">Choosing good names</h3>
+
+<p>The name of a class is usually a noun or a noun phrase explaining what the class <em>is</em>: <code class="highlighter-rouge">List</code>, <code class="highlighter-rouge">PersonReader</code>.</p>
+
+<p>The name of a method is usually a verb or a verb phrase saying what the method <em>does</em>: <code class="highlighter-rouge">close</code>, <code class="highlighter-rouge">readPersons</code>.
+The name should also suggest if the method is mutating the object or returning a new one. For instance <code class="highlighter-rouge">sort</code> is
+sorting a collection in place, while <code class="highlighter-rouge">sorted</code> is returning a sorted copy of the collection.</p>
+
+<p>The names should make it clear what the purpose of the entity is, so it’s best to avoid using meaningless words
+(<code class="highlighter-rouge">Manager</code>, <code class="highlighter-rouge">Wrapper</code> etc.) in names.</p>
+
+<p>When using an acronym as part of a declaration name, capitalize it if it consists of two letters (<code class="highlighter-rouge">IOStream</code>);
+capitalize only the first letter if it is longer (<code class="highlighter-rouge">XmlFormatter</code>, <code class="highlighter-rouge">HttpInputStream</code>).</p>
+
+<h2 id="formatting">Formatting</h2>
+
+<p>In most cases, Kotlin follows the Java coding conventions.</p>
+
+<p>Use 4 spaces for indentation. Do not use tabs.</p>
+
+<p>For curly braces, put the opening brace in the end of the line where the construct begins, and the closing brace
+on a separate line aligned vertically with the opening construct.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="n">elements</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">element</span> <span class="k">in</span> <span class="n">elements</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>(Note: In Kotlin, semicolons are optional, and therefore line breaks are significant. The language design assumes 
+Java-style braces, and you may encounter surprising behavior if you try to use a different formatting style.)</p>
+
+<h3 id="horizontal-whitespace">Horizontal whitespace</h3>
+
+<p>Put spaces around binary operators (<code class="highlighter-rouge">a + b</code>). Exception: don’t put spaces around the “range to” operator (<code class="highlighter-rouge">0..i</code>).</p>
+
+<p>Do not put spaces around unary operators (<code class="highlighter-rouge">a++</code>)</p>
+
+<p>Put spaces between control flow keywords (<code class="highlighter-rouge">if</code>, <code class="highlighter-rouge">when</code>, <code class="highlighter-rouge">for</code> and <code class="highlighter-rouge">while</code>) and the corresponding opening parenthesis.</p>
+
+<p>Do not put a space before an opening parenthesis in a primary constructor declaration, method declaration or method call.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">A</span><span class="p">(</span><span class="kd">val</span> <span class="py">x</span><span class="p">:</span> <span class="n">Int</span><span class="p">)</span>
+
+<span class="k">fun</span> <span class="n">foo</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Int</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+
+<span class="k">fun</span> <span class="n">bar</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">foo</span><span class="p">(</span><span class="m">1</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Never put a space after <code class="highlighter-rouge">(</code>, <code class="highlighter-rouge">[</code>, or before <code class="highlighter-rouge">]</code>, <code class="highlighter-rouge">)</code>.</p>
+
+<p>Never put a space around <code class="highlighter-rouge">.</code> or <code class="highlighter-rouge">?.</code>: <code class="highlighter-rouge">foo.bar().filter { it &gt; 2 }.joinToString()</code>, <code class="highlighter-rouge">foo?.bar()</code></p>
+
+<p>Put a space after <code class="highlighter-rouge">//</code>: <code class="highlighter-rouge">// This is a comment</code></p>
+
+<p>Do not put spaces around angle brackets used to specify type parameters: <code class="highlighter-rouge">class Map&lt;K, V&gt; { ... }</code></p>
+
+<p>Do not put spaces around <code class="highlighter-rouge">::</code>: <code class="highlighter-rouge">Foo::class</code>, <code class="highlighter-rouge">String::length</code></p>
+
+<p>Do not put a space before <code class="highlighter-rouge">?</code> used to mark a nullable type: <code class="highlighter-rouge">String?</code></p>
+
+<p>As a general rule, avoid horizontal alignment of any kind. Renaming an identifier to a name with a different length
+should not affect the formatting of either the declaration or any of the usages.</p>
+
+<h3 id="colon">Colon</h3>
+
+<p>Put a space before <code class="highlighter-rouge">:</code> in the following cases:</p>
+
+<ul>
+  <li>when it’s used to separate a type and a supertype;</li>
+  <li>when delegating to a superclass constructor or a different constructor of the same class;</li>
+  <li>after the <code class="highlighter-rouge">object</code> keyword.</li>
+</ul>
+
+<p>Don’t put a space before <code class="highlighter-rouge">:</code> when it separates a declaration and its type.</p>
+
+<p>Always put a space after <code class="highlighter-rouge">:</code>.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">abstract</span> <span class="kd">class</span> <span class="nc">Foo</span><span class="p">&lt;</span><span class="k">out</span> <span class="n">T</span> <span class="p">:</span> <span class="n">Any</span><span class="p">&gt;</span> <span class="p">:</span> <span class="n">IFoo</span> <span class="p">{</span>
+    <span class="k">abstract</span> <span class="k">fun</span> <span class="n">foo</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="n">Int</span><span class="p">):</span> <span class="n">T</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">FooImpl</span> <span class="p">:</span> <span class="n">Foo</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">constructor</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span> <span class="p">:</span> <span class="k">this</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">//...</span>
+    <span class="p">}</span>
+    
+    <span class="kd">val</span> <span class="py">x</span> <span class="p">=</span> <span class="kd">object</span> <span class="err">: </span><span class="nc">IFoo</span> <span class="p">{</span> <span class="o">..</span><span class="p">.</span> <span class="p">}</span> 
+<span class="p">}</span> 
+</code></pre></div></div>
+
+<h3 id="class-header-formatting">Class header formatting</h3>
+
+<p>Classes with a few primary constructor parameters can be written in a single line:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Person</span><span class="p">(</span><span class="n">id</span><span class="p">:</span> <span class="n">Int</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Classes with longer headers should be formatted so that each primary constructor parameter is in a separate line with indentation.
+Also, the closing parenthesis should be on a new line. If we use inheritance, then the superclass constructor call or list of implemented interfaces
+should be located on the same line as the parenthesis:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Person</span><span class="p">(</span>
+    <span class="n">id</span><span class="p">:</span> <span class="n">Int</span><span class="p">,</span>
+    <span class="n">name</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span>
+    <span class="n">surname</span><span class="p">:</span> <span class="n">String</span>
+<span class="p">)</span> <span class="p">:</span> <span class="n">Human</span><span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>For multiple interfaces, the superclass constructor call should be located first and then each interface should be located in a different line:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Person</span><span class="p">(</span>
+    <span class="n">id</span><span class="p">:</span> <span class="n">Int</span><span class="p">,</span>
+    <span class="n">name</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span>
+    <span class="n">surname</span><span class="p">:</span> <span class="n">String</span>
+<span class="p">)</span> <span class="p">:</span> <span class="n">Human</span><span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">name</span><span class="p">),</span>
+    <span class="n">KotlinMaker</span> <span class="p">{</span>
+    
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>For classes with a long supertype list, put a line break after the colon and align all supertype names vertically:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">MyFavouriteVeryLongClassHolder</span> <span class="p">:</span>
+    <span class="n">MyLongHolder</span><span class="p">&lt;</span><span class="n">MyFavouriteVeryLongClass</span><span class="p">&gt;(),</span>
+    <span class="n">SomeOtherInterface</span><span class="p">,</span>
+    <span class="n">AndAnotherOne</span> <span class="p">{</span>
+
+    <span class="k">fun</span> <span class="n">foo</span><span class="p">()</span> <span class="p">{}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>To clearly separate the class header and body when the class header is long, either put a blank line
+following the class header (as in the example above), or put the opening curly brace on a separate line:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">MyFavouriteVeryLongClassHolder</span> <span class="p">:</span>
+    <span class="n">MyLongHolder</span><span class="p">&lt;</span><span class="n">MyFavouriteVeryLongClass</span><span class="p">&gt;(),</span>
+    <span class="n">SomeOtherInterface</span><span class="p">,</span>
+    <span class="n">AndAnotherOne</span>
+<span class="p">{</span>
+    <span class="k">fun</span> <span class="n">foo</span><span class="p">()</span> <span class="p">{}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Use regular indent (4 spaces) for constructor parameters.</p>
+
+<blockquote>
+  <p>Rationale: This ensures that properties declared in the primary constructor have the same indentation as properties
+declared in the body of a class.</p>
+</blockquote>
+
+<h3 id="modifiers">Modifiers</h3>
+
+<p>If a declaration has multiple modifiers, always put them in the following order:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="p">/</span> <span class="k">protected</span> <span class="p">/</span> <span class="k">private</span> <span class="p">/</span> <span class="k">internal</span>
+<span class="n">expect</span> <span class="p">/</span> <span class="n">actual</span>
+<span class="k">final</span> <span class="p">/</span> <span class="k">open</span> <span class="p">/</span> <span class="k">abstract</span> <span class="p">/</span> <span class="k">sealed</span> <span class="p">/</span> <span class="k">const</span>
+<span class="k">external</span>
+<span class="k">override</span>
+<span class="k">lateinit</span>
+<span class="k">tailrec</span>
+<span class="k">vararg</span>
+<span class="n">suspend</span>
+<span class="k">inner</span>
+<span class="k">enum</span> <span class="p">/</span> <span class="k">annotation</span>
+<span class="k">companion</span>
+<span class="k">inline</span>
+<span class="k">infix</span>
+<span class="k">operator</span>
+<span class="n">data</span>
+</code></pre></div></div>
+
+<p>Place all annotations before modifiers:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">@Named</span><span class="p">(</span><span class="s">"Foo"</span><span class="p">)</span>
+<span class="k">private</span> <span class="kd">val</span> <span class="py">foo</span><span class="p">:</span> <span class="n">Foo</span>
+</code></pre></div></div>
+
+<p>Unless you’re working on a library, omit redundant modifiers (e.g. <code class="highlighter-rouge">public</code>).</p>
+
+<h3 id="annotation-formatting">Annotation formatting</h3>
+
+<p>Annotations are typically placed on separate lines, before the declaration to which they are attached, and with the same indentation:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">@Target</span><span class="p">(</span><span class="n">AnnotationTarget</span><span class="p">.</span><span class="n">PROPERTY</span><span class="p">)</span>
+<span class="k">annotation</span> <span class="kd">class</span> <span class="nc">JsonExclude</span>
+</code></pre></div></div>
+
+<p>Annotations without arguments may be placed on the same line:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">@JsonExclude</span> <span class="n">@JvmField</span>
+<span class="kd">var</span> <span class="py">x</span><span class="p">:</span> <span class="n">String</span>
+</code></pre></div></div>
+
+<p>A single annotation without arguments may be placed on the same line as the corresponding declaration:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">@Test</span> <span class="k">fun</span> <span class="n">foo</span><span class="p">()</span> <span class="p">{</span> <span class="o">..</span><span class="p">.</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="file-annotations">File annotations</h3>
+
+<p>File annotations are placed after the file comment (if any), before the <code class="highlighter-rouge">package</code> statement, and are separated from <code class="highlighter-rouge">package</code> with a blank line (to emphasize the fact that they target the file and not the package).</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/** License, copyright and whatever */</span>
+<span class="n">@file</span><span class="p">:</span><span class="n">JvmName</span><span class="p">(</span><span class="s">"FooBar"</span><span class="p">)</span>
+
+<span class="k">package</span> <span class="nn">foo.bar</span>
+</code></pre></div></div>
+
+<h3 id="function-formatting">Function formatting</h3>
+
+<p>If the function signature doesn’t fit on a single line, use the following syntax:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="n">longMethodName</span><span class="p">(</span>
+    <span class="n">argument</span><span class="p">:</span> <span class="n">ArgumentType</span> <span class="p">=</span> <span class="n">defaultValue</span><span class="p">,</span>
+    <span class="n">argument2</span><span class="p">:</span> <span class="n">AnotherArgumentType</span>
+<span class="p">):</span> <span class="n">ReturnType</span> <span class="p">{</span>
+    <span class="c1">// body</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Use regular indent (4 spaces) for function parameters.</p>
+
+<blockquote>
+  <p>Rationale: Consistency with constructor parameters</p>
+</blockquote>
+
+<p>Prefer using an expression body for functions with the body consisting of a single expression.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="n">foo</span><span class="p">():</span> <span class="n">Int</span> <span class="p">{</span>     <span class="c1">// bad</span>
+    <span class="k">return</span> <span class="m">1</span> 
+<span class="p">}</span>
+
+<span class="k">fun</span> <span class="n">foo</span><span class="p">()</span> <span class="p">=</span> <span class="m">1</span>        <span class="c1">// good</span>
+</code></pre></div></div>
+
+<h3 id="expression-body-formatting">Expression body formatting</h3>
+
+<p>If the function has an expression body that doesn’t fit in the same line as the declaration, put the <code class="highlighter-rouge">=</code> sign on the first line.
+Indent the expression body by 4 spaces.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span> <span class="p">=</span>
+    <span class="n">x</span><span class="p">.</span><span class="n">length</span>
+</code></pre></div></div>
+
+<h3 id="property-formatting">Property formatting</h3>
+
+<p>For very simple read-only properties, consider one-line formatting:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">isEmpty</span><span class="p">:</span> <span class="n">Boolean</span> <span class="k">get</span><span class="p">()</span> <span class="p">=</span> <span class="n">size</span> <span class="p">==</span> <span class="m">0</span>
+</code></pre></div></div>
+
+<p>For more complex properties, always put <code class="highlighter-rouge">get</code> and <code class="highlighter-rouge">set</code> keywords on separate lines:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">foo</span><span class="p">:</span> <span class="n">String</span>
+    <span class="k">get</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>For properties with an initializer, if the initializer is long, add a line break after the equals sign
+and indent the initializer by four spaces:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">private</span> <span class="kd">val</span> <span class="py">defaultCharset</span><span class="p">:</span> <span class="n">Charset</span><span class="p">?</span> <span class="p">=</span>
+    <span class="n">EncodingRegistry</span><span class="p">.</span><span class="n">getInstance</span><span class="p">().</span><span class="n">getDefaultCharsetForPropertiesFiles</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="formatting-control-flow-statements">Formatting control flow statements</h3>
+
+<p>If the condition of an <code class="highlighter-rouge">if</code> or <code class="highlighter-rouge">when</code> statement is multiline, always use curly braces around the body of the statement.
+Indent each subsequent line of the condition by 4 spaces relative to statement begin. 
+Put the closing parentheses of the condition together with the opening curly brace on a separate line:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(!</span><span class="n">component</span><span class="p">.</span><span class="n">isSyncing</span> <span class="p">&amp;&amp;</span>
+    <span class="p">!</span><span class="n">hasAnyKotlinRuntimeInScope</span><span class="p">(</span><span class="n">module</span><span class="p">)</span>
+<span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">createKotlinNotConfiguredPanel</span><span class="p">(</span><span class="n">module</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>Rationale: Tidy alignment and clear separation of condition and statement body</p>
+</blockquote>
+
+<p>Put the <code class="highlighter-rouge">else</code>, <code class="highlighter-rouge">catch</code>, <code class="highlighter-rouge">finally</code> keywords, as well as the <code class="highlighter-rouge">while</code> keyword of a do/while loop, on the same line as the 
+preceding curly brace:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// body</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="c1">// else part</span>
+<span class="p">}</span>
+
+<span class="k">try</span> <span class="p">{</span>
+    <span class="c1">// body</span>
+<span class="p">}</span> <span class="k">finally</span> <span class="p">{</span>
+    <span class="c1">// cleanup</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>In a <code class="highlighter-rouge">when</code> statement, if a branch is more than a single line, consider separating it from adjacent case blocks with a blank line:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">private</span> <span class="k">fun</span> <span class="n">parsePropertyValue</span><span class="p">(</span><span class="n">propName</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="n">token</span><span class="p">:</span> <span class="n">Token</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">when</span> <span class="p">(</span><span class="n">token</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">is</span> <span class="n">Token</span><span class="p">.</span><span class="n">ValueToken</span> <span class="p">-&gt;</span>
+            <span class="n">callback</span><span class="p">.</span><span class="n">visitValue</span><span class="p">(</span><span class="n">propName</span><span class="p">,</span> <span class="n">token</span><span class="p">.</span><span class="n">value</span><span class="p">)</span>
+
+        <span class="n">Token</span><span class="p">.</span><span class="n">LBRACE</span> <span class="p">-&gt;</span> <span class="p">{</span> <span class="c1">// ...</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Put short branches on the same line as the condition, without braces.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">when</span> <span class="p">(</span><span class="n">foo</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">true</span> <span class="p">-&gt;</span> <span class="n">bar</span><span class="p">()</span> <span class="c1">// good</span>
+    <span class="k">false</span> <span class="p">-&gt;</span> <span class="p">{</span> <span class="n">baz</span><span class="p">()</span> <span class="p">}</span> <span class="c1">// bad</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="method-call-formatting">Method call formatting</h3>
+
+<p>In long argument lists, put a line break after the opening parenthesis. Indent arguments by 4 spaces. 
+Group multiple closely related arguments on the same line.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">drawSquare</span><span class="p">(</span>
+    <span class="n">x</span> <span class="p">=</span> <span class="m">10</span><span class="p">,</span> <span class="n">y</span> <span class="p">=</span> <span class="m">10</span><span class="p">,</span>
+    <span class="n">width</span> <span class="p">=</span> <span class="m">100</span><span class="p">,</span> <span class="n">height</span> <span class="p">=</span> <span class="m">100</span><span class="p">,</span>
+    <span class="n">fill</span> <span class="p">=</span> <span class="k">true</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<p>Put spaces around the <code class="highlighter-rouge">=</code> sign separating the argument name and value.</p>
+
+<h3 id="chained-call-wrapping">Chained call wrapping</h3>
+
+<p>When wrapping chained calls, put the . character or the <code class="highlighter-rouge">?.</code> operator on the next line, with a single indent:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">anchor</span> <span class="p">=</span> <span class="n">owner</span>
+    <span class="o">?.</span><span class="n">firstChild</span><span class="o">!!</span>
+    <span class="p">.</span><span class="n">siblings</span><span class="p">(</span><span class="n">forward</span> <span class="p">=</span> <span class="k">true</span><span class="p">)</span>
+    <span class="p">.</span><span class="n">dropWhile</span> <span class="p">{</span> <span class="n">it</span> <span class="k">is</span> <span class="n">PsiComment</span> <span class="p">||</span> <span class="n">it</span> <span class="k">is</span> <span class="n">PsiWhiteSpace</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<p>The first call in the chain usually should have a line break before it, but it’s OK to omit it if the code makes more sense that way.</p>
+
+<h3 id="lambda-formatting">Lambda formatting</h3>
+
+<p>In lambda expressions, spaces should be used around the curly braces, as well as around the arrow which separates the parameters
+from the body. If a call takes a single lambda, it should be passed outside of parentheses whenever possible.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">list</span><span class="p">.</span><span class="n">filter</span> <span class="p">{</span> <span class="n">it</span> <span class="p">&gt;</span> <span class="m">10</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<p>If assigning a label for a lambda, do not put a space between the label and the opening curly brace:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="n">foo</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">ints</span><span class="p">.</span><span class="n">forEach</span> <span class="n">lit</span><span class="err">@</span><span class="p">{</span>
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>When declaring parameter names in a multiline lambda, put the names on the first line, followed by the arrow and the newline:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">appendCommaSeparated</span><span class="p">(</span><span class="n">properties</span><span class="p">)</span> <span class="p">{</span> <span class="n">prop</span> <span class="p">-&gt;</span>
+    <span class="kd">val</span> <span class="py">propertyValue</span> <span class="p">=</span> <span class="n">prop</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>  <span class="c1">// ...</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>If the parameter list is too long to fit on a line, put the arrow on a separate line:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">foo</span> <span class="p">{</span>
+   <span class="n">context</span><span class="p">:</span> <span class="n">Context</span><span class="p">,</span>
+   <span class="n">environment</span><span class="p">:</span> <span class="n">Env</span>
+   <span class="p">-&gt;</span>
+   <span class="n">context</span><span class="p">.</span><span class="n">configureEnv</span><span class="p">(</span><span class="n">environment</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="documentation-comments">Documentation comments</h2>
+
+<p>For longer documentation comments, place the opening <code class="highlighter-rouge">/**</code> on a separate line and begin each subsequent line
+with an asterisk:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * This is a documentation comment
+ * on multiple lines.
+ */</span>
+</code></pre></div></div>
+
+<p>Short comments can be placed on a single line:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/** This is a short documentation comment. */</span>
+</code></pre></div></div>
+
+<p>Generally, avoid using <code class="highlighter-rouge">@param</code> and <code class="highlighter-rouge">@return</code> tags. Instead, incorporate the description of parameters and return values
+directly into the documentation comment, and add links to parameters wherever they are mentioned. Use <code class="highlighter-rouge">@param</code> and
+<code class="highlighter-rouge">@return</code> only when a lengthy description is required which doesn’t fit into the flow of the main text.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Avoid doing this:</span>
+
+<span class="cm">/**
+ * Returns the absolute value of the given number.
+ * @param number The number to return the absolute value for.
+ * @return The absolute value.
+ */</span>
+<span class="k">fun</span> <span class="n">abs</span><span class="p">(</span><span class="n">number</span><span class="p">:</span> <span class="n">Int</span><span class="p">)</span> <span class="p">=</span> <span class="o">..</span><span class="p">.</span>
+
+<span class="c1">// Do this instead:</span>
+
+<span class="cm">/**
+ * Returns the absolute value of the given [number].
+ */</span>
+<span class="k">fun</span> <span class="n">abs</span><span class="p">(</span><span class="n">number</span><span class="p">:</span> <span class="n">Int</span><span class="p">)</span> <span class="p">=</span> <span class="o">..</span><span class="p">.</span>
+</code></pre></div></div>
+
+<h2 id="avoiding-redundant-constructs">Avoiding redundant constructs</h2>
+
+<p>In general, if a certain syntactic construction in Kotlin is optional and highlighted by the IDE
+as redundant, you should omit it in your code. Do not leave unnecessary syntactic elements in code
+just “for clarity”.</p>
+
+<h3 id="unit">Unit</h3>
+
+<p>If a function returns Unit, the return type should be omitted:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="n">foo</span><span class="p">()</span> <span class="p">{</span> <span class="c1">// ": Unit" is omitted here</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="semicolons">Semicolons</h3>
+
+<p>Omit semicolons whenever possible.</p>
+
+<h3 id="string-templates">String templates</h3>
+
+<p>Don’t use curly braces when inserting a simple variable into a string template. Use curly braces only for longer expressions.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">println</span><span class="p">(</span><span class="s">"$name has ${children.size} children"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="idiomatic-use-of-language-features">Idiomatic use of language features</h2>
+
+<h3 id="immutability">Immutability</h3>
+
+<p>Prefer using immutable data to mutable. Always declare local variables and properties as <code class="highlighter-rouge">val</code> rather than <code class="highlighter-rouge">var</code> if
+they are not modified after initialization.</p>
+
+<p>Always use immutable collection interfaces (<code class="highlighter-rouge">Collection</code>, <code class="highlighter-rouge">List</code>, <code class="highlighter-rouge">Set</code>, <code class="highlighter-rouge">Map</code>) to declare collections which are not
+mutated. When using factory functions to create collection instances, always use functions that return immutable
+collection types when possible:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Bad: use of mutable collection type for value which will not be mutated</span>
+<span class="k">fun</span> <span class="n">validateValue</span><span class="p">(</span><span class="n">actualValue</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="n">allowedValues</span><span class="p">:</span> <span class="n">HashSet</span><span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;)</span> <span class="p">{</span> <span class="o">..</span><span class="p">.</span> <span class="p">}</span>
+
+<span class="c1">// Good: immutable collection type used instead</span>
+<span class="k">fun</span> <span class="n">validateValue</span><span class="p">(</span><span class="n">actualValue</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="n">allowedValues</span><span class="p">:</span> <span class="n">Set</span><span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;)</span> <span class="p">{</span> <span class="o">..</span><span class="p">.</span> <span class="p">}</span>
+
+<span class="c1">// Bad: arrayListOf() returns ArrayList&lt;T&gt;, which is a mutable collection type</span>
+<span class="kd">val</span> <span class="py">allowedValues</span> <span class="p">=</span> <span class="n">arrayListOf</span><span class="p">(</span><span class="s">"a"</span><span class="p">,</span> <span class="s">"b"</span><span class="p">,</span> <span class="s">"c"</span><span class="p">)</span>
+
+<span class="c1">// Good: listOf() returns List&lt;T&gt;</span>
+<span class="kd">val</span> <span class="py">allowedValues</span> <span class="p">=</span> <span class="n">listOf</span><span class="p">(</span><span class="s">"a"</span><span class="p">,</span> <span class="s">"b"</span><span class="p">,</span> <span class="s">"c"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="default-parameter-values">Default parameter values</h3>
+
+<p>Prefer declaring functions with default parameter values to declaring overloaded functions.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Bad</span>
+<span class="k">fun</span> <span class="n">foo</span><span class="p">()</span> <span class="p">=</span> <span class="n">foo</span><span class="p">(</span><span class="s">"a"</span><span class="p">)</span>
+<span class="k">fun</span> <span class="n">foo</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span> <span class="p">{</span> <span class="o">..</span><span class="p">.</span> <span class="p">}</span>
+
+<span class="c1">// Good</span>
+<span class="k">fun</span> <span class="n">foo</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="n">String</span> <span class="p">=</span> <span class="s">"a"</span><span class="p">)</span> <span class="p">{</span> <span class="o">..</span><span class="p">.</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="type-aliases">Type aliases</h3>
+
+<p>If you have a functional type or a type with type parameters which is used multiple times in a codebase, prefer defining
+a type alias for it:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">typealias</span> <span class="n">MouseClickHandler</span> <span class="p">=</span> <span class="p">(</span><span class="n">Any</span><span class="p">,</span> <span class="n">MouseEvent</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">Unit</span>
+<span class="k">typealias</span> <span class="n">PersonIndex</span> <span class="p">=</span> <span class="n">Map</span><span class="p">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">Person</span><span class="p">&gt;</span>
+</code></pre></div></div>
+
+<h3 id="lambda-parameters">Lambda parameters</h3>
+
+<p>In lambdas which are short and not nested, it’s recommended to use the <code class="highlighter-rouge">it</code> convention instead of declaring the parameter
+explicitly. In nested lambdas with parameters, parameters should be always declared explicitly.</p>
+
+<h3 id="returns-in-a-lambda">Returns in a lambda</h3>
+
+<p>Avoid using multiple labeled returns in a lambda. Consider restructuring the lambda so that it will have a single exit point.
+If that’s not possible or not clear enough, consider converting the lambda into an anonymous function.</p>
+
+<p>Do not use a labeled return for the last statement in a lambda.</p>
+
+<h3 id="named-arguments">Named arguments</h3>
+
+<p>Use the named argument syntax when a method takes multiple parameters of the same primitive type, or for parameters of <code class="highlighter-rouge">Boolean</code> type,
+unless the meaning of all parameters is absolutely clear from context.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">drawSquare</span><span class="p">(</span><span class="n">x</span> <span class="p">=</span> <span class="m">10</span><span class="p">,</span> <span class="n">y</span> <span class="p">=</span> <span class="m">10</span><span class="p">,</span> <span class="n">width</span> <span class="p">=</span> <span class="m">100</span><span class="p">,</span> <span class="n">height</span> <span class="p">=</span> <span class="m">100</span><span class="p">,</span> <span class="n">fill</span> <span class="p">=</span> <span class="k">true</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="using-conditional-statements">Using conditional statements</h3>
+
+<p>Prefer using the expression form of <code class="highlighter-rouge">try</code>, <code class="highlighter-rouge">if</code> and <code class="highlighter-rouge">when</code>. Examples:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">return</span> <span class="k">if</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">foo</span><span class="p">()</span> <span class="k">else</span> <span class="n">bar</span><span class="p">()</span>
+
+<span class="k">return</span> <span class="k">when</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+    <span class="m">0</span> <span class="p">-&gt;</span> <span class="s">"zero"</span>
+    <span class="k">else</span> <span class="p">-&gt;</span> <span class="s">"nonzero"</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The above is preferable to:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">foo</span><span class="p">()</span>
+<span class="k">else</span>
+    <span class="k">return</span> <span class="n">bar</span><span class="p">()</span>
+    
+<span class="k">when</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+    <span class="m">0</span> <span class="p">-&gt;</span> <span class="k">return</span> <span class="s">"zero"</span>
+    <span class="k">else</span> <span class="p">-&gt;</span> <span class="k">return</span> <span class="s">"nonzero"</span>
+<span class="p">}</span>    
+</code></pre></div></div>
+
+<h3 id="if-versus-when">
+<code class="highlighter-rouge">if</code> versus <code class="highlighter-rouge">when</code>
+</h3>
+
+<p>Prefer using <code class="highlighter-rouge">if</code> for binary conditions instead of <code class="highlighter-rouge">when</code>. Instead of</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">when</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">null</span> <span class="p">-&gt;</span> <span class="o">..</span><span class="p">.</span>
+    <span class="k">else</span> <span class="p">-&gt;</span> <span class="o">..</span><span class="p">.</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>use <code class="highlighter-rouge">if (x == null) ... else ...</code></p>
+
+<p>Prefer using <code class="highlighter-rouge">when</code> if there are three or more options.</p>
+
+<h3 id="using-nullable-boolean-values-in-conditions">Using nullable <code class="highlighter-rouge">Boolean</code> values in conditions</h3>
+
+<p>If you need to use a nullable <code class="highlighter-rouge">Boolean</code> in a conditional statement, use <code class="highlighter-rouge">if (value == true)</code> or <code class="highlighter-rouge">if (value == false)</code> checks.</p>
+
+<h3 id="using-loops">Using loops</h3>
+
+<p>Prefer using higher-order functions (<code class="highlighter-rouge">filter</code>, <code class="highlighter-rouge">map</code> etc.) to loops. Exception: <code class="highlighter-rouge">forEach</code> (prefer using a regular <code class="highlighter-rouge">for</code> loop instead,
+unless the receiver of <code class="highlighter-rouge">forEach</code> is nullable or <code class="highlighter-rouge">forEach</code> is used as part of a longer call chain).</p>
+
+<p>When making a choice between a complex expression using multiple higher-order functions and a loop, understand the cost
+of the operations being performed in each case and keep performance considerations in mind.</p>
+
+<h3 id="loops-on-ranges">Loops on ranges</h3>
+
+<p>Use the <code class="highlighter-rouge">until</code> function to loop over an open range:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="k">in</span> <span class="m">0</span><span class="o">..</span><span class="n">n</span> <span class="p">-</span> <span class="m">1</span><span class="p">)</span> <span class="p">{</span> <span class="o">..</span><span class="p">.</span> <span class="p">}</span>  <span class="c1">// bad</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="k">in</span> <span class="m">0</span> <span class="n">until</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span> <span class="o">..</span><span class="p">.</span> <span class="p">}</span>  <span class="c1">// good</span>
+</code></pre></div></div>
+
+<h3 id="using-strings">Using strings</h3>
+
+<p>Prefer using string templates to string concatenation.</p>
+
+<p>Prefer to use multiline strings instead of embedding <code class="highlighter-rouge">\n</code> escape sequences into regular string literals.</p>
+
+<p>To maintain indentation in multiline strings, use <code class="highlighter-rouge">trimIndent</code> when the resulting string does not require any internal
+indentation, or <code class="highlighter-rouge">trimMargin</code> when internal indentation is required:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">assertEquals</span><span class="p">(</span><span class="s">"""Foo
+                Bar"""</span><span class="p">.</span><span class="n">trimIndent</span><span class="p">(),</span> <span class="n">value</span><span class="p">)</span>
+
+<span class="kd">val</span> <span class="py">a</span> <span class="p">=</span> <span class="s">"""if(a &gt; 1) {
+          |    return a
+          |}"""</span><span class="p">.</span><span class="n">trimMargin</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h3 id="functions-vs-properties">Functions vs Properties</h3>
+
+<p>In some cases functions with no arguments might be interchangeable with read-only properties. 
+Although the semantics are similar, there are some stylistic conventions on when to prefer one to another.</p>
+
+<p>Prefer a property over a function when the underlying algorithm:</p>
+
+<ul>
+  <li>does not throw</li>
+  <li>is cheap to calculate (or caсhed on the first run)</li>
+  <li>returns the same result over invocations if the object state hasn’t changed</li>
+</ul>
+
+<h3 id="using-extension-functions">Using extension functions</h3>
+
+<p>Use extension functions liberally. Every time you have a function that works primarily on an object, consider making it
+an extension function accepting that object as a receiver. To minimize API pollution, restrict the visibility of
+extension functions as much as it makes sense. As necessary, use local extension functions, member extension functions,
+or top-level extension functions with private visibility.</p>
+
+<h3 id="using-infix-functions">Using infix functions</h3>
+
+<p>Declare a function as infix only when it works on two objects which play a similar role. Good examples: <code class="highlighter-rouge">and</code>, <code class="highlighter-rouge">to</code>, <code class="highlighter-rouge">zip</code>.
+Bad example: <code class="highlighter-rouge">add</code>.</p>
+
+<p>Don’t declare a method as infix if it mutates the receiver object.</p>
+
+<h3 id="factory-functions">Factory functions</h3>
+
+<p>If you declare a factory function for a class, avoid giving it the same name as the class itself. Prefer using a distinct name
+making it clear why the behavior of the factory function is special. Only if there is really no special semantics,
+you can use the same name as the class.</p>
+
+<p>Example:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Point</span><span class="p">(</span><span class="kd">val</span> <span class="py">x</span><span class="p">:</span> <span class="n">Double</span><span class="p">,</span> <span class="kd">val</span> <span class="py">y</span><span class="p">:</span> <span class="n">Double</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">companion</span> <span class="k">object</span> <span class="p">{</span>
+        <span class="k">fun</span> <span class="n">fromPolar</span><span class="p">(</span><span class="n">angle</span><span class="p">:</span> <span class="n">Double</span><span class="p">,</span> <span class="n">radius</span><span class="p">:</span> <span class="n">Double</span><span class="p">)</span> <span class="p">=</span> <span class="n">Point</span><span class="p">(</span><span class="o">..</span><span class="p">.)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>If you have an object with multiple overloaded constructors that don’t call different superclass constructors and
+can’t be reduced to a single constructor with default argument values, prefer to replace the overloaded constructors with
+factory functions.</p>
+
+<h3 id="platform-types">Platform types</h3>
+
+<p>A public function/method returning an expression of a platform type must declare its Kotlin type explicitly:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="n">apiCall</span><span class="p">():</span> <span class="n">String</span> <span class="p">=</span> <span class="n">MyJavaApi</span><span class="p">.</span><span class="n">getProperty</span><span class="p">(</span><span class="s">"name"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Any property (package-level or class-level) initialised with an expression of a platform type must declare its Kotlin type explicitly:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Person</span> <span class="p">{</span>
+    <span class="kd">val</span> <span class="py">name</span><span class="p">:</span> <span class="n">String</span> <span class="p">=</span> <span class="n">MyJavaApi</span><span class="p">.</span><span class="n">getProperty</span><span class="p">(</span><span class="s">"name"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>A local value initialised with an expression of a platform type may or may not have a type declaration:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="n">main</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="n">Array</span><span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;)</span> <span class="p">{</span>
+    <span class="kd">val</span> <span class="py">name</span> <span class="p">=</span> <span class="n">MyJavaApi</span><span class="p">.</span><span class="n">getProperty</span><span class="p">(</span><span class="s">"name"</span><span class="p">)</span>
+    <span class="n">println</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="using-scope-functions-applywithrunalsolet">Using scope functions apply/with/run/also/let</h3>
+
+<p>Kotlin provides a variety of functions to execute a block of code in the context of a given object. To choose the correct
+function, consider the following:</p>
+
+<ul>
+  <li>Are you calling methods on multiple objects in the block, or passing the instance of the context object as an 
+argument? If you are, use one of the functions that allows you to access the context object as <code class="highlighter-rouge">it</code>,
+not <code class="highlighter-rouge">this</code> (<code class="highlighter-rouge">also</code> or <code class="highlighter-rouge">let</code>). Use <code class="highlighter-rouge">also</code> if the receiver is not used at all in the block.</li>
+</ul>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Context object is 'it'</span>
+<span class="kd">class</span> <span class="nc">Baz</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="py">currentBar</span><span class="p">:</span> <span class="n">Bar</span><span class="p">?</span>
+    <span class="kd">val</span> <span class="py">observable</span><span class="p">:</span> <span class="n">Observable</span>
+
+    <span class="kd">val</span> <span class="py">foo</span> <span class="p">=</span> <span class="n">createBar</span><span class="p">().</span><span class="n">also</span> <span class="p">{</span>
+        <span class="n">currentBar</span> <span class="p">=</span> <span class="n">it</span>                    <span class="c1">// Accessing property of Baz</span>
+        <span class="n">observable</span><span class="p">.</span><span class="n">registerCallback</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>    <span class="c1">// Passing context object as argument</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Receiver not used in the block</span>
+<span class="kd">val</span> <span class="py">foo</span> <span class="p">=</span> <span class="n">createBar</span><span class="p">().</span><span class="n">also</span> <span class="p">{</span>
+    <span class="n">LOG</span><span class="p">.</span><span class="n">info</span><span class="p">(</span><span class="s">"Bar created"</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1">// Context object is 'this'</span>
+<span class="kd">class</span> <span class="nc">Baz</span> <span class="p">{</span>
+    <span class="kd">val</span> <span class="py">foo</span><span class="p">:</span> <span class="n">Bar</span> <span class="p">=</span> <span class="n">createBar</span><span class="p">().</span><span class="n">apply</span> <span class="p">{</span>
+        <span class="n">color</span> <span class="p">=</span> <span class="n">RED</span>    <span class="c1">// Accessing only properties of Bar</span>
+        <span class="n">text</span> <span class="p">=</span> <span class="s">"Foo"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>What should the result of the call be? If the result needs to be the context object, use <code class="highlighter-rouge">apply</code> or <code class="highlighter-rouge">also</code>.
+If you need to return a value from the block, use <code class="highlighter-rouge">with</code>, <code class="highlighter-rouge">let</code> or <code class="highlighter-rouge">run</code>
+</li>
+</ul>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Return value is context object</span>
+<span class="kd">class</span> <span class="nc">Baz</span> <span class="p">{</span>
+    <span class="kd">val</span> <span class="py">foo</span><span class="p">:</span> <span class="n">Bar</span> <span class="p">=</span> <span class="n">createBar</span><span class="p">().</span><span class="n">apply</span> <span class="p">{</span>
+        <span class="n">color</span> <span class="p">=</span> <span class="n">RED</span>    <span class="c1">// Accessing only properties of Bar</span>
+        <span class="n">text</span> <span class="p">=</span> <span class="s">"Foo"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+
+<span class="c1">// Return value is block result</span>
+<span class="kd">class</span> <span class="nc">Baz</span> <span class="p">{</span>
+    <span class="kd">val</span> <span class="py">foo</span><span class="p">:</span> <span class="n">Bar</span> <span class="p">=</span> <span class="n">createNetworkConnection</span><span class="p">().</span><span class="n">let</span> <span class="p">{</span>
+        <span class="n">loadBar</span><span class="p">()</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Is the context object nullable, or is it evaluated as a result of a call chain? If it is, use <code class="highlighter-rouge">apply</code>, <code class="highlighter-rouge">let</code> or <code class="highlighter-rouge">run</code>.
+Otherwise, use <code class="highlighter-rouge">with</code> or <code class="highlighter-rouge">also</code>.</li>
+</ul>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Context object is nullable</span>
+<span class="n">person</span><span class="p">.</span><span class="n">email</span><span class="o">?.</span><span class="n">let</span> <span class="p">{</span> <span class="n">sendEmail</span><span class="p">(</span><span class="n">it</span><span class="p">)</span> <span class="p">}</span>
+
+<span class="c1">// Context object is non-null and accessible directly</span>
+<span class="n">with</span><span class="p">(</span><span class="n">person</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">println</span><span class="p">(</span><span class="s">"First name: $firstName, last name: $lastName"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="coding-conventions-for-libraries">Coding conventions for libraries</h2>
+
+<p>When writing libraries, it’s recommended to follow an additional set of rules to ensure API stability:</p>
+
+<ul>
+  <li>Always explicitly specify member visibility (to avoid accidentally exposing declarations as public API)</li>
+  <li>Always explicitly specify function return types and property types (to avoid accidentally changing the return type
+when the implementation changes)</li>
+  <li>Provide KDoc comments for all public members, with the exception of overrides that do not require any new documentation
+(to support generating documentation for the library)</li>
+</ul>
+
+  </div>
+</article>
+
+      </div>
+
+      <div class="unit one-fifth hide-on-mobiles">
+  <aside>
+    <ul>
+      <li class="">
+        <a href="/news/">All Post</a>
+      </li>
+      <li class="">
+        <a href="/news/releases/">Kotlin Releases</a>
+      </li>
+    </ul>
+    <h4>Recent Releases</h4>
+    <ul>
+      
+    </ul>
+    <h4>Other Posts</h4>
+    <ul>
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-experimental-coroutines/">Using coroutines</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-command-line-library-js/">Creating a Kotlin JavaScript library with the Command Line Compiler</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-spring-boot-restful/">Creating a RESTful Web Service with Spring Boot</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-kotlin-android/">Getting started with Android and Kotlin</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-koans/">Kotlin Koans</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-index/">Tutorials</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-httpservlets/">Creating Web Applications with Http Servlets</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-edu-tools-learner/">Learning Kotlin with EduTools plugin</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-edu-tools-educator/">Teaching Kotlin with EduTools plugin</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-create-library-js/">Creating Kotlin/JavaScript library with IntelliJ IDEA</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-coroutines-basic-jvm/">Introduction to Kotlin Coroutines on the JVM</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-command-line/">Working with the Command Line Compiler</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-command-line-library-js/">Creating Kotlin/JavaScript library with the Command Line Compiler</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-build-tools/">Working with Build Tools</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-android-plugin/">Kotlin Android Extensions</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-android-frameworks/">Android Frameworks Using Annotation Processing</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-whatsnew12/">What's New in Kotlin 1.2</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-whatsnew11/">What's New in Kotlin 1.1</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-visibility-modifiers/">Visibility Modifiers</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-using-maven/">Using Maven</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-using-gradle/">Using Gradle</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-using-ant/">Using Ant</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-typecasts/">Type Checks and Casts: 'is' and 'as'</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-type-safe-builders/">Type-Safe Builders</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-type-aliases/">Type aliases (since 1.1)</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-this-expressions/">This expressions</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-server-overview/">Kotlin for Server Side</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-sealed-classes/">Sealed Classes</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-returns/">Returns and Jumps: break and continue</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-reflection/">Reflection</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-ranges/">Ranges</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-properties/">Properties and Fields: Getters, Setters, const, lateinit</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-packages/">Packages and Imports</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-operator-overloading/">Operator overloading</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-object-declarations/">Object Expressions, Object Declarations and Companion Objects</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-null-safety/">Null Safety</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-nested-classes/">Nested and Inner Classes</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-native-overview/">Kotlin/Native</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-multiplatform/">Multiplatform Projects</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-multi-declarations/">Destructuring Declarations</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-lambdas/">Higher-Order Functions and Lambdas</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-kotlin-osgi/">Kotlin and OSGi</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-kotlin-doc/">Documenting Kotlin Code</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-kotlin-build-tools/">Kotlin Build Tools</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-keyword-reference/">Keywords and Operators</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-kapt/">Using kapt</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-js-to-kotlin-interop/">Calling Kotlin from JavaScript</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-js-reflection/">JavaScript Reflection</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-js-overview/">Kotlin for JavaScript</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-js-modules/">JavaScript Modules</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-js-interop/">Calling JavaScript from Kotlin</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-javascript-dce/">JavaScript DCE</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-java-to-kotlin-interop/">Calling Kotlin from Java</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-java-interop/">Calling Java from Kotlin</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-interfaces/">Interfaces</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-inline-functions/">Inline Functions and Reified Type Parameters</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-index/">Reference</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-idioms/">Idioms</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-generics/">Generics: in, out, where</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-functions/">Functions: infix, vararg, tailrec</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-faq/">FAQ</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-extensions/">Extensions</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-exceptions/">Exceptions: try, catch, finally, throw, Nothing</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-equality/">Equality</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-enum-classes/">Enum Classes</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-dynamic-type/">Dynamic Type</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-delegation/">Delegation</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-delegated-properties/">Delegated Properties</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-data-classes/">Data Classes</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-coroutines/">Coroutines</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-control-flow/">Control Flow: if, when, for, while</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-compiler-plugins/">Compiler Plugins</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-compatibility/">Compatibility</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-comparison-to-java/">Comparison to Java</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-collections/">Collections: List, Set, Map</a>
+        </li>
+        
+        
+        
+        <li class="current">
+          <a href="/news/2018/05/15/kotlinlang-coding-conventions/">Coding Conventions</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-classes/">Classes and Inheritance</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-basic-types/">Basic Types: Numbers, Strings, Arrays</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-basic-syntax/">Basic Syntax</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-annotations/">Annotations</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-android-overview/">Kotlin for Android</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/13/android-01/">Kotlin Programming Language</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/01/24/kotlinlang-gradle-for-kotlin-native/">Gradle for Kotlin/Native</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/01/23/kotlinlang-kotlin-native-with-clion/">Kotlin/Native with CLion</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/01/22/kotlinlang-working-with-klib/">Working with Kotlin/Native Libraries</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/01/09/kotlinlang-interop-with-c/">Interop with C Libraries</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2017/12/03/kotlinlang-basic-kotlin-native-app/">A Basic Kotlin/Native Application</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2017/07/31/kotlinlang-debugging-javascript/">Debugging Kotlin in browser</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2017/05/04/kotlinlang-getting-started/">Getting Started with IntelliJ IDEA</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2017/02/27/kotlinlang-working-with-javascript/">Working with JavaScript</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2016/12/03/gradle-tip/">Android Gradle Tips</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2016/11/10/kotlinlang-getting-started-eclipse/">Getting Started with Eclipse Neon</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2016/11/04/kotlinlang-getting-started-with-maven/">Getting Started with Kotlin and JavaScript with Maven</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2016/11/04/kotlinlang-getting-started-with-gradle/">Getting Started with Kotlin and JavaScript with Gradle</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2016/10/07/kotlinlang-calling-javascript-from-kotlin/">Calling JavaScript from Kotlin</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2016/09/30/kotlinlang-working-with-modules/">Working with Kotlin and JavaScript Modules</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2016/09/30/kotlinlang-getting-started-with-intellij-idea/">Getting Started with Kotlin and JavaScript with IntelliJ IDEA</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2016/09/29/kotlinlang-kotlin-to-javascript/">Kotlin to JavaScript</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2016/07/26/android-database-tip/">Android 의 Sqlite Tip</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2016/04/16/migration-to-retrofit2/">Retrofit2 로 전환</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2016/02/12/Android-and-automation/">안드로이드와 자동화 툴</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2015/11/26/%EB%8D%94-%EB%B9%A0%EB%A5%B8-Andriod-App-Build/">더 빠른 Android App Build</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2015/03/10/.androidannotations-%EC%99%80-MVP/">AndroidAnnotations 와 MVP</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2015/03/01/04.androidannotation-%EA%B3%BC-%ED%85%8C%EC%8A%A4%ED%8A%B8/">AndroidAnnotations 과 테스트</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2015/03/01/03.androidannotation-%EA%B3%BC-mvc/">AndroidAnnotations 과 MVC 패턴</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2015/03/01/02.android-%EC%99%80-annotation/">Android 와 Annotation</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2015/03/01/01.Android-mvc-mvvm-mvp/">Android 와 개발 패턴</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2015/02/02/kotlinlang-kotlin-and-ci/">Kotlin and Continuous Integration with TeamCity</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2014/09/23/kotlinlang-mixing-java-kotlin-intellij/">Mixing Java and Kotlin in one project</a>
+        </li>
+        
+        
+    </ul>
+  </aside>
+</div>
+
+
+      <div class="clear"></div>
+
+    </div>
+  </section>
+
+
+  <footer>
+  <div class="grid">
+    <div class="unit one-third center-on-mobiles">
+      <p>
+        © 2018 Laon Dreams
+      <br>Contacts: <a href="mailto:laondreams@gmail.com">laondreams@gmail.com</a></p>
+    </div>
+    <div class="unit two-thirds align-right center-on-mobiles">
+      <p>
+        Proudly hosted by
+        <a href="https://github.com">
+          <img src="/img/footer-logo.png" width="100" height="30" alt="GitHub • Social coding">
+        </a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+  <script>
+  var anchorForId = function (id) {
+    var anchor = document.createElement("a");
+    anchor.className = "header-link";
+    anchor.href      = "#" + id;
+    anchor.innerHTML = "<span class=\"sr-only\">Permalink</span><i class=\"fa fa-link\"></i>";
+    anchor.title = "Permalink";
+    return anchor;
+  };
+
+  var linkifyAnchors = function (level, containingElement) {
+    var headers = containingElement.getElementsByTagName("h" + level);
+    for (var h = 0; h < headers.length; h++) {
+      var header = headers[h];
+
+      if (typeof header.id !== "undefined" && header.id !== "") {
+        header.appendChild(anchorForId(header.id));
+      }
+    }
+  };
+
+  document.onreadystatechange = function () {
+    if (this.readyState === "complete") {
+      var contentBlock = document.getElementsByClassName("docs")[0] || document.getElementsByClassName("news")[0];
+      if (!contentBlock) {
+        return;
+      }
+      for (var level = 1; level <= 6; level++) {
+        linkifyAnchors(level, contentBlock);
+      }
+    }
+  };
+</script>
+
+  
+  <!-- Google Analytics (https://www.google.com/analytics) -->
+  <script>
+    !function(j,e,k,y,l,L){j.GoogleAnalyticsObject=y,j[y]||(j[y]=function(){
+    (j[y].q=j[y].q||[]).push(arguments)}),j[y].l=+new Date,l=e.createElement(k),
+    L=e.getElementsByTagName(k)[0],l.src='https://www.google-analytics.com/analytics.js',
+    L.parentNode.insertBefore(l,L)}(window,document,'script','ga');
+
+    ga('create', 'UA-119113988-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript"> docsearch({
+apiKey: '50fe39c839958dfad797000f33e2ec17',
+indexName: 'jekyllrb',
+inputSelector: '#docsearch-input',
+enhancedSearchInput: true,
+debug: false // Set debug to true if you want to inspect the dropdown
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1518 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="generator" content="Jekyll v3.8.1">
+  <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Laon Dreams • Simple, blog-aware, static sites" />
+  <link rel="alternate" type="application/atom+xml" title="Recent commits to Jekyll’s master branch" href="https://github.com/laondreams/laondreams/commits/master.atom">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic,900">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
+  <link rel="stylesheet" href="/css/screen.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>Higher-Order Functions and Lambdas | Laon Dreams • Simple, blog-aware, static sites</title>
+<meta name="generator" content="Jekyll v3.8.1" />
+<meta property="og:title" content="Higher-Order Functions and Lambdas" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Higher-Order Functions and Lambdas" />
+<meta property="og:description" content="Higher-Order Functions and Lambdas" />
+<link rel="canonical" href="http://localhost:4000/news/2018/05/15/kotlinlang-lambdas/" />
+<meta property="og:url" content="http://localhost:4000/news/2018/05/15/kotlinlang-lambdas/" />
+<meta property="og:site_name" content="Laon Dreams • Simple, blog-aware, static sites" />
+<meta property="og:image" content="http://localhost:4000/img/twitter-card.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-05-15T00:00:00+09:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@laondreams" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/news/2018/05/15/kotlinlang-lambdas/","image":"http://localhost:4000/img/twitter-card.png","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/img/LaonDreams.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/news/2018/05/15/kotlinlang-lambdas/"},"description":"Higher-Order Functions and Lambdas","@type":"BlogPosting","headline":"Higher-Order Functions and Lambdas","dateModified":"2018-05-15T00:00:00+09:00","datePublished":"2018-05-15T00:00:00+09:00","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <!--[if lt IE 9]>
+  <script src="/js/html5shiv.min.js"></script>
+  <script src="/js/respond.min.js"></script>
+  <![endif]-->
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-8484034453879329",
+          enable_page_level_ads: true
+      });
+  </script>
+</head>
+
+
+<body class="wrap">
+  <header>
+  <div class="flexbox">
+    <div class="center-on-mobiles">
+      <h1>
+        <a href="/" class="logo">
+          <span class="sr-only">Jekyll</span>
+          <img src="/img/LaonDreams.png" width="140" alt="LaonDreams Logo">
+        </a>
+      </h1>
+    </div>
+    <nav class="main-nav hide-on-mobiles">
+      <ul>
+  <li class="">
+    <a href="/">Home</a>
+  </li>
+  <li class="">
+    <a href="/docs/home/">Docs</a>
+  </li>
+  <li class="">
+    <a href="/news/">Posts</a>
+  </li>
+</ul>
+
+    </nav>
+    <div class="meta hide-on-mobiles">
+    </div>
+    <div class="meta hide-on-mobiles">
+    </div>
+    <div class="meta hide-on-mobiles">
+    </div>
+    <div class="meta hide-on-mobiles">
+    </div>
+  </div>
+  <nav class="mobile-nav show-on-mobiles">
+    <ul>
+  <li class="">
+    <a href="/">Home</a>
+  </li>
+  <li class="">
+    <a href="/docs/home/">Docs</a>
+  </li>
+  <li class="">
+    <a href="/news/">Posts</a>
+  </li>
+</ul>
+
+  </nav>
+</header>
+
+
+    <section class="news">
+    <div class="grid">
+
+      <div class="docs-nav-mobile unit whole show-on-mobiles">
+  <select onchange="if (this.value) window.location.href=this.value">
+    <option value="">Navigate the blog…</option>
+    <option value="/news/">Home</option>
+    <optgroup label="v1.x">
+      
+      <option value="/news/2018/05/15/kotlinlang-experimental-coroutines/">Using coroutines</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-command-line-library-js/">Creating a Kotlin JavaScript library with the Command Line Compiler</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-spring-boot-restful/">Creating a RESTful Web Service with Spring Boot</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-kotlin-android/">Getting started with Android and Kotlin</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-koans/">Kotlin Koans</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-index/">Tutorials</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-httpservlets/">Creating Web Applications with Http Servlets</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-edu-tools-learner/">Learning Kotlin with EduTools plugin</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-edu-tools-educator/">Teaching Kotlin with EduTools plugin</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-create-library-js/">Creating Kotlin/JavaScript library with IntelliJ IDEA</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-coroutines-basic-jvm/">Introduction to Kotlin Coroutines on the JVM</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-command-line/">Working with the Command Line Compiler</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-command-line-library-js/">Creating Kotlin/JavaScript library with the Command Line Compiler</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-build-tools/">Working with Build Tools</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-android-plugin/">Kotlin Android Extensions</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-android-frameworks/">Android Frameworks Using Annotation Processing</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-whatsnew12/">What's New in Kotlin 1.2</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-whatsnew11/">What's New in Kotlin 1.1</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-visibility-modifiers/">Visibility Modifiers</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-using-maven/">Using Maven</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-using-gradle/">Using Gradle</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-using-ant/">Using Ant</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-typecasts/">Type Checks and Casts: 'is' and 'as'</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-type-safe-builders/">Type-Safe Builders</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-type-aliases/">Type aliases (since 1.1)</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-this-expressions/">This expressions</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-server-overview/">Kotlin for Server Side</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-sealed-classes/">Sealed Classes</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-returns/">Returns and Jumps: break and continue</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-reflection/">Reflection</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-ranges/">Ranges</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-properties/">Properties and Fields: Getters, Setters, const, lateinit</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-packages/">Packages and Imports</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-operator-overloading/">Operator overloading</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-object-declarations/">Object Expressions, Object Declarations and Companion Objects</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-null-safety/">Null Safety</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-nested-classes/">Nested and Inner Classes</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-native-overview/">Kotlin/Native</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-multiplatform/">Multiplatform Projects</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-multi-declarations/">Destructuring Declarations</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-lambdas/">Higher-Order Functions and Lambdas</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-kotlin-osgi/">Kotlin and OSGi</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-kotlin-doc/">Documenting Kotlin Code</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-kotlin-build-tools/">Kotlin Build Tools</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-keyword-reference/">Keywords and Operators</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-kapt/">Using kapt</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-js-to-kotlin-interop/">Calling Kotlin from JavaScript</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-js-reflection/">JavaScript Reflection</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-js-overview/">Kotlin for JavaScript</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-js-modules/">JavaScript Modules</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-js-interop/">Calling JavaScript from Kotlin</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-javascript-dce/">JavaScript DCE</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-java-to-kotlin-interop/">Calling Kotlin from Java</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-java-interop/">Calling Java from Kotlin</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-interfaces/">Interfaces</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-inline-functions/">Inline Functions and Reified Type Parameters</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-index/">Reference</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-idioms/">Idioms</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-generics/">Generics: in, out, where</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-functions/">Functions: infix, vararg, tailrec</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-faq/">FAQ</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-extensions/">Extensions</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-exceptions/">Exceptions: try, catch, finally, throw, Nothing</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-equality/">Equality</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-enum-classes/">Enum Classes</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-dynamic-type/">Dynamic Type</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-delegation/">Delegation</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-delegated-properties/">Delegated Properties</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-data-classes/">Data Classes</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-coroutines/">Coroutines</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-control-flow/">Control Flow: if, when, for, while</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-compiler-plugins/">Compiler Plugins</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-compatibility/">Compatibility</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-comparison-to-java/">Comparison to Java</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-collections/">Collections: List, Set, Map</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-coding-conventions/">Coding Conventions</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-classes/">Classes and Inheritance</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-basic-types/">Basic Types: Numbers, Strings, Arrays</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-basic-syntax/">Basic Syntax</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-annotations/">Annotations</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-android-overview/">Kotlin for Android</option>
+      
+      <option value="/news/2018/05/13/android-01/">Kotlin Programming Language</option>
+      
+      <option value="/news/2018/01/24/kotlinlang-gradle-for-kotlin-native/">Gradle for Kotlin/Native</option>
+      
+      <option value="/news/2018/01/23/kotlinlang-kotlin-native-with-clion/">Kotlin/Native with CLion</option>
+      
+      <option value="/news/2018/01/22/kotlinlang-working-with-klib/">Working with Kotlin/Native Libraries</option>
+      
+      <option value="/news/2018/01/09/kotlinlang-interop-with-c/">Interop with C Libraries</option>
+      
+      <option value="/news/2017/12/03/kotlinlang-basic-kotlin-native-app/">A Basic Kotlin/Native Application</option>
+      
+      <option value="/news/2017/07/31/kotlinlang-debugging-javascript/">Debugging Kotlin in browser</option>
+      
+      <option value="/news/2017/05/04/kotlinlang-getting-started/">Getting Started with IntelliJ IDEA</option>
+      
+      <option value="/news/2017/02/27/kotlinlang-working-with-javascript/">Working with JavaScript</option>
+      
+      <option value="/news/2016/12/03/gradle-tip/">Android Gradle Tips</option>
+      
+      <option value="/news/2016/11/10/kotlinlang-getting-started-eclipse/">Getting Started with Eclipse Neon</option>
+      
+      <option value="/news/2016/11/04/kotlinlang-getting-started-with-maven/">Getting Started with Kotlin and JavaScript with Maven</option>
+      
+      <option value="/news/2016/11/04/kotlinlang-getting-started-with-gradle/">Getting Started with Kotlin and JavaScript with Gradle</option>
+      
+      <option value="/news/2016/10/07/kotlinlang-calling-javascript-from-kotlin/">Calling JavaScript from Kotlin</option>
+      
+      <option value="/news/2016/09/30/kotlinlang-working-with-modules/">Working with Kotlin and JavaScript Modules</option>
+      
+      <option value="/news/2016/09/30/kotlinlang-getting-started-with-intellij-idea/">Getting Started with Kotlin and JavaScript with IntelliJ IDEA</option>
+      
+      <option value="/news/2016/09/29/kotlinlang-kotlin-to-javascript/">Kotlin to JavaScript</option>
+      
+      <option value="/news/2016/07/26/android-database-tip/">Android 의 Sqlite Tip</option>
+      
+      <option value="/news/2016/04/16/migration-to-retrofit2/">Retrofit2 로 전환</option>
+      
+      <option value="/news/2016/02/12/Android-and-automation/">안드로이드와 자동화 툴</option>
+      
+      <option value="/news/2015/11/26/%EB%8D%94-%EB%B9%A0%EB%A5%B8-Andriod-App-Build/">더 빠른 Android App Build</option>
+      
+      <option value="/news/2015/03/10/.androidannotations-%EC%99%80-MVP/">AndroidAnnotations 와 MVP</option>
+      
+      <option value="/news/2015/03/01/04.androidannotation-%EA%B3%BC-%ED%85%8C%EC%8A%A4%ED%8A%B8/">AndroidAnnotations 과 테스트</option>
+      
+      <option value="/news/2015/03/01/03.androidannotation-%EA%B3%BC-mvc/">AndroidAnnotations 과 MVC 패턴</option>
+      
+      <option value="/news/2015/03/01/02.android-%EC%99%80-annotation/">Android 와 Annotation</option>
+      
+      <option value="/news/2015/03/01/01.Android-mvc-mvvm-mvp/">Android 와 개발 패턴</option>
+      
+      <option value="/news/2015/02/02/kotlinlang-kotlin-and-ci/">Kotlin and Continuous Integration with TeamCity</option>
+      
+      <option value="/news/2014/09/23/kotlinlang-mixing-java-kotlin-intellij/">Mixing Java and Kotlin in one project</option>
+      
+    </optgroup>
+  </select>
+</div>
+
+
+      <div class="unit four-fifths">
+        <article>
+  <h2>
+    Higher-Order Functions and Lambdas
+    <a href="/news/2018/05/15/kotlinlang-lambdas/" class="header-link" title="Permalink">
+      <span class="sr-only">Permalink</span>
+      <i class="fa fa-link"></i>
+    </a>
+  </h2>
+  <span class="post-category">
+    <span class="label">
+      Syntax
+    </span>
+  </span>
+  <div class="post-meta">
+    <span class="post-date">
+      15 May 2018
+    </span>
+    
+    <a href="https://github.com/" class="post-author">
+      <img class="avatar avatar-small" alt="author" width="24" height="24" data-proofer-ignore="true" src="https://avatars3.githubusercontent.com/author?v=3&amp;s=24" srcset="https://avatars3.githubusercontent.com/author?v=3&amp;s=24 1x, https://avatars3.githubusercontent.com/author?v=3&amp;s=48 2x, https://avatars3.githubusercontent.com/author?v=3&amp;s=72 3x, https://avatars3.githubusercontent.com/author?v=3&amp;s=96 4x">
+      
+    </a>
+  </div>
+  <div class="post-content">
+    <h1 id="higher-order-functions-and-lambdas">Higher-Order Functions and Lambdas</h1>
+
+<p>Kotlin functions are <a href="https://en.wikipedia.org/wiki/First-class_function"><em>first-class</em></a>, which means that they can 
+be stored in variables and data structures, passed as arguments to and returned from other 
+<a href="#higher-order-functions">higher-order functions</a>. You can operate with functions in any way that is possible for other 
+non-function values.</p>
+
+<p>To facilitate this, Kotlin, as a statically typed programming language, uses a family of 
+<a href="#function-types">function types</a> to represent functions and provides a set of specialized language constructs, such as <a href="#lambda-expressions-and-anonymous-functions">lambda expressions</a>.</p>
+
+<h2 id="higher-order-functions">Higher-Order Functions</h2>
+
+<p>A higher-order function is a function that takes functions as parameters, or returns a function.</p>
+
+<p>A good example is the <a href="https://en.wikipedia.org/wiki/Fold_(higher-order_function)">functional programming idiom <code class="highlighter-rouge">fold</code></a> 
+for collections, which takes an initial accumulator value and a combining function and builds its return value by 
+consecutively combining current accumulator value with each collection element, replacing the accumulator:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="p">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">R</span><span class="p">&gt;</span> <span class="n">Collection</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;.</span><span class="n">fold</span><span class="p">(</span>
+    <span class="n">initial</span><span class="p">:</span> <span class="n">R</span><span class="p">,</span> 
+    <span class="n">combine</span><span class="p">:</span> <span class="p">(</span><span class="n">acc</span><span class="p">:</span> <span class="n">R</span><span class="p">,</span> <span class="n">nextElement</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">R</span>
+<span class="p">):</span> <span class="n">R</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="py">accumulator</span><span class="p">:</span> <span class="n">R</span> <span class="p">=</span> <span class="n">initial</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">element</span><span class="p">:</span> <span class="n">T</span> <span class="k">in</span> <span class="k">this</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">accumulator</span> <span class="p">=</span> <span class="n">combine</span><span class="p">(</span><span class="n">accumulator</span><span class="p">,</span> <span class="n">element</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">accumulator</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>In the code above, the parameter <code class="highlighter-rouge">combine</code> has a <a href="#function-types">function type</a> <code class="highlighter-rouge">(R, T) -&gt; R</code>, so it accepts a function that 
+takes two arguments of types <code class="highlighter-rouge">R</code> and <code class="highlighter-rouge">T</code> and returns a value of type <code class="highlighter-rouge">R</code>. 
+It is <a href="#invoking-a-function-type-instance">invoked</a> inside the <em class="keyword">for</em>-loop, and the return value is 
+then assigned to <code class="highlighter-rouge">accumulator</code>.</p>
+
+<p>To call <code class="highlighter-rouge">fold</code>, we need to pass it an <a href="#instantiating-a-function-type">instance of the function type</a> as an argument, and lambda expressions (<a href="#lambda-expressions-and-anonymous-functions">described in more detail below</a>) are widely used for 
+this purpose at higher-order function call sites:</p>
+
+<div class="sample">
+
+  <div class="language-kotlin highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="n">main</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="n">Array</span><span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;)</span> <span class="p">{</span>
+    <span class="c1">//sampleStart</span>
+    <span class="kd">val</span> <span class="py">items</span> <span class="p">=</span> <span class="n">listOf</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="p">)</span>
+    
+    <span class="c1">// Lambdas are code blocks enclosed in curly braces.</span>
+    <span class="n">items</span><span class="p">.</span><span class="n">fold</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="p">{</span> 
+        <span class="c1">// When a lambda has parameters, they go first, followed by '-&gt;'</span>
+        <span class="n">acc</span><span class="p">:</span> <span class="n">Int</span><span class="p">,</span> <span class="n">i</span><span class="p">:</span> <span class="n">Int</span> <span class="p">-&gt;</span> 
+        <span class="n">print</span><span class="p">(</span><span class="s">"acc = $acc, i = $i, "</span><span class="p">)</span> 
+        <span class="kd">val</span> <span class="py">result</span> <span class="p">=</span> <span class="n">acc</span> <span class="p">+</span> <span class="n">i</span>
+        <span class="n">println</span><span class="p">(</span><span class="s">"result = $result"</span><span class="p">)</span>
+        <span class="c1">// The last expression in a lambda is considered the return value:</span>
+        <span class="n">result</span>
+    <span class="p">})</span>
+    
+    <span class="c1">// Parameter types in a lambda are optional if they can be inferred:</span>
+    <span class="kd">val</span> <span class="py">joinedToString</span> <span class="p">=</span> <span class="n">items</span><span class="p">.</span><span class="n">fold</span><span class="p">(</span><span class="s">"Elements:"</span><span class="p">,</span> <span class="p">{</span> <span class="n">acc</span><span class="p">,</span> <span class="n">i</span> <span class="p">-&gt;</span> <span class="n">acc</span> <span class="p">+</span> <span class="s">" "</span> <span class="p">+</span> <span class="n">i</span> <span class="p">})</span>
+    
+    <span class="c1">// Function references can also be used for higher-order function calls:</span>
+    <span class="kd">val</span> <span class="py">product</span> <span class="p">=</span> <span class="n">items</span><span class="p">.</span><span class="n">fold</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="n">Int</span><span class="o">::</span><span class="n">times</span><span class="p">)</span>
+    <span class="c1">//sampleEnd</span>
+    <span class="n">println</span><span class="p">(</span><span class="s">"joinedToString = $joinedToString"</span><span class="p">)</span>
+    <span class="n">println</span><span class="p">(</span><span class="s">"product = $product"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>  </div>
+</div>
+
+<p>The following sections explain in more detail the concepts mentioned so far.</p>
+
+<h2 id="function-types">Function types</h2>
+
+<p>Kotlin uses a family of function types like <code class="highlighter-rouge">(Int) -&gt; String</code> for declarations that deal with functions: <code class="highlighter-rouge">val onClick: () -&gt; Unit = ...</code>.</p>
+
+<p>These types have a special notation that corresponds to the signatures of the functions, i.e. their parameters and return values:</p>
+
+<ul>
+  <li>
+    <p>All function types have a parenthesized parameter types list and a return type: <code class="highlighter-rouge">(A, B) -&gt; C</code> denotes a type that
+ represents functions taking two arguments of types <code class="highlighter-rouge">A</code> and <code class="highlighter-rouge">B</code> and returning a value of type <code class="highlighter-rouge">C</code>. 
+ The parameter types list may be empty, as in <code class="highlighter-rouge">() -&gt; A</code>. The <a href="functions.html#unit-returning-functions"><code class="highlighter-rouge">Unit</code> return type</a> 
+ cannot be omitted.</p>
+  </li>
+  <li>
+    <p>Function types can optionally have an additional <em>receiver</em> type, which is specified before a dot in the notation:
+ the type <code class="highlighter-rouge">A.(B) -&gt; C</code> represents functions that can be called on a receiver object of <code class="highlighter-rouge">A</code> with a parameter of <code class="highlighter-rouge">B</code> and
+ return a value of <code class="highlighter-rouge">C</code>.
+ <a href="#function-literals-with-receiver">Function literals with receiver</a> are often used along with these types.</p>
+  </li>
+  <li>
+    <p><a href="coroutines.html#suspending-functions">Suspending functions</a> belong to function types of a special kind, which have a <em class="keyword">suspend</em> modifier in the 
+ notation, such as <code class="highlighter-rouge">suspend () -&gt; Unit</code> or <code class="highlighter-rouge">suspend A.(B) -&gt; C</code>.</p>
+  </li>
+</ul>
+
+<p>The function type notation can optionally include names for the function parameters: <code class="highlighter-rouge">(x: Int, y: Int) -&gt; Point</code>.
+These names can be used for documenting the meaning of the parameters.</p>
+
+<blockquote>
+  <p>To specify that a function type is <a href="null-safety.html#nullable-types-and-non-null-types">nullable</a>, use parentheses: <code class="highlighter-rouge">((Int, Int) -&gt; Int)?</code>.</p>
+
+  <p>Function types can be combined using parentheses: <code class="highlighter-rouge">(Int) -&gt; ((Int) -&gt; Unit)</code></p>
+
+  <p>The arrow notation is right-associative, <code class="highlighter-rouge">(Int) -&gt; (Int) -&gt; Unit</code> is equivalent to the previous example, but not to 
+<code class="highlighter-rouge">((Int) -&gt; (Int)) -&gt; Unit</code>.</p>
+</blockquote>
+
+<p>You can also give a function type an alternative name by using <a href="type-aliases.html">a type alias</a>:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">typealias</span> <span class="n">ClickHandler</span> <span class="p">=</span> <span class="p">(</span><span class="n">Button</span><span class="p">,</span> <span class="n">ClickEvent</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">Unit</span>
+</code></pre></div></div>
+
+<h3 id="instantiating-a-function-type">Instantiating a function type</h3>
+
+<p>There are several ways to obtain an instance of a function type:</p>
+
+<ul>
+  <li>Using a code block within a function literal, in one of the forms:
+    <ul>
+      <li>a <a href="#lambda-expressions-and-anonymous-functions">lambda expression</a>: <code class="highlighter-rouge">{ a, b -&gt; a + b }</code>,</li>
+      <li>an <a href="#anonymous-functions">anonymous function</a>: <code class="highlighter-rouge">fun(s: String): Int { return s.toIntOrNull() ?: 0 }</code>
+</li>
+    </ul>
+
+    <p><a href="#function-literals-with-receiver">Function literals with receiver</a> can be used as values of function types with receiver.</p>
+  </li>
+  <li>Using a callable reference to an existing declaration:
+    <ul>
+      <li>a top-level, local, member, or extension <a href="reflection.html#function-references">function</a>: <code class="highlighter-rouge">::isOdd</code>, <code class="highlighter-rouge">String::toInt</code>,</li>
+      <li>a top-level, member, or extension <a href="reflection.html#property-references">property</a>: <code class="highlighter-rouge">List&lt;Int&gt;::size</code>,</li>
+      <li>a <a href="reflection.html#constructor-references">constructor</a>: <code class="highlighter-rouge">::Regex</code>
+</li>
+    </ul>
+
+    <p>These include <a href="reflection.html#bound-function-and-property-references-since-11">bound callable references</a> that point to a member of a particular instance: <code class="highlighter-rouge">foo::toString</code>.</p>
+  </li>
+  <li>
+    <p>Using instances of a custom class that implements a function type as an interface:</p>
+
+    <div class="language-kotlin highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>  <span class="kd">class</span> <span class="nc">IntTransformer</span><span class="p">:</span> <span class="p">(</span><span class="n">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">Int</span> <span class="p">{</span>
+      <span class="k">override</span> <span class="k">operator</span> <span class="k">fun</span> <span class="n">invoke</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Int</span><span class="p">):</span> <span class="n">Int</span> <span class="p">=</span> <span class="n">TODO</span><span class="p">()</span>
+  <span class="p">}</span>
+    
+  <span class="kd">val</span> <span class="py">intFunction</span><span class="p">:</span> <span class="p">(</span><span class="n">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">Int</span> <span class="p">=</span> <span class="n">IntTransformer</span><span class="p">()</span> 
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>The compiler can infer the function types for variables if there is enough information:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">a</span> <span class="p">=</span> <span class="p">{</span> <span class="n">i</span><span class="p">:</span> <span class="n">Int</span> <span class="p">-&gt;</span> <span class="n">i</span> <span class="p">+</span> <span class="m">1</span> <span class="p">}</span> <span class="c1">// The inferred type is (Int) -&gt; Int</span>
+</code></pre></div></div>
+
+<p><em>Non-literal</em> values of function types with and without receiver are interchangeable, so that the receiver can stand in 
+for the first parameter, and vice versa. For instance, a value of type <code class="highlighter-rouge">(A, B) -&gt; C</code> can be passed or assigned 
+ where a <code class="highlighter-rouge">A.(B) -&gt; C</code> is expected and the other way around:</p>
+
+<div class="sample">
+
+  <div class="language-kotlin highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="n">main</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="n">Array</span><span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;)</span> <span class="p">{</span>
+    <span class="c1">//sampleStart</span>
+    <span class="kd">val</span> <span class="py">repeat</span><span class="p">:</span> <span class="n">String</span><span class="p">.(</span><span class="n">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">String</span> <span class="p">=</span> <span class="p">{</span> <span class="n">times</span> <span class="p">-&gt;</span> <span class="n">repeat</span><span class="p">(</span><span class="n">times</span><span class="p">)</span> <span class="p">}</span>
+    <span class="kd">val</span> <span class="py">twoParameters</span><span class="p">:</span> <span class="p">(</span><span class="n">String</span><span class="p">,</span> <span class="n">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">String</span> <span class="p">=</span> <span class="n">repeat</span> <span class="c1">// OK</span>
+    
+    <span class="k">fun</span> <span class="n">runTransformation</span><span class="p">(</span><span class="n">f</span><span class="p">:</span> <span class="p">(</span><span class="n">String</span><span class="p">,</span> <span class="n">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">String</span><span class="p">):</span> <span class="n">String</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="s">"hello"</span><span class="p">,</span> <span class="m">3</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="kd">val</span> <span class="py">result</span> <span class="p">=</span> <span class="n">runTransformation</span><span class="p">(</span><span class="n">repeat</span><span class="p">)</span> <span class="c1">// OK</span>
+    <span class="c1">//sampleEnd</span>
+    <span class="n">println</span><span class="p">(</span><span class="s">"result = $result"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>  </div>
+</div>
+
+<blockquote>
+  <p>Note that a function type with no receiver is inferred by default, even if a variable is initialized with a reference
+to an extension function. 
+To alter that, specify the variable type explicitly.</p>
+</blockquote>
+
+<h3 id="invoking-a-function-type-instance">Invoking a function type instance</h3>
+
+<p>A value of a function type can be invoked by using its <a href="operator-overloading.html#invoke"><code class="highlighter-rouge">invoke(...)</code> operator</a>: <code class="highlighter-rouge">f.invoke(x)</code> or just <code class="highlighter-rouge">f(x)</code>.</p>
+
+<p>If the value has a receiver type, the receiver object should be passed as the first argument.
+Another way to invoke a value of a function type with receiver is to prepend it with the receiver object,
+as if the value were an <a href="extensions.html">extension function</a>: <code class="highlighter-rouge">1.foo(2)</code>,</p>
+
+<p>Example:</p>
+
+<div class="sample">
+
+  <div class="language-kotlin highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="n">main</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="n">Array</span><span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;)</span> <span class="p">{</span>
+    <span class="c1">//sampleStart</span>
+    <span class="kd">val</span> <span class="py">stringPlus</span><span class="p">:</span> <span class="p">(</span><span class="n">String</span><span class="p">,</span> <span class="n">String</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">String</span> <span class="p">=</span> <span class="n">String</span><span class="o">::</span><span class="n">plus</span>
+    <span class="kd">val</span> <span class="py">intPlus</span><span class="p">:</span> <span class="n">Int</span><span class="p">.(</span><span class="n">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">Int</span> <span class="p">=</span> <span class="n">Int</span><span class="o">::</span><span class="n">plus</span>
+    
+    <span class="n">println</span><span class="p">(</span><span class="n">stringPlus</span><span class="p">.</span><span class="n">invoke</span><span class="p">(</span><span class="s">"&lt;-"</span><span class="p">,</span> <span class="s">"-&gt;"</span><span class="p">))</span>
+    <span class="n">println</span><span class="p">(</span><span class="n">stringPlus</span><span class="p">(</span><span class="s">"Hello, "</span><span class="p">,</span> <span class="s">"world!"</span><span class="p">))</span> 
+    
+    <span class="n">println</span><span class="p">(</span><span class="n">intPlus</span><span class="p">.</span><span class="n">invoke</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">))</span>
+    <span class="n">println</span><span class="p">(</span><span class="n">intPlus</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">))</span>
+    <span class="n">println</span><span class="p">(</span><span class="m">2</span><span class="p">.</span><span class="n">intPlus</span><span class="p">(</span><span class="m">3</span><span class="p">))</span> <span class="c1">// extension-like call</span>
+    <span class="c1">//sampleEnd</span>
+<span class="p">}</span>
+</code></pre></div>  </div>
+</div>
+
+<h3 id="inline-functions">Inline functions</h3>
+
+<p>Sometimes it is beneficial to use <a href="inline-functions.html">inline functions</a>, which provide flexible control flow,
+for higher-order functions.</p>
+
+<h2 id="lambda-expressions-and-anonymous-functions">Lambda Expressions and Anonymous Functions</h2>
+
+<p>Lambda expressions and anonymous functions are ‘function literals’, i.e. functions that are not declared,
+but passed immediately as an expression. Consider the following example:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">max</span><span class="p">(</span><span class="n">strings</span><span class="p">,</span> <span class="p">{</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="p">-&gt;</span> <span class="n">a</span><span class="p">.</span><span class="n">length</span> <span class="p">&lt;</span> <span class="n">b</span><span class="p">.</span><span class="n">length</span> <span class="p">})</span>
+</code></pre></div></div>
+
+<p>Function <code class="highlighter-rouge">max</code> is a higher-order function, it takes a function value as the second argument.
+This second argument is an expression that is itself a function, i.e. a function literal, which is equivalent to
+the following named function:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="n">compare</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="n">String</span><span class="p">):</span> <span class="n">Boolean</span> <span class="p">=</span> <span class="n">a</span><span class="p">.</span><span class="n">length</span> <span class="p">&lt;</span> <span class="n">b</span><span class="p">.</span><span class="n">length</span>
+</code></pre></div></div>
+
+<h3 id="lambda-expression-syntax">Lambda expression syntax</h3>
+
+<p>The full syntactic form of lambda expressions is as follows:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">sum</span> <span class="p">=</span> <span class="p">{</span> <span class="n">x</span><span class="p">:</span> <span class="n">Int</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">Int</span> <span class="p">-&gt;</span> <span class="n">x</span> <span class="p">+</span> <span class="n">y</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<p>A lambda expression is always surrounded by curly braces,
+parameter declarations in the full syntactic form go inside curly braces and have optional type annotations,
+the body goes after an <code class="highlighter-rouge">-&gt;</code> sign. If the inferred return type of the lambda is not <code class="highlighter-rouge">Unit</code>, the last (or possibly single) expression inside the lambda body is treated as the return value.</p>
+
+<p>If we leave all the optional annotations out, what’s left looks like this:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">sum</span><span class="p">:</span> <span class="p">(</span><span class="n">Int</span><span class="p">,</span> <span class="n">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">Int</span> <span class="p">=</span> <span class="p">{</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">-&gt;</span> <span class="n">x</span> <span class="p">+</span> <span class="n">y</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="passing-a-lambda-to-the-last-parameter">Passing a lambda to the last parameter</h3>
+
+<p>In Kotlin, there is a convention that if the last parameter of a function accepts a function, a lambda expression that is 
+passed as the corresponding argument can be placed outside the parentheses:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">product</span> <span class="p">=</span> <span class="n">items</span><span class="p">.</span><span class="n">fold</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="p">{</span> <span class="n">acc</span><span class="p">,</span> <span class="n">e</span> <span class="p">-&gt;</span> <span class="n">acc</span> <span class="p">*</span> <span class="n">e</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<p>If the lambda is the only argument to that call, the parentheses can be omitted entirely:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">run</span> <span class="p">{</span> <span class="n">println</span><span class="p">(</span><span class="s">"..."</span><span class="p">)</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="it-implicit-name-of-a-single-parameter">
+<code class="highlighter-rouge">it</code>: implicit name of a single parameter</h3>
+
+<p>It’s very common that a lambda expression has only one parameter.</p>
+
+<p>If the compiler can figure the signature out itself, it is allowed not to declare the only parameter and omit <code class="highlighter-rouge">-&gt;</code>. 
+The parameter will be implicitly declared under the name <code class="highlighter-rouge">it</code>:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ints</span><span class="p">.</span><span class="n">filter</span> <span class="p">{</span> <span class="n">it</span> <span class="p">&gt;</span> <span class="m">0</span> <span class="p">}</span> <span class="c1">// this literal is of type '(it: Int) -&gt; Boolean'</span>
+</code></pre></div></div>
+
+<h3 id="returning-a-value-from-a-lambda-expression">Returning a value from a lambda expression</h3>
+
+<p>We can explicitly return a value from the lambda using the <a href="returns.html#return-at-labels">qualified return</a> syntax. 
+Otherwise, the value of the last expression is implicitly returned.</p>
+
+<p>Therefore, the two following snippets are equivalent:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ints</span><span class="p">.</span><span class="n">filter</span> <span class="p">{</span>
+    <span class="kd">val</span> <span class="py">shouldFilter</span> <span class="p">=</span> <span class="n">it</span> <span class="p">&gt;</span> <span class="m">0</span> 
+    <span class="n">shouldFilter</span>
+<span class="p">}</span>
+
+<span class="n">ints</span><span class="p">.</span><span class="n">filter</span> <span class="p">{</span>
+    <span class="kd">val</span> <span class="py">shouldFilter</span> <span class="p">=</span> <span class="n">it</span> <span class="p">&gt;</span> <span class="m">0</span> 
+    <span class="k">return</span><span class="n">@filter</span> <span class="n">shouldFilter</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>This convention, along with <a href="#passing-a-lambda-to-the-last-parameter">passing a lambda expression outside parentheses</a>, allows for 
+<a href="http://msdn.microsoft.com/en-us/library/bb308959.aspx">LINQ-style</a> code:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">strings</span><span class="p">.</span><span class="n">filter</span> <span class="p">{</span> <span class="n">it</span><span class="p">.</span><span class="n">length</span> <span class="p">==</span> <span class="m">5</span> <span class="p">}.</span><span class="n">sortedBy</span> <span class="p">{</span> <span class="n">it</span> <span class="p">}.</span><span class="n">map</span> <span class="p">{</span> <span class="n">it</span><span class="p">.</span><span class="n">toUpperCase</span><span class="p">()</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="underscore-for-unused-variables-since-11">Underscore for unused variables (since 1.1)</h3>
+
+<p>If the lambda parameter is unused, you can place an underscore instead of its name:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">map</span><span class="p">.</span><span class="n">forEach</span> <span class="p">{</span> <span class="n">_</span><span class="p">,</span> <span class="n">value</span> <span class="p">-&gt;</span> <span class="n">println</span><span class="p">(</span><span class="s">"$value!"</span><span class="p">)</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="destructuring-in-lambdas-since-11">Destructuring in lambdas (since 1.1)</h3>
+
+<p>Destructuring in lambdas is described as a part of <a href="multi-declarations.html#destructuring-in-lambdas-since-11">destructuring declarations</a>.</p>
+
+<h3 id="anonymous-functions">Anonymous functions</h3>
+
+<p>One thing missing from the lambda expression syntax presented above is the ability to specify the return type of the
+function. In most cases, this is unnecessary because the return type can be inferred automatically. However, if you
+do need to specify it explicitly, you can use an alternative syntax: an <em>anonymous function</em>.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Int</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">Int</span><span class="p">):</span> <span class="n">Int</span> <span class="p">=</span> <span class="n">x</span> <span class="p">+</span> <span class="n">y</span>
+</code></pre></div></div>
+
+<p>An anonymous function looks very much like a regular function declaration, except that its name is omitted. Its body
+can be either an expression (as shown above) or a block:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Int</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">Int</span><span class="p">):</span> <span class="n">Int</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="p">+</span> <span class="n">y</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The parameters and the return type are specified in the same way as for regular functions, except that the parameter
+types can be omitted if they can be inferred from context:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ints</span><span class="p">.</span><span class="n">filter</span><span class="p">(</span><span class="k">fun</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="p">=</span> <span class="n">item</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>The return type inference for anonymous functions works just like for normal functions: the return type is inferred
+automatically for anonymous functions with an expression body and has to be specified explicitly (or is assumed to be
+<code class="highlighter-rouge">Unit</code>) for anonymous functions with a block body.</p>
+
+<p>Note that anonymous function parameters are always passed inside the parentheses. The shorthand syntax allowing
+to leave the function outside the parentheses works only for lambda expressions.</p>
+
+<p>One other difference between lambda expressions and anonymous functions is the behavior of
+<a href="inline-functions.html#non-local-returns">non-local returns</a>. A <em class="keyword">return</em>  statement without a label
+always returns from the function declared with the <em class="keyword">fun</em> keyword. This means that a <em class="keyword">return</em>
+inside a lambda expression will return from the enclosing function, whereas a <em class="keyword">return</em> inside
+an anonymous function will return from the anonymous function itself.</p>
+
+<h3 id="closures">Closures</h3>
+
+<p>A lambda expression or anonymous function (as well as a <a href="functions.html#local-functions">local function</a> and an <a href="object-declarations.html#object-expressions">object expression</a>)
+can access its <em>closure</em>, i.e. the variables declared in the outer scope. Unlike Java, the variables captured in the closure can be modified:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="py">sum</span> <span class="p">=</span> <span class="m">0</span>
+<span class="n">ints</span><span class="p">.</span><span class="n">filter</span> <span class="p">{</span> <span class="n">it</span> <span class="p">&gt;</span> <span class="m">0</span> <span class="p">}.</span><span class="n">forEach</span> <span class="p">{</span>
+    <span class="n">sum</span> <span class="p">+=</span> <span class="n">it</span>
+<span class="p">}</span>
+<span class="n">print</span><span class="p">(</span><span class="n">sum</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="function-literals-with-receiver">Function literals with receiver</h3>
+
+<p><a href="#function-types">Function types</a> with receiver, such as <code class="highlighter-rouge">A.(B) -&gt; C</code>, can be instantiated with a special form of function literals – 
+function literals with receiver.</p>
+
+<p>As said above, Kotlin provides the ability <a href="#invoking-a-function-type-instance">to call an instance</a> of a function type with receiver providing the <em>receiver object</em>.</p>
+
+<p>Inside the body of the function literal, the receiver object passed to a call becomes an <em>implicit</em> <em class="keyword">this</em>, so that you 
+can access the members of that receiver object without any additional qualifiers, or access the receiver object 
+using a <a href="this-expressions.html"><code class="highlighter-rouge">this</code> expression</a>.</p>
+
+<p>This behavior is similar to <a href="extensions.html">extension functions</a>, which also allow you to access the members of the receiver object 
+inside the body of the function.</p>
+
+<p>Here is an example of a function literal with receiver along with its type, where <code class="highlighter-rouge">plus</code> is called on the 
+receiver object:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">sum</span><span class="p">:</span> <span class="n">Int</span><span class="p">.(</span><span class="n">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">Int</span> <span class="p">=</span> <span class="p">{</span> <span class="n">other</span> <span class="p">-&gt;</span> <span class="n">plus</span><span class="p">(</span><span class="n">other</span><span class="p">)</span> <span class="p">}</span> 
+</code></pre></div></div>
+
+<p>The anonymous function syntax allows you to specify the receiver type of a function literal directly.
+This can be useful if you need to declare a variable of a function type with receiver, and to use it later.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">sum</span> <span class="p">=</span> <span class="k">fun</span> <span class="n">Int</span><span class="p">.(</span><span class="n">other</span><span class="p">:</span> <span class="n">Int</span><span class="p">):</span> <span class="n">Int</span> <span class="p">=</span> <span class="k">this</span> <span class="p">+</span> <span class="n">other</span>
+</code></pre></div></div>
+
+<p>Lambda expressions can be used as function literals with receiver when the receiver type can be inferred from context.
+One of the most important examples of their usage is <a href="type-safe-builders.html">type-safe builders</a>:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">HTML</span> <span class="p">{</span>
+    <span class="k">fun</span> <span class="n">body</span><span class="p">()</span> <span class="p">{</span> <span class="o">..</span><span class="p">.</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">fun</span> <span class="n">html</span><span class="p">(</span><span class="n">init</span><span class="p">:</span> <span class="n">HTML</span><span class="p">.()</span> <span class="p">-&gt;</span> <span class="n">Unit</span><span class="p">):</span> <span class="n">HTML</span> <span class="p">{</span>
+    <span class="kd">val</span> <span class="py">html</span> <span class="p">=</span> <span class="n">HTML</span><span class="p">()</span>  <span class="c1">// create the receiver object</span>
+    <span class="n">html</span><span class="p">.</span><span class="n">init</span><span class="p">()</span>        <span class="c1">// pass the receiver object to the lambda</span>
+    <span class="k">return</span> <span class="n">html</span>
+<span class="p">}</span>
+
+<span class="n">html</span> <span class="p">{</span>       <span class="c1">// lambda with receiver begins here</span>
+    <span class="n">body</span><span class="p">()</span>   <span class="c1">// calling a method on the receiver object</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+
+  </div>
+</article>
+
+      </div>
+
+      <div class="unit one-fifth hide-on-mobiles">
+  <aside>
+    <ul>
+      <li class="">
+        <a href="/news/">All Post</a>
+      </li>
+      <li class="">
+        <a href="/news/releases/">Kotlin Releases</a>
+      </li>
+    </ul>
+    <h4>Recent Releases</h4>
+    <ul>
+      
+    </ul>
+    <h4>Other Posts</h4>
+    <ul>
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-experimental-coroutines/">Using coroutines</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-command-line-library-js/">Creating a Kotlin JavaScript library with the Command Line Compiler</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-spring-boot-restful/">Creating a RESTful Web Service with Spring Boot</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-kotlin-android/">Getting started with Android and Kotlin</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-koans/">Kotlin Koans</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-index/">Tutorials</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-httpservlets/">Creating Web Applications with Http Servlets</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-edu-tools-learner/">Learning Kotlin with EduTools plugin</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-edu-tools-educator/">Teaching Kotlin with EduTools plugin</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-create-library-js/">Creating Kotlin/JavaScript library with IntelliJ IDEA</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-coroutines-basic-jvm/">Introduction to Kotlin Coroutines on the JVM</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-command-line/">Working with the Command Line Compiler</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-command-line-library-js/">Creating Kotlin/JavaScript library with the Command Line Compiler</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-build-tools/">Working with Build Tools</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-android-plugin/">Kotlin Android Extensions</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-android-frameworks/">Android Frameworks Using Annotation Processing</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-whatsnew12/">What's New in Kotlin 1.2</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-whatsnew11/">What's New in Kotlin 1.1</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-visibility-modifiers/">Visibility Modifiers</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-using-maven/">Using Maven</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-using-gradle/">Using Gradle</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-using-ant/">Using Ant</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-typecasts/">Type Checks and Casts: 'is' and 'as'</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-type-safe-builders/">Type-Safe Builders</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-type-aliases/">Type aliases (since 1.1)</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-this-expressions/">This expressions</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-server-overview/">Kotlin for Server Side</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-sealed-classes/">Sealed Classes</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-returns/">Returns and Jumps: break and continue</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-reflection/">Reflection</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-ranges/">Ranges</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-properties/">Properties and Fields: Getters, Setters, const, lateinit</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-packages/">Packages and Imports</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-operator-overloading/">Operator overloading</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-object-declarations/">Object Expressions, Object Declarations and Companion Objects</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-null-safety/">Null Safety</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-nested-classes/">Nested and Inner Classes</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-native-overview/">Kotlin/Native</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-multiplatform/">Multiplatform Projects</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-multi-declarations/">Destructuring Declarations</a>
+        </li>
+        
+        
+        
+        <li class="current">
+          <a href="/news/2018/05/15/kotlinlang-lambdas/">Higher-Order Functions and Lambdas</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-kotlin-osgi/">Kotlin and OSGi</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-kotlin-doc/">Documenting Kotlin Code</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-kotlin-build-tools/">Kotlin Build Tools</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-keyword-reference/">Keywords and Operators</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-kapt/">Using kapt</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-js-to-kotlin-interop/">Calling Kotlin from JavaScript</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-js-reflection/">JavaScript Reflection</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-js-overview/">Kotlin for JavaScript</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-js-modules/">JavaScript Modules</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-js-interop/">Calling JavaScript from Kotlin</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-javascript-dce/">JavaScript DCE</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-java-to-kotlin-interop/">Calling Kotlin from Java</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-java-interop/">Calling Java from Kotlin</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-interfaces/">Interfaces</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-inline-functions/">Inline Functions and Reified Type Parameters</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-index/">Reference</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-idioms/">Idioms</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-generics/">Generics: in, out, where</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-functions/">Functions: infix, vararg, tailrec</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-faq/">FAQ</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-extensions/">Extensions</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-exceptions/">Exceptions: try, catch, finally, throw, Nothing</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-equality/">Equality</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-enum-classes/">Enum Classes</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-dynamic-type/">Dynamic Type</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-delegation/">Delegation</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-delegated-properties/">Delegated Properties</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-data-classes/">Data Classes</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-coroutines/">Coroutines</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-control-flow/">Control Flow: if, when, for, while</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-compiler-plugins/">Compiler Plugins</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-compatibility/">Compatibility</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-comparison-to-java/">Comparison to Java</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-collections/">Collections: List, Set, Map</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-coding-conventions/">Coding Conventions</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-classes/">Classes and Inheritance</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-basic-types/">Basic Types: Numbers, Strings, Arrays</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-basic-syntax/">Basic Syntax</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-annotations/">Annotations</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-android-overview/">Kotlin for Android</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/13/android-01/">Kotlin Programming Language</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/01/24/kotlinlang-gradle-for-kotlin-native/">Gradle for Kotlin/Native</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/01/23/kotlinlang-kotlin-native-with-clion/">Kotlin/Native with CLion</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/01/22/kotlinlang-working-with-klib/">Working with Kotlin/Native Libraries</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/01/09/kotlinlang-interop-with-c/">Interop with C Libraries</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2017/12/03/kotlinlang-basic-kotlin-native-app/">A Basic Kotlin/Native Application</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2017/07/31/kotlinlang-debugging-javascript/">Debugging Kotlin in browser</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2017/05/04/kotlinlang-getting-started/">Getting Started with IntelliJ IDEA</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2017/02/27/kotlinlang-working-with-javascript/">Working with JavaScript</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2016/12/03/gradle-tip/">Android Gradle Tips</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2016/11/10/kotlinlang-getting-started-eclipse/">Getting Started with Eclipse Neon</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2016/11/04/kotlinlang-getting-started-with-maven/">Getting Started with Kotlin and JavaScript with Maven</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2016/11/04/kotlinlang-getting-started-with-gradle/">Getting Started with Kotlin and JavaScript with Gradle</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2016/10/07/kotlinlang-calling-javascript-from-kotlin/">Calling JavaScript from Kotlin</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2016/09/30/kotlinlang-working-with-modules/">Working with Kotlin and JavaScript Modules</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2016/09/30/kotlinlang-getting-started-with-intellij-idea/">Getting Started with Kotlin and JavaScript with IntelliJ IDEA</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2016/09/29/kotlinlang-kotlin-to-javascript/">Kotlin to JavaScript</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2016/07/26/android-database-tip/">Android 의 Sqlite Tip</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2016/04/16/migration-to-retrofit2/">Retrofit2 로 전환</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2016/02/12/Android-and-automation/">안드로이드와 자동화 툴</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2015/11/26/%EB%8D%94-%EB%B9%A0%EB%A5%B8-Andriod-App-Build/">더 빠른 Android App Build</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2015/03/10/.androidannotations-%EC%99%80-MVP/">AndroidAnnotations 와 MVP</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2015/03/01/04.androidannotation-%EA%B3%BC-%ED%85%8C%EC%8A%A4%ED%8A%B8/">AndroidAnnotations 과 테스트</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2015/03/01/03.androidannotation-%EA%B3%BC-mvc/">AndroidAnnotations 과 MVC 패턴</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2015/03/01/02.android-%EC%99%80-annotation/">Android 와 Annotation</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2015/03/01/01.Android-mvc-mvvm-mvp/">Android 와 개발 패턴</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2015/02/02/kotlinlang-kotlin-and-ci/">Kotlin and Continuous Integration with TeamCity</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2014/09/23/kotlinlang-mixing-java-kotlin-intellij/">Mixing Java and Kotlin in one project</a>
+        </li>
+        
+        
+    </ul>
+  </aside>
+</div>
+
+
+      <div class="clear"></div>
+
+    </div>
+  </section>
+
+
+  <footer>
+  <div class="grid">
+    <div class="unit one-third center-on-mobiles">
+      <p>
+        © 2018 Laon Dreams
+      <br>Contacts: <a href="mailto:laondreams@gmail.com">laondreams@gmail.com</a></p>
+    </div>
+    <div class="unit two-thirds align-right center-on-mobiles">
+      <p>
+        Proudly hosted by
+        <a href="https://github.com">
+          <img src="/img/footer-logo.png" width="100" height="30" alt="GitHub • Social coding">
+        </a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+  <script>
+  var anchorForId = function (id) {
+    var anchor = document.createElement("a");
+    anchor.className = "header-link";
+    anchor.href      = "#" + id;
+    anchor.innerHTML = "<span class=\"sr-only\">Permalink</span><i class=\"fa fa-link\"></i>";
+    anchor.title = "Permalink";
+    return anchor;
+  };
+
+  var linkifyAnchors = function (level, containingElement) {
+    var headers = containingElement.getElementsByTagName("h" + level);
+    for (var h = 0; h < headers.length; h++) {
+      var header = headers[h];
+
+      if (typeof header.id !== "undefined" && header.id !== "") {
+        header.appendChild(anchorForId(header.id));
+      }
+    }
+  };
+
+  document.onreadystatechange = function () {
+    if (this.readyState === "complete") {
+      var contentBlock = document.getElementsByClassName("docs")[0] || document.getElementsByClassName("news")[0];
+      if (!contentBlock) {
+        return;
+      }
+      for (var level = 1; level <= 6; level++) {
+        linkifyAnchors(level, contentBlock);
+      }
+    }
+  };
+</script>
+
+  
+  <!-- Google Analytics (https://www.google.com/analytics) -->
+  <script>
+    !function(j,e,k,y,l,L){j.GoogleAnalyticsObject=y,j[y]||(j[y]=function(){
+    (j[y].q=j[y].q||[]).push(arguments)}),j[y].l=+new Date,l=e.createElement(k),
+    L=e.getElementsByTagName(k)[0],l.src='https://www.google-analytics.com/analytics.js',
+    L.parentNode.insertBefore(l,L)}(window,document,'script','ga');
+
+    ga('create', 'UA-119113988-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript"> docsearch({
+apiKey: '50fe39c839958dfad797000f33e2ec17',
+indexName: 'jekyllrb',
+inputSelector: '#docsearch-input',
+enhancedSearchInput: true,
+debug: false // Set debug to true if you want to inspect the dropdown
+});
+</script>
+
+</body>
+</html>

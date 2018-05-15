@@ -1,0 +1,1414 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="generator" content="Jekyll v3.8.1">
+  <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Laon Dreams • Simple, blog-aware, static sites" />
+  <link rel="alternate" type="application/atom+xml" title="Recent commits to Jekyll’s master branch" href="https://github.com/laondreams/laondreams/commits/master.atom">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic,900">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
+  <link rel="stylesheet" href="/css/screen.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>Generics: in, out, where | Laon Dreams • Simple, blog-aware, static sites</title>
+<meta name="generator" content="Jekyll v3.8.1" />
+<meta property="og:title" content="Generics: in, out, where" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Generics" />
+<meta property="og:description" content="Generics" />
+<link rel="canonical" href="http://localhost:4000/news/2018/05/15/kotlinlang-generics/" />
+<meta property="og:url" content="http://localhost:4000/news/2018/05/15/kotlinlang-generics/" />
+<meta property="og:site_name" content="Laon Dreams • Simple, blog-aware, static sites" />
+<meta property="og:image" content="http://localhost:4000/img/twitter-card.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-05-15T00:00:00+09:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@laondreams" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/news/2018/05/15/kotlinlang-generics/","image":"http://localhost:4000/img/twitter-card.png","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/img/LaonDreams.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/news/2018/05/15/kotlinlang-generics/"},"description":"Generics","@type":"BlogPosting","headline":"Generics: in, out, where","dateModified":"2018-05-15T00:00:00+09:00","datePublished":"2018-05-15T00:00:00+09:00","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <!--[if lt IE 9]>
+  <script src="/js/html5shiv.min.js"></script>
+  <script src="/js/respond.min.js"></script>
+  <![endif]-->
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-8484034453879329",
+          enable_page_level_ads: true
+      });
+  </script>
+</head>
+
+
+<body class="wrap">
+  <header>
+  <div class="flexbox">
+    <div class="center-on-mobiles">
+      <h1>
+        <a href="/" class="logo">
+          <span class="sr-only">Jekyll</span>
+          <img src="/img/LaonDreams.png" width="140" alt="LaonDreams Logo">
+        </a>
+      </h1>
+    </div>
+    <nav class="main-nav hide-on-mobiles">
+      <ul>
+  <li class="">
+    <a href="/">Home</a>
+  </li>
+  <li class="">
+    <a href="/docs/home/">Docs</a>
+  </li>
+  <li class="">
+    <a href="/news/">Posts</a>
+  </li>
+</ul>
+
+    </nav>
+    <div class="meta hide-on-mobiles">
+    </div>
+    <div class="meta hide-on-mobiles">
+    </div>
+    <div class="meta hide-on-mobiles">
+    </div>
+    <div class="meta hide-on-mobiles">
+    </div>
+  </div>
+  <nav class="mobile-nav show-on-mobiles">
+    <ul>
+  <li class="">
+    <a href="/">Home</a>
+  </li>
+  <li class="">
+    <a href="/docs/home/">Docs</a>
+  </li>
+  <li class="">
+    <a href="/news/">Posts</a>
+  </li>
+</ul>
+
+  </nav>
+</header>
+
+
+    <section class="news">
+    <div class="grid">
+
+      <div class="docs-nav-mobile unit whole show-on-mobiles">
+  <select onchange="if (this.value) window.location.href=this.value">
+    <option value="">Navigate the blog…</option>
+    <option value="/news/">Home</option>
+    <optgroup label="v1.x">
+      
+      <option value="/news/2018/05/15/kotlinlang-experimental-coroutines/">Using coroutines</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-command-line-library-js/">Creating a Kotlin JavaScript library with the Command Line Compiler</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-spring-boot-restful/">Creating a RESTful Web Service with Spring Boot</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-kotlin-android/">Getting started with Android and Kotlin</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-koans/">Kotlin Koans</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-index/">Tutorials</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-httpservlets/">Creating Web Applications with Http Servlets</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-edu-tools-learner/">Learning Kotlin with EduTools plugin</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-edu-tools-educator/">Teaching Kotlin with EduTools plugin</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-create-library-js/">Creating Kotlin/JavaScript library with IntelliJ IDEA</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-coroutines-basic-jvm/">Introduction to Kotlin Coroutines on the JVM</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-command-line/">Working with the Command Line Compiler</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-command-line-library-js/">Creating Kotlin/JavaScript library with the Command Line Compiler</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-build-tools/">Working with Build Tools</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-android-plugin/">Kotlin Android Extensions</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-android-frameworks/">Android Frameworks Using Annotation Processing</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-whatsnew12/">What's New in Kotlin 1.2</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-whatsnew11/">What's New in Kotlin 1.1</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-visibility-modifiers/">Visibility Modifiers</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-using-maven/">Using Maven</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-using-gradle/">Using Gradle</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-using-ant/">Using Ant</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-typecasts/">Type Checks and Casts: 'is' and 'as'</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-type-safe-builders/">Type-Safe Builders</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-type-aliases/">Type aliases (since 1.1)</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-this-expressions/">This expressions</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-server-overview/">Kotlin for Server Side</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-sealed-classes/">Sealed Classes</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-returns/">Returns and Jumps: break and continue</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-reflection/">Reflection</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-ranges/">Ranges</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-properties/">Properties and Fields: Getters, Setters, const, lateinit</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-packages/">Packages and Imports</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-operator-overloading/">Operator overloading</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-object-declarations/">Object Expressions, Object Declarations and Companion Objects</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-null-safety/">Null Safety</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-nested-classes/">Nested and Inner Classes</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-native-overview/">Kotlin/Native</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-multiplatform/">Multiplatform Projects</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-multi-declarations/">Destructuring Declarations</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-lambdas/">Higher-Order Functions and Lambdas</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-kotlin-osgi/">Kotlin and OSGi</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-kotlin-doc/">Documenting Kotlin Code</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-kotlin-build-tools/">Kotlin Build Tools</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-keyword-reference/">Keywords and Operators</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-kapt/">Using kapt</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-js-to-kotlin-interop/">Calling Kotlin from JavaScript</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-js-reflection/">JavaScript Reflection</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-js-overview/">Kotlin for JavaScript</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-js-modules/">JavaScript Modules</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-js-interop/">Calling JavaScript from Kotlin</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-javascript-dce/">JavaScript DCE</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-java-to-kotlin-interop/">Calling Kotlin from Java</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-java-interop/">Calling Java from Kotlin</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-interfaces/">Interfaces</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-inline-functions/">Inline Functions and Reified Type Parameters</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-index/">Reference</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-idioms/">Idioms</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-generics/">Generics: in, out, where</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-functions/">Functions: infix, vararg, tailrec</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-faq/">FAQ</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-extensions/">Extensions</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-exceptions/">Exceptions: try, catch, finally, throw, Nothing</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-equality/">Equality</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-enum-classes/">Enum Classes</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-dynamic-type/">Dynamic Type</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-delegation/">Delegation</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-delegated-properties/">Delegated Properties</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-data-classes/">Data Classes</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-coroutines/">Coroutines</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-control-flow/">Control Flow: if, when, for, while</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-compiler-plugins/">Compiler Plugins</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-compatibility/">Compatibility</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-comparison-to-java/">Comparison to Java</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-collections/">Collections: List, Set, Map</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-coding-conventions/">Coding Conventions</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-classes/">Classes and Inheritance</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-basic-types/">Basic Types: Numbers, Strings, Arrays</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-basic-syntax/">Basic Syntax</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-annotations/">Annotations</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-android-overview/">Kotlin for Android</option>
+      
+      <option value="/news/2018/05/13/android-01/">Kotlin Programming Language</option>
+      
+      <option value="/news/2018/01/24/kotlinlang-gradle-for-kotlin-native/">Gradle for Kotlin/Native</option>
+      
+      <option value="/news/2018/01/23/kotlinlang-kotlin-native-with-clion/">Kotlin/Native with CLion</option>
+      
+      <option value="/news/2018/01/22/kotlinlang-working-with-klib/">Working with Kotlin/Native Libraries</option>
+      
+      <option value="/news/2018/01/09/kotlinlang-interop-with-c/">Interop with C Libraries</option>
+      
+      <option value="/news/2017/12/03/kotlinlang-basic-kotlin-native-app/">A Basic Kotlin/Native Application</option>
+      
+      <option value="/news/2017/07/31/kotlinlang-debugging-javascript/">Debugging Kotlin in browser</option>
+      
+      <option value="/news/2017/05/04/kotlinlang-getting-started/">Getting Started with IntelliJ IDEA</option>
+      
+      <option value="/news/2017/02/27/kotlinlang-working-with-javascript/">Working with JavaScript</option>
+      
+      <option value="/news/2016/12/03/gradle-tip/">Android Gradle Tips</option>
+      
+      <option value="/news/2016/11/10/kotlinlang-getting-started-eclipse/">Getting Started with Eclipse Neon</option>
+      
+      <option value="/news/2016/11/04/kotlinlang-getting-started-with-maven/">Getting Started with Kotlin and JavaScript with Maven</option>
+      
+      <option value="/news/2016/11/04/kotlinlang-getting-started-with-gradle/">Getting Started with Kotlin and JavaScript with Gradle</option>
+      
+      <option value="/news/2016/10/07/kotlinlang-calling-javascript-from-kotlin/">Calling JavaScript from Kotlin</option>
+      
+      <option value="/news/2016/09/30/kotlinlang-working-with-modules/">Working with Kotlin and JavaScript Modules</option>
+      
+      <option value="/news/2016/09/30/kotlinlang-getting-started-with-intellij-idea/">Getting Started with Kotlin and JavaScript with IntelliJ IDEA</option>
+      
+      <option value="/news/2016/09/29/kotlinlang-kotlin-to-javascript/">Kotlin to JavaScript</option>
+      
+      <option value="/news/2016/07/26/android-database-tip/">Android 의 Sqlite Tip</option>
+      
+      <option value="/news/2016/04/16/migration-to-retrofit2/">Retrofit2 로 전환</option>
+      
+      <option value="/news/2016/02/12/Android-and-automation/">안드로이드와 자동화 툴</option>
+      
+      <option value="/news/2015/11/26/%EB%8D%94-%EB%B9%A0%EB%A5%B8-Andriod-App-Build/">더 빠른 Android App Build</option>
+      
+      <option value="/news/2015/03/10/.androidannotations-%EC%99%80-MVP/">AndroidAnnotations 와 MVP</option>
+      
+      <option value="/news/2015/03/01/04.androidannotation-%EA%B3%BC-%ED%85%8C%EC%8A%A4%ED%8A%B8/">AndroidAnnotations 과 테스트</option>
+      
+      <option value="/news/2015/03/01/03.androidannotation-%EA%B3%BC-mvc/">AndroidAnnotations 과 MVC 패턴</option>
+      
+      <option value="/news/2015/03/01/02.android-%EC%99%80-annotation/">Android 와 Annotation</option>
+      
+      <option value="/news/2015/03/01/01.Android-mvc-mvvm-mvp/">Android 와 개발 패턴</option>
+      
+      <option value="/news/2015/02/02/kotlinlang-kotlin-and-ci/">Kotlin and Continuous Integration with TeamCity</option>
+      
+      <option value="/news/2014/09/23/kotlinlang-mixing-java-kotlin-intellij/">Mixing Java and Kotlin in one project</option>
+      
+    </optgroup>
+  </select>
+</div>
+
+
+      <div class="unit four-fifths">
+        <article>
+  <h2>
+    Generics: in, out, where
+    <a href="/news/2018/05/15/kotlinlang-generics/" class="header-link" title="Permalink">
+      <span class="sr-only">Permalink</span>
+      <i class="fa fa-link"></i>
+    </a>
+  </h2>
+  <span class="post-category">
+    <span class="label">
+      Syntax
+    </span>
+  </span>
+  <div class="post-meta">
+    <span class="post-date">
+      15 May 2018
+    </span>
+    
+    <a href="https://github.com/" class="post-author">
+      <img class="avatar avatar-small" alt="author" width="24" height="24" data-proofer-ignore="true" src="https://avatars3.githubusercontent.com/author?v=3&s=24" srcset="https://avatars3.githubusercontent.com/author?v=3&s=24 1x, https://avatars3.githubusercontent.com/author?v=3&s=48 2x, https://avatars3.githubusercontent.com/author?v=3&s=72 3x, https://avatars3.githubusercontent.com/author?v=3&s=96 4x" />
+      
+    </a>
+  </div>
+  <div class="post-content">
+    <h1 id="generics">Generics</h1>
+
+<p>As in Java, classes in Kotlin may have type parameters:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Box</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;(</span><span class="n">t</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="py">value</span> <span class="p">=</span> <span class="n">t</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>In general, to create an instance of such a class, we need to provide the type arguments:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">box</span><span class="p">:</span> <span class="n">Box</span><span class="p">&lt;</span><span class="n">Int</span><span class="p">&gt;</span> <span class="p">=</span> <span class="n">Box</span><span class="p">&lt;</span><span class="n">Int</span><span class="p">&gt;(</span><span class="m">1</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>But if the parameters may be inferred, e.g. from the constructor arguments or by some other means, one is allowed to omit the type arguments:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">box</span> <span class="p">=</span> <span class="n">Box</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="c1">// 1 has type Int, so the compiler figures out that we are talking about Box&lt;Int&gt;</span>
+</code></pre></div></div>
+
+<h2 id="variance">Variance</h2>
+
+<p>One of the most tricky parts of Java’s type system is wildcard types (see <a href="http://www.angelikalanger.com/GenericsFAQ/JavaGenericsFAQ.html">Java Generics FAQ</a>).
+And Kotlin doesn’t have any. Instead, it has two other things: declaration-site variance and type projections.</p>
+
+<p>First, let’s think about why Java needs those mysterious wildcards. The problem is explained in <a href="http://www.oracle.com/technetwork/java/effectivejava-136174.html">Effective Java, 3rd Edition</a>, Item 31: <em>Use bounded wildcards to increase API flexibility</em>.
+First, generic types in Java are <strong>invariant</strong>, meaning that <code class="highlighter-rouge">List&lt;String&gt;</code> is <strong>not</strong> a subtype of <code class="highlighter-rouge">List&lt;Object&gt;</code>. 
+Why so? If List was not <strong>invariant</strong>, it would have been no 
+better than Java’s arrays, since the following code would have compiled and caused an exception at runtime:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Java</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">strs</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;();</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span> <span class="n">objs</span> <span class="o">=</span> <span class="n">strs</span><span class="o">;</span> <span class="c1">// !!! The cause of the upcoming problem sits here. Java prohibits this!</span>
+<span class="n">objs</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span> <span class="c1">// Here we put an Integer into a list of Strings</span>
+<span class="n">String</span> <span class="n">s</span> <span class="o">=</span> <span class="n">strs</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span> <span class="c1">// !!! ClassCastException: Cannot cast Integer to String</span>
+</code></pre></div></div>
+<p>So, Java prohibits such things in order to guarantee run-time safety. But this has some implications. For example, consider the <code class="highlighter-rouge">addAll()</code> method from <code class="highlighter-rouge">Collection</code> 
+interface. What’s the signature of this method? Intuitively, we’d put it this way:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Java</span>
+<span class="kd">interface</span> <span class="nc">Collection</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="o">...</span> <span class="o">{</span>
+  <span class="kt">void</span> <span class="nf">addAll</span><span class="o">(</span><span class="n">Collection</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="n">items</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>But then, we would not be able to do the following simple thing (which is perfectly safe):</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Java</span>
+<span class="kt">void</span> <span class="nf">copyAll</span><span class="o">(</span><span class="n">Collection</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span> <span class="n">to</span><span class="o">,</span> <span class="n">Collection</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">from</span><span class="o">)</span> <span class="o">{</span>
+  <span class="n">to</span><span class="o">.</span><span class="na">addAll</span><span class="o">(</span><span class="n">from</span><span class="o">);</span> <span class="c1">// !!! Would not compile with the naive declaration of addAll:</span>
+                   <span class="c1">//       Collection&lt;String&gt; is not a subtype of Collection&lt;Object&gt;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>(In Java, we learned this lesson the hard way, see <a href="http://www.oracle.com/technetwork/java/effectivejava-136174.html">Effective Java, 3rd Edition</a>, Item 28: <em>Prefer lists to arrays</em>)</p>
+
+<p>That’s why the actual signature of <code class="highlighter-rouge">addAll()</code> is the following:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Java</span>
+<span class="kd">interface</span> <span class="nc">Collection</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="o">...</span> <span class="o">{</span>
+  <span class="kt">void</span> <span class="nf">addAll</span><span class="o">(</span><span class="n">Collection</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="n">E</span><span class="o">&gt;</span> <span class="n">items</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>The <strong>wildcard type argument</strong> <code class="highlighter-rouge">? extends E</code> indicates that this method accepts a collection of objects of <code class="highlighter-rouge">E</code> <em>or some subtype of</em> <code class="highlighter-rouge">E</code>, not just <code class="highlighter-rouge">E</code> itself. 
+This means that we can safely <strong>read</strong> <code class="highlighter-rouge">E</code>’s from items (elements of this collection are instances of a subclass of E), but <strong>cannot write</strong> to 
+it since we do not know what objects comply to that unknown subtype of <code class="highlighter-rouge">E</code>. 
+In return for this limitation, we have the desired behaviour: <code class="highlighter-rouge">Collection&lt;String&gt;</code> <em>is</em> a subtype of <code class="highlighter-rouge">Collection&lt;? extends Object&gt;</code>. 
+In “clever words”, the wildcard with an <strong>extends</strong>-bound (<strong>upper</strong> bound) makes the type <strong>covariant</strong>.</p>
+
+<p>The key to understanding why this trick works is rather simple: if you can only <strong>take</strong> items from a collection, then using a collection of <code class="highlighter-rouge">String</code>s
+and reading <code class="highlighter-rouge">Object</code>s from it is fine. Conversely, if you can only <em>put</em> items into the collection, it’s OK to take a collection of
+<code class="highlighter-rouge">Object</code>s and put <code class="highlighter-rouge">String</code>s into it: in Java we have <code class="highlighter-rouge">List&lt;? super String&gt;</code> a <strong>supertype</strong> of <code class="highlighter-rouge">List&lt;Object&gt;</code>.</p>
+
+<p>The latter is called <strong>contravariance</strong>, and you can only call methods that take String as an argument on <code class="highlighter-rouge">List&lt;? super String&gt;</code> 
+(e.g., you can call <code class="highlighter-rouge">add(String)</code> or <code class="highlighter-rouge">set(int, String)</code>), while 
+if you call something that returns <code class="highlighter-rouge">T</code> in <code class="highlighter-rouge">List&lt;T&gt;</code>, you don’t get a <code class="highlighter-rouge">String</code>, but an <code class="highlighter-rouge">Object</code>.</p>
+
+<p>Joshua Bloch calls those objects you only <strong>read</strong> from <strong>Producers</strong>, and those you only <strong>write</strong> to <strong>Consumers</strong>. He recommends: “<em>For maximum flexibility, use wildcard types on input parameters that represent producers or consumers</em>”, and proposes the following mnemonic:</p>
+
+<p><em>PECS stands for Producer-Extends, Consumer-Super.</em></p>
+
+<p><em>NOTE</em>: if you use a producer-object, say, <code class="highlighter-rouge">List&lt;? extends Foo&gt;</code>, you are not allowed to call <code class="highlighter-rouge">add()</code> or <code class="highlighter-rouge">set()</code> on this object, but this does not mean 
+that this object is <strong>immutable</strong>: for example, nothing prevents you from calling <code class="highlighter-rouge">clear()</code> to remove all items from the list, since <code class="highlighter-rouge">clear()</code> 
+does not take any parameters at all. The only thing guaranteed by wildcards (or other types of variance) is <strong>type safety</strong>. Immutability is a completely different story.</p>
+
+<h3 id="declaration-site-variance">Declaration-site variance</h3>
+
+<p>Suppose we have a generic interface <code class="highlighter-rouge">Source&lt;T&gt;</code> that does not have any methods that take <code class="highlighter-rouge">T</code> as a parameter, only methods that return <code class="highlighter-rouge">T</code>:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Java</span>
+<span class="kd">interface</span> <span class="nc">Source</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">{</span>
+  <span class="n">T</span> <span class="nf">nextT</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Then, it would be perfectly safe to store a reference to an instance of <code class="highlighter-rouge">Source&lt;String&gt;</code> in a variable of type <code class="highlighter-rouge">Source&lt;Object&gt;</code> – there are no consumer-methods to call. But Java does not know this, and still prohibits it:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Java</span>
+<span class="kt">void</span> <span class="nf">demo</span><span class="o">(</span><span class="n">Source</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">strs</span><span class="o">)</span> <span class="o">{</span>
+  <span class="n">Source</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span> <span class="n">objects</span> <span class="o">=</span> <span class="n">strs</span><span class="o">;</span> <span class="c1">// !!! Not allowed in Java</span>
+  <span class="c1">// ...</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>To fix this, we have to declare objects of type <code class="highlighter-rouge">Source&lt;? extends Object&gt;</code>, which is sort of meaningless, because we can call all the same methods on such a variable as before, so there’s no value added by the more complex type. But the compiler does not know that.</p>
+
+<p>In Kotlin, there is a way to explain this sort of thing to the compiler. This is called <strong>declaration-site variance</strong>: we can annotate the <strong>type parameter</strong> <code class="highlighter-rouge">T</code> of Source to make sure that it is only <strong>returned</strong> (produced) from members of <code class="highlighter-rouge">Source&lt;T&gt;</code>, and never consumed. 
+To do this we provide the <strong>out</strong> modifier:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">Source</span><span class="p">&lt;</span><span class="k">out</span> <span class="n">T</span><span class="p">&gt;</span> <span class="p">{</span>
+    <span class="k">fun</span> <span class="n">nextT</span><span class="p">():</span> <span class="n">T</span>
+<span class="p">}</span>
+
+<span class="k">fun</span> <span class="n">demo</span><span class="p">(</span><span class="n">strs</span><span class="p">:</span> <span class="n">Source</span><span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;)</span> <span class="p">{</span>
+    <span class="kd">val</span> <span class="py">objects</span><span class="p">:</span> <span class="n">Source</span><span class="p">&lt;</span><span class="n">Any</span><span class="p">&gt;</span> <span class="p">=</span> <span class="n">strs</span> <span class="c1">// This is OK, since T is an out-parameter</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The general rule is: when a type parameter <code class="highlighter-rouge">T</code> of a class <code class="highlighter-rouge">C</code> is declared <strong>out</strong>, it may occur only in <strong>out</strong>-position in the members of <code class="highlighter-rouge">C</code>, but in return <code class="highlighter-rouge">C&lt;Base&gt;</code> can safely be a supertype 
+of <code class="highlighter-rouge">C&lt;Derived&gt;</code>.</p>
+
+<p>In “clever words” they say that the class <code class="highlighter-rouge">C</code> is <strong>covariant</strong> in the parameter <code class="highlighter-rouge">T</code>, or that <code class="highlighter-rouge">T</code> is a <strong>covariant</strong> type parameter. 
+You can think of <code class="highlighter-rouge">C</code> as being a <strong>producer</strong> of <code class="highlighter-rouge">T</code>’s, and NOT a <strong>consumer</strong> of <code class="highlighter-rouge">T</code>’s.</p>
+
+<p>The <strong>out</strong> modifier is called a <strong>variance annotation</strong>, and  since it is provided at the type parameter declaration site, we talk about <strong>declaration-site variance</strong>. 
+This is in contrast with Java’s <strong>use-site variance</strong> where wildcards in the type usages make the types covariant.</p>
+
+<p>In addition to <strong>out</strong>, Kotlin provides a complementary variance annotation: <strong>in</strong>. It makes a type parameter <strong>contravariant</strong>: it can only be consumed and never 
+produced. A good example of a contravariant type is <code class="highlighter-rouge">Comparable</code>:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">Comparable</span><span class="p">&lt;</span><span class="k">in</span> <span class="n">T</span><span class="p">&gt;</span> <span class="p">{</span>
+    <span class="k">operator</span> <span class="k">fun</span> <span class="n">compareTo</span><span class="p">(</span><span class="n">other</span><span class="p">:</span> <span class="n">T</span><span class="p">):</span> <span class="n">Int</span>
+<span class="p">}</span>
+
+<span class="k">fun</span> <span class="n">demo</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Comparable</span><span class="p">&lt;</span><span class="n">Number</span><span class="p">&gt;)</span> <span class="p">{</span>
+    <span class="n">x</span><span class="p">.</span><span class="n">compareTo</span><span class="p">(</span><span class="m">1.0</span><span class="p">)</span> <span class="c1">// 1.0 has type Double, which is a subtype of Number</span>
+    <span class="c1">// Thus, we can assign x to a variable of type Comparable&lt;Double&gt;</span>
+    <span class="kd">val</span> <span class="py">y</span><span class="p">:</span> <span class="n">Comparable</span><span class="p">&lt;</span><span class="n">Double</span><span class="p">&gt;</span> <span class="p">=</span> <span class="n">x</span> <span class="c1">// OK!</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>We believe that the words <strong>in</strong> and <strong>out</strong> are self-explaining (as they were successfully used in C# for quite some time already), 
+thus the mnemonic mentioned above is not really needed, and one can rephrase it for a higher purpose:</p>
+
+<p><strong><a href="http://en.wikipedia.org/wiki/Existentialism">The Existential</a> Transformation: Consumer in, Producer out!</strong> :-)</p>
+
+<h2 id="type-projections">Type projections</h2>
+
+<h3 id="use-site-variance-type-projections">Use-site variance: Type projections</h3>
+
+<p>It is very convenient to declare a type parameter T as <em>out</em> and avoid trouble with subtyping on the use site, but some classes <strong>can’t</strong> actually be restricted to only return <code class="highlighter-rouge">T</code>’s! 
+A good example of this is Array:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Array</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;(</span><span class="kd">val</span> <span class="py">size</span><span class="p">:</span> <span class="n">Int</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">fun</span> <span class="k">get</span><span class="p">(</span><span class="n">index</span><span class="p">:</span> <span class="n">Int</span><span class="p">):</span> <span class="n">T</span> <span class="p">{</span> <span class="cm">/* ... */</span> <span class="p">}</span>
+    <span class="k">fun</span> <span class="k">set</span><span class="p">(</span><span class="n">index</span><span class="p">:</span> <span class="n">Int</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="p">{</span> <span class="cm">/* ... */</span> <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>This class cannot be either co- or contravariant in <code class="highlighter-rouge">T</code>. And this imposes certain inflexibilities. Consider the following function:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="n">copy</span><span class="p">(</span><span class="n">from</span><span class="p">:</span> <span class="n">Array</span><span class="p">&lt;</span><span class="n">Any</span><span class="p">&gt;,</span> <span class="n">to</span><span class="p">:</span> <span class="n">Array</span><span class="p">&lt;</span><span class="n">Any</span><span class="p">&gt;)</span> <span class="p">{</span>
+    <span class="n">assert</span><span class="p">(</span><span class="n">from</span><span class="p">.</span><span class="n">size</span> <span class="p">==</span> <span class="n">to</span><span class="p">.</span><span class="n">size</span><span class="p">)</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="k">in</span> <span class="n">from</span><span class="p">.</span><span class="n">indices</span><span class="p">)</span>
+        <span class="n">to</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">=</span> <span class="n">from</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>This function is supposed to copy items from one array to another. Let’s try to apply it in practice:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">ints</span><span class="p">:</span> <span class="n">Array</span><span class="p">&lt;</span><span class="n">Int</span><span class="p">&gt;</span> <span class="p">=</span> <span class="n">arrayOf</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">)</span>
+<span class="kd">val</span> <span class="py">any</span> <span class="p">=</span> <span class="n">Array</span><span class="p">&lt;</span><span class="n">Any</span><span class="p">&gt;(</span><span class="m">3</span><span class="p">)</span> <span class="p">{</span> <span class="s">""</span> <span class="p">}</span> 
+<span class="n">copy</span><span class="p">(</span><span class="n">ints</span><span class="p">,</span> <span class="n">any</span><span class="p">)</span> <span class="c1">// Error: expects (Array&lt;Any&gt;, Array&lt;Any&gt;)</span>
+</code></pre></div></div>
+
+<p>Here we run into the same familiar problem: <code class="highlighter-rouge">Array&lt;T&gt;</code> is <strong>invariant</strong> in <code class="highlighter-rouge">T</code>, thus neither of <code class="highlighter-rouge">Array&lt;Int&gt;</code> and <code class="highlighter-rouge">Array&lt;Any&gt;</code> 
+is a subtype of the other. Why? Again, because copy <strong>might</strong> be doing bad things, i.e. it might attempt to <strong>write</strong>, say, a String to <code class="highlighter-rouge">from</code>,
+and if we actually passed an array of <code class="highlighter-rouge">Int</code> there, a <code class="highlighter-rouge">ClassCastException</code> would have been thrown sometime later.</p>
+
+<p>Then, the only thing we want to ensure is that <code class="highlighter-rouge">copy()</code> does not do any bad things. We want to prohibit it from <strong>writing</strong> to <code class="highlighter-rouge">from</code>, and we can:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="n">copy</span><span class="p">(</span><span class="n">from</span><span class="p">:</span> <span class="n">Array</span><span class="p">&lt;</span><span class="k">out</span> <span class="n">Any</span><span class="p">&gt;,</span> <span class="n">to</span><span class="p">:</span> <span class="n">Array</span><span class="p">&lt;</span><span class="n">Any</span><span class="p">&gt;)</span> <span class="p">{</span>
+ <span class="c1">// ...</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>What has happened here is called <strong>type projection</strong>: we said that <code class="highlighter-rouge">from</code> is not simply an array, but a restricted (<strong>projected</strong>) one: we can only call those methods that return the type parameter 
+<code class="highlighter-rouge">T</code>, in this case it means that we can only call <code class="highlighter-rouge">get()</code>. This is our approach to <strong>use-site variance</strong>, and corresponds to Java’s <code class="highlighter-rouge">Array&lt;? extends Object&gt;</code>, 
+but in a slightly simpler way.</p>
+
+<p>You can project a type with <strong>in</strong> as well:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="n">fill</span><span class="p">(</span><span class="n">dest</span><span class="p">:</span> <span class="n">Array</span><span class="p">&lt;</span><span class="k">in</span> <span class="n">String</span><span class="p">&gt;,</span> <span class="n">value</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">Array&lt;in String&gt;</code> corresponds to Java’s <code class="highlighter-rouge">Array&lt;? super String&gt;</code>, i.e. you can pass an array of <code class="highlighter-rouge">CharSequence</code> or an array of <code class="highlighter-rouge">Object</code> to the <code class="highlighter-rouge">fill()</code> function.</p>
+
+<h3 id="star-projections">Star-projections</h3>
+
+<p>Sometimes you want to say that you know nothing about the type argument, but still want to use it in a safe way.
+The safe way here is to define such a projection of the generic type, that every concrete instantiation of that generic type would be a subtype of that projection.</p>
+
+<p>Kotlin provides so called <strong>star-projection</strong> syntax for this:</p>
+
+<ul>
+  <li>For <code class="highlighter-rouge">Foo&lt;out T : TUpper&gt;</code>, where <code class="highlighter-rouge">T</code> is a covariant type parameter with the upper bound <code class="highlighter-rouge">TUpper</code>, <code class="highlighter-rouge">Foo&lt;*&gt;</code> is equivalent to <code class="highlighter-rouge">Foo&lt;out TUpper&gt;</code>. It means that when the <code class="highlighter-rouge">T</code> is unknown you can safely <em>read</em> values of <code class="highlighter-rouge">TUpper</code> from <code class="highlighter-rouge">Foo&lt;*&gt;</code>.</li>
+  <li>For <code class="highlighter-rouge">Foo&lt;in T&gt;</code>, where <code class="highlighter-rouge">T</code> is a contravariant type parameter, <code class="highlighter-rouge">Foo&lt;*&gt;</code> is equivalent to <code class="highlighter-rouge">Foo&lt;in Nothing&gt;</code>. It means there is nothing you can <em>write</em> to <code class="highlighter-rouge">Foo&lt;*&gt;</code> in a safe way when <code class="highlighter-rouge">T</code> is unknown.</li>
+  <li>For <code class="highlighter-rouge">Foo&lt;T : TUpper&gt;</code>, where <code class="highlighter-rouge">T</code> is an invariant type parameter with the upper bound <code class="highlighter-rouge">TUpper</code>, <code class="highlighter-rouge">Foo&lt;*&gt;</code> is equivalent to <code class="highlighter-rouge">Foo&lt;out TUpper&gt;</code> for reading values and to <code class="highlighter-rouge">Foo&lt;in Nothing&gt;</code> for writing values.</li>
+</ul>
+
+<p>If a generic type has several type parameters each of them can be projected independently.
+For example, if the type is declared as <code class="highlighter-rouge">interface Function&lt;in T, out U&gt;</code> we can imagine the following star-projections:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">Function&lt;*, String&gt;</code> means <code class="highlighter-rouge">Function&lt;in Nothing, String&gt;</code>;</li>
+  <li><code class="highlighter-rouge">Function&lt;Int, *&gt;</code> means <code class="highlighter-rouge">Function&lt;Int, out Any?&gt;</code>;</li>
+  <li><code class="highlighter-rouge">Function&lt;*, *&gt;</code> means <code class="highlighter-rouge">Function&lt;in Nothing, out Any?&gt;</code>.</li>
+</ul>
+
+<p><em>Note</em>: star-projections are very much like Java’s raw types, but safe.</p>
+
+<h2 id="generic-functions">Generic functions</h2>
+
+<p>Not only classes can have type parameters. Functions can, too. Type parameters are placed before the name of the function:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="n">singletonList</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="n">T</span><span class="p">):</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+
+<span class="k">fun</span> <span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="n">T</span><span class="p">.</span><span class="n">basicToString</span><span class="p">()</span> <span class="p">:</span> <span class="n">String</span> <span class="p">{</span>  <span class="c1">// extension function</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>To call a generic function, specify the type arguments at the call site <strong>after</strong> the name of the function:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">l</span> <span class="p">=</span> <span class="n">singletonList</span><span class="p">&lt;</span><span class="n">Int</span><span class="p">&gt;(</span><span class="m">1</span><span class="p">)</span>
+</code></pre></div></div>
+<p>Type arguments can be omitted if they can be inferred from the context, so the following example works as well:</p>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">l</span> <span class="p">=</span> <span class="n">singletonList</span><span class="p">(</span><span class="m">1</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="generic-constraints">Generic constraints</h2>
+
+<p>The set of all possible types that can be substituted for a given type parameter may be restricted by <strong>generic constraints</strong>.</p>
+
+<h3 id="upper-bounds">Upper bounds</h3>
+
+<p>The most common type of constraint is an <strong>upper bound</strong> that corresponds to Java’s <em>extends</em> keyword:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="p">&lt;</span><span class="n">T</span> <span class="p">:</span> <span class="n">Comparable</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;&gt;</span> <span class="n">sort</span><span class="p">(</span><span class="n">list</span><span class="p">:</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;)</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The type specified after a colon is the <strong>upper bound</strong>: only a subtype of <code class="highlighter-rouge">Comparable&lt;T&gt;</code> may be substituted for <code class="highlighter-rouge">T</code>. For example:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sort</span><span class="p">(</span><span class="n">listOf</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">))</span> <span class="c1">// OK. Int is a subtype of Comparable&lt;Int&gt;</span>
+<span class="n">sort</span><span class="p">(</span><span class="n">listOf</span><span class="p">(</span><span class="n">HashMap</span><span class="p">&lt;</span><span class="n">Int</span><span class="p">,</span> <span class="n">String</span><span class="p">&gt;()))</span> <span class="c1">// Error: HashMap&lt;Int, String&gt; is not a subtype of Comparable&lt;HashMap&lt;Int, String&gt;&gt;</span>
+</code></pre></div></div>
+
+<p>The default upper bound (if none specified) is <code class="highlighter-rouge">Any?</code>. Only one upper bound can be specified inside the angle brackets.
+If the same type parameter needs more than one upper bound, we need a separate <strong>where</strong>-clause:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="n">copyWhenGreater</span><span class="p">(</span><span class="n">list</span><span class="p">:</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;,</span> <span class="n">threshold</span><span class="p">:</span> <span class="n">T</span><span class="p">):</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;</span>
+    <span class="k">where</span> <span class="n">T</span> <span class="p">:</span> <span class="n">CharSequence</span><span class="p">,</span>
+          <span class="n">T</span> <span class="p">:</span> <span class="n">Comparable</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">list</span><span class="p">.</span><span class="n">filter</span> <span class="p">{</span> <span class="n">it</span> <span class="p">&gt;</span> <span class="n">threshold</span> <span class="p">}.</span><span class="n">map</span> <span class="p">{</span> <span class="n">it</span><span class="p">.</span><span class="n">toString</span><span class="p">()</span> <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="type-erasure">Type erasure</h2>
+
+<p>The type safety checks that Kotlin performs for generic declaration usages are only done at compile time.
+At runtime, the instances of generic types do not hold any information about their actual type arguments.
+The type information is said to be <em>erased</em>. For example, the instances of <code class="highlighter-rouge">Foo&lt;Bar&gt;</code> and <code class="highlighter-rouge">Foo&lt;Baz?&gt;</code> are erased to
+just <code class="highlighter-rouge">Foo&lt;*&gt;</code>.</p>
+
+<p>Therefore, there is no general way to check whether an instance of a generic type was created with certain type
+arguments at runtime, and the compiler <a href="typecasts.html#type-erasure-and-generic-type-checks">prohibits such <em class="keyword">is</em>-checks</a>.</p>
+
+<p>Type casts to generic types with concrete type arguments, e.g. <code class="highlighter-rouge">foo as List&lt;String&gt;</code>, cannot be checked at runtime.<br />
+These <a href="typecasts.html#unchecked-casts">unchecked casts</a> can be used when type safety is implied by the high-level 
+program logic but cannot be inferred directly by the compiler. The compiler issues a warning on unchecked casts, and at 
+runtime, only the non-generic part is checked (equivalent to <code class="highlighter-rouge">foo as List&lt;*&gt;</code>).</p>
+
+<p>The type arguments of generic function calls are also only checked at compile time. Inside the function bodies, 
+the type parameters cannot be used for type checks, and type casts to type parameters (<code class="highlighter-rouge">foo as T</code>) are unchecked. However,
+<a href="inline-functions.html#reified-type-parameters">reified type parameters</a> of inline functions are substituted by the actual 
+type arguments in the inlined function body at the call sites and thus can be used for type checks and casts,
+with the same restrictions for instances of generic types as described above.</p>
+
+  </div>
+</article>
+
+      </div>
+
+      <div class="unit one-fifth hide-on-mobiles">
+  <aside>
+    <ul>
+      <li class="">
+        <a href="/news/">All Post</a>
+      </li>
+      <li class="">
+        <a href="/news/releases/">Kotlin Releases</a>
+      </li>
+    </ul>
+    <h4>Recent Releases</h4>
+    <ul>
+      
+    </ul>
+    <h4>Other Posts</h4>
+    <ul>
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-experimental-coroutines/">Using coroutines</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-command-line-library-js/">Creating a Kotlin JavaScript library with the Command Line Compiler</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-spring-boot-restful/">Creating a RESTful Web Service with Spring Boot</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-kotlin-android/">Getting started with Android and Kotlin</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-koans/">Kotlin Koans</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-index/">Tutorials</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-httpservlets/">Creating Web Applications with Http Servlets</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-edu-tools-learner/">Learning Kotlin with EduTools plugin</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-edu-tools-educator/">Teaching Kotlin with EduTools plugin</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-create-library-js/">Creating Kotlin/JavaScript library with IntelliJ IDEA</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-coroutines-basic-jvm/">Introduction to Kotlin Coroutines on the JVM</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-command-line/">Working with the Command Line Compiler</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-command-line-library-js/">Creating Kotlin/JavaScript library with the Command Line Compiler</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-build-tools/">Working with Build Tools</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-android-plugin/">Kotlin Android Extensions</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-android-frameworks/">Android Frameworks Using Annotation Processing</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-whatsnew12/">What's New in Kotlin 1.2</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-whatsnew11/">What's New in Kotlin 1.1</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-visibility-modifiers/">Visibility Modifiers</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-using-maven/">Using Maven</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-using-gradle/">Using Gradle</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-using-ant/">Using Ant</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-typecasts/">Type Checks and Casts: 'is' and 'as'</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-type-safe-builders/">Type-Safe Builders</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-type-aliases/">Type aliases (since 1.1)</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-this-expressions/">This expressions</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-server-overview/">Kotlin for Server Side</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-sealed-classes/">Sealed Classes</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-returns/">Returns and Jumps: break and continue</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-reflection/">Reflection</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-ranges/">Ranges</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-properties/">Properties and Fields: Getters, Setters, const, lateinit</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-packages/">Packages and Imports</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-operator-overloading/">Operator overloading</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-object-declarations/">Object Expressions, Object Declarations and Companion Objects</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-null-safety/">Null Safety</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-nested-classes/">Nested and Inner Classes</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-native-overview/">Kotlin/Native</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-multiplatform/">Multiplatform Projects</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-multi-declarations/">Destructuring Declarations</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-lambdas/">Higher-Order Functions and Lambdas</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-kotlin-osgi/">Kotlin and OSGi</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-kotlin-doc/">Documenting Kotlin Code</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-kotlin-build-tools/">Kotlin Build Tools</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-keyword-reference/">Keywords and Operators</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-kapt/">Using kapt</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-js-to-kotlin-interop/">Calling Kotlin from JavaScript</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-js-reflection/">JavaScript Reflection</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-js-overview/">Kotlin for JavaScript</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-js-modules/">JavaScript Modules</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-js-interop/">Calling JavaScript from Kotlin</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-javascript-dce/">JavaScript DCE</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-java-to-kotlin-interop/">Calling Kotlin from Java</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-java-interop/">Calling Java from Kotlin</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-interfaces/">Interfaces</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-inline-functions/">Inline Functions and Reified Type Parameters</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-index/">Reference</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-idioms/">Idioms</a>
+        </li>
+        
+        
+        
+        <li class="current">
+          <a href="/news/2018/05/15/kotlinlang-generics/">Generics: in, out, where</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-functions/">Functions: infix, vararg, tailrec</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-faq/">FAQ</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-extensions/">Extensions</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-exceptions/">Exceptions: try, catch, finally, throw, Nothing</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-equality/">Equality</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-enum-classes/">Enum Classes</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-dynamic-type/">Dynamic Type</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-delegation/">Delegation</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-delegated-properties/">Delegated Properties</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-data-classes/">Data Classes</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-coroutines/">Coroutines</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-control-flow/">Control Flow: if, when, for, while</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-compiler-plugins/">Compiler Plugins</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-compatibility/">Compatibility</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-comparison-to-java/">Comparison to Java</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-collections/">Collections: List, Set, Map</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-coding-conventions/">Coding Conventions</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-classes/">Classes and Inheritance</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-basic-types/">Basic Types: Numbers, Strings, Arrays</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-basic-syntax/">Basic Syntax</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-annotations/">Annotations</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-android-overview/">Kotlin for Android</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/13/android-01/">Kotlin Programming Language</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/01/24/kotlinlang-gradle-for-kotlin-native/">Gradle for Kotlin/Native</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/01/23/kotlinlang-kotlin-native-with-clion/">Kotlin/Native with CLion</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/01/22/kotlinlang-working-with-klib/">Working with Kotlin/Native Libraries</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/01/09/kotlinlang-interop-with-c/">Interop with C Libraries</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2017/12/03/kotlinlang-basic-kotlin-native-app/">A Basic Kotlin/Native Application</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2017/07/31/kotlinlang-debugging-javascript/">Debugging Kotlin in browser</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2017/05/04/kotlinlang-getting-started/">Getting Started with IntelliJ IDEA</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2017/02/27/kotlinlang-working-with-javascript/">Working with JavaScript</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2016/12/03/gradle-tip/">Android Gradle Tips</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2016/11/10/kotlinlang-getting-started-eclipse/">Getting Started with Eclipse Neon</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2016/11/04/kotlinlang-getting-started-with-maven/">Getting Started with Kotlin and JavaScript with Maven</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2016/11/04/kotlinlang-getting-started-with-gradle/">Getting Started with Kotlin and JavaScript with Gradle</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2016/10/07/kotlinlang-calling-javascript-from-kotlin/">Calling JavaScript from Kotlin</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2016/09/30/kotlinlang-working-with-modules/">Working with Kotlin and JavaScript Modules</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2016/09/30/kotlinlang-getting-started-with-intellij-idea/">Getting Started with Kotlin and JavaScript with IntelliJ IDEA</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2016/09/29/kotlinlang-kotlin-to-javascript/">Kotlin to JavaScript</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2016/07/26/android-database-tip/">Android 의 Sqlite Tip</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2016/04/16/migration-to-retrofit2/">Retrofit2 로 전환</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2016/02/12/Android-and-automation/">안드로이드와 자동화 툴</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2015/11/26/%EB%8D%94-%EB%B9%A0%EB%A5%B8-Andriod-App-Build/">더 빠른 Android App Build</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2015/03/10/.androidannotations-%EC%99%80-MVP/">AndroidAnnotations 와 MVP</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2015/03/01/04.androidannotation-%EA%B3%BC-%ED%85%8C%EC%8A%A4%ED%8A%B8/">AndroidAnnotations 과 테스트</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2015/03/01/03.androidannotation-%EA%B3%BC-mvc/">AndroidAnnotations 과 MVC 패턴</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2015/03/01/02.android-%EC%99%80-annotation/">Android 와 Annotation</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2015/03/01/01.Android-mvc-mvvm-mvp/">Android 와 개발 패턴</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2015/02/02/kotlinlang-kotlin-and-ci/">Kotlin and Continuous Integration with TeamCity</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2014/09/23/kotlinlang-mixing-java-kotlin-intellij/">Mixing Java and Kotlin in one project</a>
+        </li>
+        
+        
+    </ul>
+  </aside>
+</div>
+
+
+      <div class="clear"></div>
+
+    </div>
+  </section>
+
+
+  <footer>
+  <div class="grid">
+    <div class="unit one-third center-on-mobiles">
+      <p>
+        &copy;&nbsp;2018 Laon Dreams
+      <br/>Contacts: <a href="mailto:laondreams@gmail.com">laondreams@gmail.com</a></p>
+    </div>
+    <div class="unit two-thirds align-right center-on-mobiles">
+      <p>
+        Proudly hosted by
+        <a href="https://github.com">
+          <img src="/img/footer-logo.png" width="100" height="30" alt="GitHub • Social coding">
+        </a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+  <script>
+  var anchorForId = function (id) {
+    var anchor = document.createElement("a");
+    anchor.className = "header-link";
+    anchor.href      = "#" + id;
+    anchor.innerHTML = "<span class=\"sr-only\">Permalink</span><i class=\"fa fa-link\"></i>";
+    anchor.title = "Permalink";
+    return anchor;
+  };
+
+  var linkifyAnchors = function (level, containingElement) {
+    var headers = containingElement.getElementsByTagName("h" + level);
+    for (var h = 0; h < headers.length; h++) {
+      var header = headers[h];
+
+      if (typeof header.id !== "undefined" && header.id !== "") {
+        header.appendChild(anchorForId(header.id));
+      }
+    }
+  };
+
+  document.onreadystatechange = function () {
+    if (this.readyState === "complete") {
+      var contentBlock = document.getElementsByClassName("docs")[0] || document.getElementsByClassName("news")[0];
+      if (!contentBlock) {
+        return;
+      }
+      for (var level = 1; level <= 6; level++) {
+        linkifyAnchors(level, contentBlock);
+      }
+    }
+  };
+</script>
+
+  
+  <!-- Google Analytics (https://www.google.com/analytics) -->
+  <script>
+    !function(j,e,k,y,l,L){j.GoogleAnalyticsObject=y,j[y]||(j[y]=function(){
+    (j[y].q=j[y].q||[]).push(arguments)}),j[y].l=+new Date,l=e.createElement(k),
+    L=e.getElementsByTagName(k)[0],l.src='https://www.google-analytics.com/analytics.js',
+    L.parentNode.insertBefore(l,L)}(window,document,'script','ga');
+
+    ga('create', 'UA-119113988-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript"> docsearch({
+apiKey: '50fe39c839958dfad797000f33e2ec17',
+indexName: 'jekyllrb',
+inputSelector: '#docsearch-input',
+enhancedSearchInput: true,
+debug: false // Set debug to true if you want to inspect the dropdown
+});
+</script>
+
+</body>
+</html>

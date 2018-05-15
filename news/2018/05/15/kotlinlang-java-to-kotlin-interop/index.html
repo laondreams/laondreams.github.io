@@ -1,0 +1,1557 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="generator" content="Jekyll v3.8.1">
+  <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Laon Dreams • Simple, blog-aware, static sites" />
+  <link rel="alternate" type="application/atom+xml" title="Recent commits to Jekyll’s master branch" href="https://github.com/laondreams/laondreams/commits/master.atom">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic,900">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
+  <link rel="stylesheet" href="/css/screen.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>Calling Kotlin from Java | Laon Dreams • Simple, blog-aware, static sites</title>
+<meta name="generator" content="Jekyll v3.8.1" />
+<meta property="og:title" content="Calling Kotlin from Java" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Calling Kotlin from Java" />
+<meta property="og:description" content="Calling Kotlin from Java" />
+<link rel="canonical" href="http://localhost:4000/news/2018/05/15/kotlinlang-java-to-kotlin-interop/" />
+<meta property="og:url" content="http://localhost:4000/news/2018/05/15/kotlinlang-java-to-kotlin-interop/" />
+<meta property="og:site_name" content="Laon Dreams • Simple, blog-aware, static sites" />
+<meta property="og:image" content="http://localhost:4000/img/twitter-card.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-05-15T00:00:00+09:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@laondreams" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/news/2018/05/15/kotlinlang-java-to-kotlin-interop/","image":"http://localhost:4000/img/twitter-card.png","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/img/LaonDreams.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/news/2018/05/15/kotlinlang-java-to-kotlin-interop/"},"description":"Calling Kotlin from Java","@type":"BlogPosting","headline":"Calling Kotlin from Java","dateModified":"2018-05-15T00:00:00+09:00","datePublished":"2018-05-15T00:00:00+09:00","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <!--[if lt IE 9]>
+  <script src="/js/html5shiv.min.js"></script>
+  <script src="/js/respond.min.js"></script>
+  <![endif]-->
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-8484034453879329",
+          enable_page_level_ads: true
+      });
+  </script>
+</head>
+
+
+<body class="wrap">
+  <header>
+  <div class="flexbox">
+    <div class="center-on-mobiles">
+      <h1>
+        <a href="/" class="logo">
+          <span class="sr-only">Jekyll</span>
+          <img src="/img/LaonDreams.png" width="140" alt="LaonDreams Logo">
+        </a>
+      </h1>
+    </div>
+    <nav class="main-nav hide-on-mobiles">
+      <ul>
+  <li class="">
+    <a href="/">Home</a>
+  </li>
+  <li class="">
+    <a href="/docs/home/">Docs</a>
+  </li>
+  <li class="">
+    <a href="/news/">Posts</a>
+  </li>
+</ul>
+
+    </nav>
+    <div class="meta hide-on-mobiles">
+    </div>
+    <div class="meta hide-on-mobiles">
+    </div>
+    <div class="meta hide-on-mobiles">
+    </div>
+    <div class="meta hide-on-mobiles">
+    </div>
+  </div>
+  <nav class="mobile-nav show-on-mobiles">
+    <ul>
+  <li class="">
+    <a href="/">Home</a>
+  </li>
+  <li class="">
+    <a href="/docs/home/">Docs</a>
+  </li>
+  <li class="">
+    <a href="/news/">Posts</a>
+  </li>
+</ul>
+
+  </nav>
+</header>
+
+
+    <section class="news">
+    <div class="grid">
+
+      <div class="docs-nav-mobile unit whole show-on-mobiles">
+  <select onchange="if (this.value) window.location.href=this.value">
+    <option value="">Navigate the blog…</option>
+    <option value="/news/">Home</option>
+    <optgroup label="v1.x">
+      
+      <option value="/news/2018/05/15/kotlinlang-experimental-coroutines/">Using coroutines</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-command-line-library-js/">Creating a Kotlin JavaScript library with the Command Line Compiler</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-spring-boot-restful/">Creating a RESTful Web Service with Spring Boot</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-kotlin-android/">Getting started with Android and Kotlin</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-koans/">Kotlin Koans</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-index/">Tutorials</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-httpservlets/">Creating Web Applications with Http Servlets</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-edu-tools-learner/">Learning Kotlin with EduTools plugin</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-edu-tools-educator/">Teaching Kotlin with EduTools plugin</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-create-library-js/">Creating Kotlin/JavaScript library with IntelliJ IDEA</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-coroutines-basic-jvm/">Introduction to Kotlin Coroutines on the JVM</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-command-line/">Working with the Command Line Compiler</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-command-line-library-js/">Creating Kotlin/JavaScript library with the Command Line Compiler</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-build-tools/">Working with Build Tools</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-android-plugin/">Kotlin Android Extensions</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-android-frameworks/">Android Frameworks Using Annotation Processing</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-whatsnew12/">What's New in Kotlin 1.2</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-whatsnew11/">What's New in Kotlin 1.1</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-visibility-modifiers/">Visibility Modifiers</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-using-maven/">Using Maven</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-using-gradle/">Using Gradle</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-using-ant/">Using Ant</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-typecasts/">Type Checks and Casts: 'is' and 'as'</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-type-safe-builders/">Type-Safe Builders</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-type-aliases/">Type aliases (since 1.1)</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-this-expressions/">This expressions</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-server-overview/">Kotlin for Server Side</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-sealed-classes/">Sealed Classes</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-returns/">Returns and Jumps: break and continue</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-reflection/">Reflection</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-ranges/">Ranges</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-properties/">Properties and Fields: Getters, Setters, const, lateinit</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-packages/">Packages and Imports</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-operator-overloading/">Operator overloading</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-object-declarations/">Object Expressions, Object Declarations and Companion Objects</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-null-safety/">Null Safety</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-nested-classes/">Nested and Inner Classes</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-native-overview/">Kotlin/Native</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-multiplatform/">Multiplatform Projects</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-multi-declarations/">Destructuring Declarations</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-lambdas/">Higher-Order Functions and Lambdas</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-kotlin-osgi/">Kotlin and OSGi</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-kotlin-doc/">Documenting Kotlin Code</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-kotlin-build-tools/">Kotlin Build Tools</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-keyword-reference/">Keywords and Operators</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-kapt/">Using kapt</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-js-to-kotlin-interop/">Calling Kotlin from JavaScript</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-js-reflection/">JavaScript Reflection</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-js-overview/">Kotlin for JavaScript</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-js-modules/">JavaScript Modules</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-js-interop/">Calling JavaScript from Kotlin</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-javascript-dce/">JavaScript DCE</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-java-to-kotlin-interop/">Calling Kotlin from Java</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-java-interop/">Calling Java from Kotlin</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-interfaces/">Interfaces</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-inline-functions/">Inline Functions and Reified Type Parameters</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-index/">Reference</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-idioms/">Idioms</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-generics/">Generics: in, out, where</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-functions/">Functions: infix, vararg, tailrec</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-faq/">FAQ</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-extensions/">Extensions</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-exceptions/">Exceptions: try, catch, finally, throw, Nothing</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-equality/">Equality</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-enum-classes/">Enum Classes</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-dynamic-type/">Dynamic Type</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-delegation/">Delegation</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-delegated-properties/">Delegated Properties</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-data-classes/">Data Classes</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-coroutines/">Coroutines</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-control-flow/">Control Flow: if, when, for, while</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-compiler-plugins/">Compiler Plugins</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-compatibility/">Compatibility</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-comparison-to-java/">Comparison to Java</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-collections/">Collections: List, Set, Map</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-coding-conventions/">Coding Conventions</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-classes/">Classes and Inheritance</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-basic-types/">Basic Types: Numbers, Strings, Arrays</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-basic-syntax/">Basic Syntax</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-annotations/">Annotations</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-android-overview/">Kotlin for Android</option>
+      
+      <option value="/news/2018/05/13/android-01/">Kotlin Programming Language</option>
+      
+      <option value="/news/2018/01/24/kotlinlang-gradle-for-kotlin-native/">Gradle for Kotlin/Native</option>
+      
+      <option value="/news/2018/01/23/kotlinlang-kotlin-native-with-clion/">Kotlin/Native with CLion</option>
+      
+      <option value="/news/2018/01/22/kotlinlang-working-with-klib/">Working with Kotlin/Native Libraries</option>
+      
+      <option value="/news/2018/01/09/kotlinlang-interop-with-c/">Interop with C Libraries</option>
+      
+      <option value="/news/2017/12/03/kotlinlang-basic-kotlin-native-app/">A Basic Kotlin/Native Application</option>
+      
+      <option value="/news/2017/07/31/kotlinlang-debugging-javascript/">Debugging Kotlin in browser</option>
+      
+      <option value="/news/2017/05/04/kotlinlang-getting-started/">Getting Started with IntelliJ IDEA</option>
+      
+      <option value="/news/2017/02/27/kotlinlang-working-with-javascript/">Working with JavaScript</option>
+      
+      <option value="/news/2016/12/03/gradle-tip/">Android Gradle Tips</option>
+      
+      <option value="/news/2016/11/10/kotlinlang-getting-started-eclipse/">Getting Started with Eclipse Neon</option>
+      
+      <option value="/news/2016/11/04/kotlinlang-getting-started-with-maven/">Getting Started with Kotlin and JavaScript with Maven</option>
+      
+      <option value="/news/2016/11/04/kotlinlang-getting-started-with-gradle/">Getting Started with Kotlin and JavaScript with Gradle</option>
+      
+      <option value="/news/2016/10/07/kotlinlang-calling-javascript-from-kotlin/">Calling JavaScript from Kotlin</option>
+      
+      <option value="/news/2016/09/30/kotlinlang-working-with-modules/">Working with Kotlin and JavaScript Modules</option>
+      
+      <option value="/news/2016/09/30/kotlinlang-getting-started-with-intellij-idea/">Getting Started with Kotlin and JavaScript with IntelliJ IDEA</option>
+      
+      <option value="/news/2016/09/29/kotlinlang-kotlin-to-javascript/">Kotlin to JavaScript</option>
+      
+      <option value="/news/2016/07/26/android-database-tip/">Android 의 Sqlite Tip</option>
+      
+      <option value="/news/2016/04/16/migration-to-retrofit2/">Retrofit2 로 전환</option>
+      
+      <option value="/news/2016/02/12/Android-and-automation/">안드로이드와 자동화 툴</option>
+      
+      <option value="/news/2015/11/26/%EB%8D%94-%EB%B9%A0%EB%A5%B8-Andriod-App-Build/">더 빠른 Android App Build</option>
+      
+      <option value="/news/2015/03/10/.androidannotations-%EC%99%80-MVP/">AndroidAnnotations 와 MVP</option>
+      
+      <option value="/news/2015/03/01/04.androidannotation-%EA%B3%BC-%ED%85%8C%EC%8A%A4%ED%8A%B8/">AndroidAnnotations 과 테스트</option>
+      
+      <option value="/news/2015/03/01/03.androidannotation-%EA%B3%BC-mvc/">AndroidAnnotations 과 MVC 패턴</option>
+      
+      <option value="/news/2015/03/01/02.android-%EC%99%80-annotation/">Android 와 Annotation</option>
+      
+      <option value="/news/2015/03/01/01.Android-mvc-mvvm-mvp/">Android 와 개발 패턴</option>
+      
+      <option value="/news/2015/02/02/kotlinlang-kotlin-and-ci/">Kotlin and Continuous Integration with TeamCity</option>
+      
+      <option value="/news/2014/09/23/kotlinlang-mixing-java-kotlin-intellij/">Mixing Java and Kotlin in one project</option>
+      
+    </optgroup>
+  </select>
+</div>
+
+
+      <div class="unit four-fifths">
+        <article>
+  <h2>
+    Calling Kotlin from Java
+    <a href="/news/2018/05/15/kotlinlang-java-to-kotlin-interop/" class="header-link" title="Permalink">
+      <span class="sr-only">Permalink</span>
+      <i class="fa fa-link"></i>
+    </a>
+  </h2>
+  <span class="post-category">
+    <span class="label">
+      Java Interop
+    </span>
+  </span>
+  <div class="post-meta">
+    <span class="post-date">
+      15 May 2018
+    </span>
+    
+    <a href="https://github.com/" class="post-author">
+      <img class="avatar avatar-small" alt="author" width="24" height="24" data-proofer-ignore="true" src="https://avatars3.githubusercontent.com/author?v=3&amp;s=24" srcset="https://avatars3.githubusercontent.com/author?v=3&amp;s=24 1x, https://avatars3.githubusercontent.com/author?v=3&amp;s=48 2x, https://avatars3.githubusercontent.com/author?v=3&amp;s=72 3x, https://avatars3.githubusercontent.com/author?v=3&amp;s=96 4x">
+      
+    </a>
+  </div>
+  <div class="post-content">
+    <h1 id="calling-kotlin-from-java">Calling Kotlin from Java</h1>
+
+<p>Kotlin code can be called from Java easily.</p>
+
+<h2 id="properties">Properties</h2>
+
+<p>A Kotlin property is compiled to the following Java elements:</p>
+
+<ul>
+  <li>A getter method, with the name calculated by prepending the <code class="highlighter-rouge">get</code> prefix;</li>
+  <li>A setter method, with the name calculated by prepending the <code class="highlighter-rouge">set</code> prefix (only for <code class="highlighter-rouge">var</code> properties);</li>
+  <li>A private field, with the same name as the property name (only for properties with backing fields).</li>
+</ul>
+
+<p>For example, <code class="highlighter-rouge">var firstName: String</code> gets compiled to the following Java declarations:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">private</span> <span class="n">String</span> <span class="n">firstName</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">getFirstName</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">firstName</span><span class="o">;</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">setFirstName</span><span class="o">(</span><span class="n">String</span> <span class="n">firstName</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">firstName</span> <span class="o">=</span> <span class="n">firstName</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>If the name of the property starts with <code class="highlighter-rouge">is</code>, a different name mapping rule is used: the name of the getter will be
+the same as the property name, and the name of the setter will be obtained by replacing <code class="highlighter-rouge">is</code> with <code class="highlighter-rouge">set</code>.
+For example, for a property <code class="highlighter-rouge">isOpen</code>, the getter will be called <code class="highlighter-rouge">isOpen()</code> and the setter will be called <code class="highlighter-rouge">setOpen()</code>.
+This rule applies for properties of any type, not just <code class="highlighter-rouge">Boolean</code>.</p>
+
+<h2 id="package-level-functions">Package-Level Functions</h2>
+
+<p>All the functions and properties declared in a file <code class="highlighter-rouge">example.kt</code> inside a package <code class="highlighter-rouge">org.foo.bar</code>, including extension functions,
+are compiled into static methods of a Java class named <code class="highlighter-rouge">org.foo.bar.ExampleKt</code>.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// example.kt</span>
+<span class="k">package</span> <span class="nn">demo</span>
+
+<span class="kd">class</span> <span class="nc">Foo</span>
+
+<span class="k">fun</span> <span class="n">bar</span><span class="p">()</span> <span class="p">{</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Java</span>
+<span class="k">new</span> <span class="n">demo</span><span class="o">.</span><span class="na">Foo</span><span class="o">();</span>
+<span class="n">demo</span><span class="o">.</span><span class="na">ExampleKt</span><span class="o">.</span><span class="na">bar</span><span class="o">();</span>
+</code></pre></div></div>
+
+<p>The name of the generated Java class can be changed using the <code class="highlighter-rouge">@JvmName</code> annotation:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">@file</span><span class="p">:</span><span class="n">JvmName</span><span class="p">(</span><span class="s">"DemoUtils"</span><span class="p">)</span>
+
+<span class="k">package</span> <span class="nn">demo</span>
+
+<span class="kd">class</span> <span class="nc">Foo</span>
+
+<span class="k">fun</span> <span class="n">bar</span><span class="p">()</span> <span class="p">{</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Java</span>
+<span class="k">new</span> <span class="n">demo</span><span class="o">.</span><span class="na">Foo</span><span class="o">();</span>
+<span class="n">demo</span><span class="o">.</span><span class="na">DemoUtils</span><span class="o">.</span><span class="na">bar</span><span class="o">();</span>
+</code></pre></div></div>
+
+<p>Having multiple files which have the same generated Java class name (the same package and the same name or the same
+<a href="https://github.com/JvmName" class="user-mention">@JvmName</a> annotation) is normally an error. However, the compiler has the ability to generate a single Java facade
+class which has the specified name and contains all the declarations from all the files which have that name.
+To enable the generation of such a facade, use the <a href="https://github.com/JvmMultifileClass" class="user-mention">@JvmMultifileClass</a> annotation in all of the files.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// oldutils.kt</span>
+<span class="n">@file</span><span class="p">:</span><span class="n">JvmName</span><span class="p">(</span><span class="s">"Utils"</span><span class="p">)</span>
+<span class="n">@file</span><span class="p">:</span><span class="n">JvmMultifileClass</span>
+
+<span class="k">package</span> <span class="nn">demo</span>
+
+<span class="k">fun</span> <span class="n">foo</span><span class="p">()</span> <span class="p">{</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// newutils.kt</span>
+<span class="n">@file</span><span class="p">:</span><span class="n">JvmName</span><span class="p">(</span><span class="s">"Utils"</span><span class="p">)</span>
+<span class="n">@file</span><span class="p">:</span><span class="n">JvmMultifileClass</span>
+
+<span class="k">package</span> <span class="nn">demo</span>
+
+<span class="k">fun</span> <span class="n">bar</span><span class="p">()</span> <span class="p">{</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Java</span>
+<span class="n">demo</span><span class="o">.</span><span class="na">Utils</span><span class="o">.</span><span class="na">foo</span><span class="o">();</span>
+<span class="n">demo</span><span class="o">.</span><span class="na">Utils</span><span class="o">.</span><span class="na">bar</span><span class="o">();</span>
+</code></pre></div></div>
+
+<h2 id="instance-fields">Instance Fields</h2>
+
+<p>If you need to expose a Kotlin property as a field in Java, you need to annotate it with the <code class="highlighter-rouge">@JvmField</code> annotation.
+The field will have the same visibility as the underlying property. You can annotate a property with <code class="highlighter-rouge">@JvmField</code>
+if it has a backing field, is not private, does not have <code class="highlighter-rouge">open</code>, <code class="highlighter-rouge">override</code> or <code class="highlighter-rouge">const</code> modifiers, and is not a delegated property.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">C</span><span class="p">(</span><span class="n">id</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">@JvmField</span> <span class="kd">val</span> <span class="py">ID</span> <span class="p">=</span> <span class="n">id</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Java</span>
+<span class="kd">class</span> <span class="nc">JavaClient</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getID</span><span class="o">(</span><span class="n">C</span> <span class="n">c</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">c</span><span class="o">.</span><span class="na">ID</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><a href="properties.html#late-initialized-properties-and-variables">Late-Initialized</a> properties are also exposed as fields. 
+The visibility of the field will be the same as the visibility of <code class="highlighter-rouge">lateinit</code> property setter.</p>
+
+<h2 id="static-fields">Static Fields</h2>
+
+<p>Kotlin properties declared in a named object or a companion object will have static backing fields
+either in that named object or in the class containing the companion object.</p>
+
+<p>Usually these fields are private but they can be exposed in one of the following ways:</p>
+
+<ul>
+  <li>
+<code class="highlighter-rouge">@JvmField</code> annotation;</li>
+  <li>
+<code class="highlighter-rouge">lateinit</code> modifier;</li>
+  <li>
+<code class="highlighter-rouge">const</code> modifier.</li>
+</ul>
+
+<p>Annotating such a property with <code class="highlighter-rouge">@JvmField</code> makes it a static field with the same visibility as the property itself.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Key</span><span class="p">(</span><span class="kd">val</span> <span class="py">value</span><span class="p">:</span> <span class="n">Int</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">companion</span> <span class="k">object</span> <span class="p">{</span>
+        <span class="n">@JvmField</span>
+        <span class="kd">val</span> <span class="py">COMPARATOR</span><span class="p">:</span> <span class="n">Comparator</span><span class="p">&lt;</span><span class="n">Key</span><span class="p">&gt;</span> <span class="p">=</span> <span class="n">compareBy</span><span class="p">&lt;</span><span class="n">Key</span><span class="p">&gt;</span> <span class="p">{</span> <span class="n">it</span><span class="p">.</span><span class="n">value</span> <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Java</span>
+<span class="n">Key</span><span class="o">.</span><span class="na">COMPARATOR</span><span class="o">.</span><span class="na">compare</span><span class="o">(</span><span class="n">key1</span><span class="o">,</span> <span class="n">key2</span><span class="o">);</span>
+<span class="c1">// public static final field in Key class</span>
+</code></pre></div></div>
+
+<p>A <a href="properties.html#late-initialized-properties-and-variables">late-initialized</a> property in an object or a companion object
+has a static backing field with the same visibility as the property setter.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">object</span> <span class="nc">Singleton</span> <span class="p">{</span>
+    <span class="k">lateinit</span> <span class="kd">var</span> <span class="py">provider</span><span class="p">:</span> <span class="n">Provider</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Java</span>
+<span class="n">Singleton</span><span class="o">.</span><span class="na">provider</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Provider</span><span class="o">();</span>
+<span class="c1">// public static non-final field in Singleton class</span>
+</code></pre></div></div>
+
+<p>Properties annotated with <code class="highlighter-rouge">const</code> (in classes as well as at the top level) are turned into static fields in Java:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// file example.kt</span>
+
+<span class="kd">object</span> <span class="nc">Obj</span> <span class="p">{</span>
+    <span class="k">const</span> <span class="kd">val</span> <span class="py">CONST</span> <span class="p">=</span> <span class="m">1</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">C</span> <span class="p">{</span>
+    <span class="k">companion</span> <span class="k">object</span> <span class="p">{</span>
+        <span class="k">const</span> <span class="kd">val</span> <span class="py">VERSION</span> <span class="p">=</span> <span class="m">9</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">const</span> <span class="kd">val</span> <span class="py">MAX</span> <span class="p">=</span> <span class="m">239</span>
+</code></pre></div></div>
+
+<p>In Java:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="n">Obj</span><span class="o">.</span><span class="na">CONST</span><span class="o">;</span>
+<span class="kt">int</span> <span class="n">d</span> <span class="o">=</span> <span class="n">ExampleKt</span><span class="o">.</span><span class="na">MAX</span><span class="o">;</span>
+<span class="kt">int</span> <span class="n">v</span> <span class="o">=</span> <span class="n">C</span><span class="o">.</span><span class="na">VERSION</span><span class="o">;</span>
+</code></pre></div></div>
+
+<h2 id="static-methods">Static Methods</h2>
+
+<p>As mentioned above, Kotlin represents package-level functions as static methods.
+Kotlin can also generate static methods for functions defined in named objects or companion objects if you annotate those functions as <code class="highlighter-rouge">@JvmStatic</code>.
+If you use this annotation, the compiler will generate both a static method in the enclosing class of the object and an instance method in the object itself.
+For example:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">C</span> <span class="p">{</span>
+    <span class="k">companion</span> <span class="k">object</span> <span class="p">{</span>
+        <span class="n">@JvmStatic</span> <span class="k">fun</span> <span class="n">foo</span><span class="p">()</span> <span class="p">{}</span>
+        <span class="k">fun</span> <span class="n">bar</span><span class="p">()</span> <span class="p">{}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Now, <code class="highlighter-rouge">foo()</code> is static in Java, while <code class="highlighter-rouge">bar()</code> is not:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">C</span><span class="o">.</span><span class="na">foo</span><span class="o">();</span> <span class="c1">// works fine</span>
+<span class="n">C</span><span class="o">.</span><span class="na">bar</span><span class="o">();</span> <span class="c1">// error: not a static method</span>
+<span class="n">C</span><span class="o">.</span><span class="na">Companion</span><span class="o">.</span><span class="na">foo</span><span class="o">();</span> <span class="c1">// instance method remains</span>
+<span class="n">C</span><span class="o">.</span><span class="na">Companion</span><span class="o">.</span><span class="na">bar</span><span class="o">();</span> <span class="c1">// the only way it works</span>
+</code></pre></div></div>
+
+<p>Same for named objects:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">object</span> <span class="nc">Obj</span> <span class="p">{</span>
+    <span class="n">@JvmStatic</span> <span class="k">fun</span> <span class="n">foo</span><span class="p">()</span> <span class="p">{}</span>
+    <span class="k">fun</span> <span class="n">bar</span><span class="p">()</span> <span class="p">{}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>In Java:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Obj</span><span class="o">.</span><span class="na">foo</span><span class="o">();</span> <span class="c1">// works fine</span>
+<span class="n">Obj</span><span class="o">.</span><span class="na">bar</span><span class="o">();</span> <span class="c1">// error</span>
+<span class="n">Obj</span><span class="o">.</span><span class="na">INSTANCE</span><span class="o">.</span><span class="na">bar</span><span class="o">();</span> <span class="c1">// works, a call through the singleton instance</span>
+<span class="n">Obj</span><span class="o">.</span><span class="na">INSTANCE</span><span class="o">.</span><span class="na">foo</span><span class="o">();</span> <span class="c1">// works too</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">@JvmStatic</code> annotation can also be applied on a property of an object or a companion object
+making its getter and setter methods be static members in that object or the class containing the companion object.</p>
+
+<h2 id="visibility">Visibility</h2>
+
+<p>The Kotlin visibilities are mapped to Java in the following way:</p>
+
+<ul>
+  <li>
+<code class="highlighter-rouge">private</code> members are compiled to <code class="highlighter-rouge">private</code> members;</li>
+  <li>
+<code class="highlighter-rouge">private</code> top-level declarations are compiled to package-local declarations;</li>
+  <li>
+<code class="highlighter-rouge">protected</code> remains <code class="highlighter-rouge">protected</code> (note that Java allows accessing protected members from other classes in the same package
+and Kotlin doesn’t, so Java classes will have broader access to the code);</li>
+  <li>
+<code class="highlighter-rouge">internal</code> declarations become <code class="highlighter-rouge">public</code> in Java. Members of <code class="highlighter-rouge">internal</code> classes go through name mangling, to make
+it harder to accidentally use them from Java and to allow overloading for members with the same signature that don’t see
+each other according to Kotlin rules;</li>
+  <li>
+<code class="highlighter-rouge">public</code> remains <code class="highlighter-rouge">public</code>.</li>
+</ul>
+
+<h2 id="kclass">KClass</h2>
+
+<p>Sometimes you need to call a Kotlin method with a parameter of type <code class="highlighter-rouge">KClass</code>.
+There is no automatic conversion from <code class="highlighter-rouge">Class</code> to <code class="highlighter-rouge">KClass</code>, so you have to do it manually by invoking the equivalent of
+the <code class="highlighter-rouge">Class&lt;T&gt;.kotlin</code> extension property:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">kotlin</span><span class="p">.</span><span class="n">jvm</span><span class="p">.</span><span class="n">JvmClassMappingKt</span><span class="p">.</span><span class="n">getKotlinClass</span><span class="p">(</span><span class="n">MainView</span><span class="p">.</span><span class="k">class</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="handling-signature-clashes-with-jvmname">Handling signature clashes with <a href="https://github.com/JvmName" class="user-mention">@JvmName</a>
+</h2>
+
+<p>Sometimes we have a named function in Kotlin, for which we need a different JVM name the byte code.
+The most prominent example happens due to <em>type erasure</em>:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;.</span><span class="n">filterValid</span><span class="p">():</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;</span>
+<span class="k">fun</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">Int</span><span class="p">&gt;.</span><span class="n">filterValid</span><span class="p">():</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">Int</span><span class="p">&gt;</span>
+</code></pre></div></div>
+
+<p>These two functions can not be defined side-by-side, because their JVM signatures are the same: <code class="highlighter-rouge">filterValid(Ljava/util/List;)Ljava/util/List;</code>.
+If we really want them to have the same name in Kotlin, we can annotate one (or both) of them with <code class="highlighter-rouge">@JvmName</code> and specify a different name as an argument:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;.</span><span class="n">filterValid</span><span class="p">():</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;</span>
+
+<span class="n">@JvmName</span><span class="p">(</span><span class="s">"filterValidInt"</span><span class="p">)</span>
+<span class="k">fun</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">Int</span><span class="p">&gt;.</span><span class="n">filterValid</span><span class="p">():</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">Int</span><span class="p">&gt;</span>
+</code></pre></div></div>
+
+<p>From Kotlin they will be accessible by the same name <code class="highlighter-rouge">filterValid</code>, but from Java it will be <code class="highlighter-rouge">filterValid</code> and <code class="highlighter-rouge">filterValidInt</code>.</p>
+
+<p>The same trick applies when we need to have a property <code class="highlighter-rouge">x</code> alongside with a function <code class="highlighter-rouge">getX()</code>:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">x</span><span class="p">:</span> <span class="n">Int</span>
+    <span class="n">@JvmName</span><span class="p">(</span><span class="s">"getX_prop"</span><span class="p">)</span>
+    <span class="k">get</span><span class="p">()</span> <span class="p">=</span> <span class="m">15</span>
+
+<span class="k">fun</span> <span class="n">getX</span><span class="p">()</span> <span class="p">=</span> <span class="m">10</span>
+</code></pre></div></div>
+
+<h2 id="overloads-generation">Overloads Generation</h2>
+
+<p>Normally, if you write a Kotlin function with default parameter values, it will be visible in Java only as a full
+signature, with all parameters present. If you wish to expose multiple overloads to Java callers, you can use the
+<code class="highlighter-rouge">@JvmOverloads</code> annotation.</p>
+
+<p>The annotation also works for constructors, static methods etc. It can’t be used on abstract methods, including methods
+defined in interfaces.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Foo</span> <span class="n">@JvmOverloads</span> <span class="k">constructor</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Int</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">Double</span> <span class="p">=</span> <span class="m">0.0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">@JvmOverloads</span> <span class="k">fun</span> <span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="n">Int</span> <span class="p">=</span> <span class="m">0</span><span class="p">,</span> <span class="n">c</span><span class="p">:</span> <span class="n">String</span> <span class="p">=</span> <span class="s">"abc"</span><span class="p">)</span> <span class="p">{</span>
+        <span class="o">..</span><span class="p">.</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>For every parameter with a default value, this will generate one additional overload, which has this parameter and
+all parameters to the right of it in the parameter list removed. In this example, the following will be
+generated:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Constructors:</span>
+<span class="n">Foo</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">,</span> <span class="kt">double</span> <span class="n">y</span><span class="o">)</span>
+<span class="n">Foo</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">)</span>
+
+<span class="c1">// Methods</span>
+<span class="kt">void</span> <span class="nf">f</span><span class="o">(</span><span class="n">String</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">b</span><span class="o">,</span> <span class="n">String</span> <span class="n">c</span><span class="o">)</span> <span class="o">{</span> <span class="o">}</span>
+<span class="kt">void</span> <span class="nf">f</span><span class="o">(</span><span class="n">String</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span> <span class="o">}</span>
+<span class="kt">void</span> <span class="nf">f</span><span class="o">(</span><span class="n">String</span> <span class="n">a</span><span class="o">)</span> <span class="o">{</span> <span class="o">}</span>
+</code></pre></div></div>
+
+<p>Note that, as described in <a href="classes.html#secondary-constructors">Secondary Constructors</a>, if a class has default
+values for all constructor parameters, a public no-argument constructor will be generated for it. This works even
+if the <code class="highlighter-rouge">@JvmOverloads</code> annotation is not specified.</p>
+
+<h2 id="checked-exceptions">Checked Exceptions</h2>
+
+<p>As we mentioned above, Kotlin does not have checked exceptions.
+So, normally, the Java signatures of Kotlin functions do not declare exceptions thrown.
+Thus if we have a function in Kotlin like this:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// example.kt</span>
+<span class="k">package</span> <span class="nn">demo</span>
+
+<span class="k">fun</span> <span class="n">foo</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="n">IOException</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>And we want to call it from Java and catch the exception:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Java</span>
+<span class="k">try</span> <span class="o">{</span>
+  <span class="n">demo</span><span class="o">.</span><span class="na">Example</span><span class="o">.</span><span class="na">foo</span><span class="o">();</span>
+<span class="o">}</span>
+<span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// error: foo() does not declare IOException in the throws list</span>
+  <span class="c1">// ...</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>we get an error message from the Java compiler, because <code class="highlighter-rouge">foo()</code> does not declare <code class="highlighter-rouge">IOException</code>.
+To work around this problem, use the <code class="highlighter-rouge">@Throws</code> annotation in Kotlin:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">@Throws</span><span class="p">(</span><span class="n">IOException</span><span class="o">::</span><span class="k">class</span><span class="p">)</span>
+<span class="k">fun</span> <span class="n">foo</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="n">IOException</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="null-safety">Null-safety</h2>
+
+<p>When calling Kotlin functions from Java, nobody prevents us from passing <em class="keyword">null</em> as a non-null parameter.
+That’s why Kotlin generates runtime checks for all public functions that expect non-nulls.
+This way we get a <code class="highlighter-rouge">NullPointerException</code> in the Java code immediately.</p>
+
+<h2 id="variant-generics">Variant generics</h2>
+
+<p>When Kotlin classes make use of <a href="generics.html#declaration-site-variance">declaration-site variance</a>, there are two 
+options of how their usages are seen from the Java code. Let’s say we have the following class and two functions that use it:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Box</span><span class="p">&lt;</span><span class="k">out</span> <span class="n">T</span><span class="p">&gt;(</span><span class="kd">val</span> <span class="py">value</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span>
+
+<span class="kd">interface</span> <span class="nc">Base</span>
+<span class="kd">class</span> <span class="nc">Derived</span> <span class="p">:</span> <span class="n">Base</span>
+
+<span class="k">fun</span> <span class="n">boxDerived</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="n">Derived</span><span class="p">):</span> <span class="n">Box</span><span class="p">&lt;</span><span class="n">Derived</span><span class="p">&gt;</span> <span class="p">=</span> <span class="n">Box</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+<span class="k">fun</span> <span class="n">unboxBase</span><span class="p">(</span><span class="n">box</span><span class="p">:</span> <span class="n">Box</span><span class="p">&lt;</span><span class="n">Base</span><span class="p">&gt;):</span> <span class="n">Base</span> <span class="p">=</span> <span class="n">box</span><span class="p">.</span><span class="n">value</span>
+</code></pre></div></div>
+
+<p>A naive way of translating these functions into Java would be this:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Box</span><span class="o">&lt;</span><span class="n">Derived</span><span class="o">&gt;</span> <span class="nf">boxDerived</span><span class="o">(</span><span class="n">Derived</span> <span class="n">value</span><span class="o">)</span> <span class="o">{</span> <span class="o">...</span> <span class="o">}</span>
+<span class="n">Base</span> <span class="nf">unboxBase</span><span class="o">(</span><span class="n">Box</span><span class="o">&lt;</span><span class="n">Base</span><span class="o">&gt;</span> <span class="n">box</span><span class="o">)</span> <span class="o">{</span> <span class="o">...</span> <span class="o">}</span>
+</code></pre></div></div>
+
+<p>The problem is that in Kotlin we can say <code class="highlighter-rouge">unboxBase(boxDerived("s"))</code>, but in Java that would be impossible, because in Java 
+  the class <code class="highlighter-rouge">Box</code> is <em>invariant</em> in its parameter <code class="highlighter-rouge">T</code>, and thus <code class="highlighter-rouge">Box&lt;Derived&gt;</code> is not a subtype of <code class="highlighter-rouge">Box&lt;Base&gt;</code>. 
+  To make it work in Java we’d have to define <code class="highlighter-rouge">unboxBase</code> as follows:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Base</span> <span class="nf">unboxBase</span><span class="o">(</span><span class="n">Box</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="n">Base</span><span class="o">&gt;</span> <span class="n">box</span><span class="o">)</span> <span class="o">{</span> <span class="o">...</span> <span class="o">}</span>  
+</code></pre></div></div>
+
+<p>Here we make use of Java’s <em>wildcards types</em> (<code class="highlighter-rouge">? extends Base</code>) to emulate declaration-site variance through use-site 
+variance, because it is all Java has.</p>
+
+<p>To make Kotlin APIs work in Java we generate <code class="highlighter-rouge">Box&lt;Super&gt;</code> as <code class="highlighter-rouge">Box&lt;? extends Super&gt;</code> for covariantly defined <code class="highlighter-rouge">Box</code> 
+(or <code class="highlighter-rouge">Foo&lt;? super Bar&gt;</code> for contravariantly defined <code class="highlighter-rouge">Foo</code>) when it appears <em>as a parameter</em>. When it’s a return value,
+we don’t generate wildcards, because otherwise Java clients will have to deal with them (and it’s against the common 
+Java coding style). Therefore, the functions from our example are actually translated as follows:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// return type - no wildcards</span>
+<span class="n">Box</span><span class="o">&lt;</span><span class="n">Derived</span><span class="o">&gt;</span> <span class="nf">boxDerived</span><span class="o">(</span><span class="n">Derived</span> <span class="n">value</span><span class="o">)</span> <span class="o">{</span> <span class="o">...</span> <span class="o">}</span>
+ 
+<span class="c1">// parameter - wildcards </span>
+<span class="n">Base</span> <span class="nf">unboxBase</span><span class="o">(</span><span class="n">Box</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="n">Base</span><span class="o">&gt;</span> <span class="n">box</span><span class="o">)</span> <span class="o">{</span> <span class="o">...</span> <span class="o">}</span>
+</code></pre></div></div>
+
+<p>NOTE: when the argument type is final, there’s usually no point in generating the wildcard, so <code class="highlighter-rouge">Box&lt;String&gt;</code> is always
+  <code class="highlighter-rouge">Box&lt;String&gt;</code>, no matter what position it takes.</p>
+
+<p>If we need wildcards where they are not generated by default, we can use the <code class="highlighter-rouge">@JvmWildcard</code> annotation:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="n">boxDerived</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="n">Derived</span><span class="p">):</span> <span class="n">Box</span><span class="p">&lt;</span><span class="n">@JvmWildcard</span> <span class="n">Derived</span><span class="p">&gt;</span> <span class="p">=</span> <span class="n">Box</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+<span class="c1">// is translated to </span>
+<span class="c1">// Box&lt;? extends Derived&gt; boxDerived(Derived value) { ... }</span>
+</code></pre></div></div>
+
+<p>On the other hand, if we don’t need wildcards where they are generated, we can use <code class="highlighter-rouge">@JvmSuppressWildcards</code>:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="n">unboxBase</span><span class="p">(</span><span class="n">box</span><span class="p">:</span> <span class="n">Box</span><span class="p">&lt;</span><span class="n">@JvmSuppressWildcards</span> <span class="n">Base</span><span class="p">&gt;):</span> <span class="n">Base</span> <span class="p">=</span> <span class="n">box</span><span class="p">.</span><span class="n">value</span>
+<span class="c1">// is translated to </span>
+<span class="c1">// Base unboxBase(Box&lt;Base&gt; box) { ... }</span>
+</code></pre></div></div>
+
+<p>NOTE: <code class="highlighter-rouge">@JvmSuppressWildcards</code> can be used not only on individual type arguments, but on entire declarations, such as 
+functions or classes, causing all wildcards inside them to be suppressed.</p>
+
+<h3 id="translation-of-type-nothing">Translation of type Nothing</h3>
+
+<p>The type <a href="exceptions.html#the-nothing-type"><code class="highlighter-rouge">Nothing</code></a> is special, because it has no natural counterpart in Java. Indeed, every Java reference type, including
+<code class="highlighter-rouge">java.lang.Void</code>, accepts <code class="highlighter-rouge">null</code> as a value, and <code class="highlighter-rouge">Nothing</code> doesn’t accept even that. So, this type cannot be accurately
+represented in the Java world. This is why Kotlin generates a raw type where an argument of type <code class="highlighter-rouge">Nothing</code> is used:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="n">emptyList</span><span class="p">():</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">Nothing</span><span class="p">&gt;</span> <span class="p">=</span> <span class="n">listOf</span><span class="p">()</span>
+<span class="c1">// is translated to</span>
+<span class="c1">// List emptyList() { ... }</span>
+</code></pre></div></div>
+
+  </div>
+</article>
+
+      </div>
+
+      <div class="unit one-fifth hide-on-mobiles">
+  <aside>
+    <ul>
+      <li class="">
+        <a href="/news/">All Post</a>
+      </li>
+      <li class="">
+        <a href="/news/releases/">Kotlin Releases</a>
+      </li>
+    </ul>
+    <h4>Recent Releases</h4>
+    <ul>
+      
+    </ul>
+    <h4>Other Posts</h4>
+    <ul>
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-experimental-coroutines/">Using coroutines</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-command-line-library-js/">Creating a Kotlin JavaScript library with the Command Line Compiler</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-spring-boot-restful/">Creating a RESTful Web Service with Spring Boot</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-kotlin-android/">Getting started with Android and Kotlin</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-koans/">Kotlin Koans</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-index/">Tutorials</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-httpservlets/">Creating Web Applications with Http Servlets</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-edu-tools-learner/">Learning Kotlin with EduTools plugin</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-edu-tools-educator/">Teaching Kotlin with EduTools plugin</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-create-library-js/">Creating Kotlin/JavaScript library with IntelliJ IDEA</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-coroutines-basic-jvm/">Introduction to Kotlin Coroutines on the JVM</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-command-line/">Working with the Command Line Compiler</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-command-line-library-js/">Creating Kotlin/JavaScript library with the Command Line Compiler</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-build-tools/">Working with Build Tools</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-android-plugin/">Kotlin Android Extensions</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-android-frameworks/">Android Frameworks Using Annotation Processing</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-whatsnew12/">What's New in Kotlin 1.2</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-whatsnew11/">What's New in Kotlin 1.1</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-visibility-modifiers/">Visibility Modifiers</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-using-maven/">Using Maven</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-using-gradle/">Using Gradle</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-using-ant/">Using Ant</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-typecasts/">Type Checks and Casts: 'is' and 'as'</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-type-safe-builders/">Type-Safe Builders</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-type-aliases/">Type aliases (since 1.1)</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-this-expressions/">This expressions</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-server-overview/">Kotlin for Server Side</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-sealed-classes/">Sealed Classes</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-returns/">Returns and Jumps: break and continue</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-reflection/">Reflection</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-ranges/">Ranges</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-properties/">Properties and Fields: Getters, Setters, const, lateinit</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-packages/">Packages and Imports</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-operator-overloading/">Operator overloading</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-object-declarations/">Object Expressions, Object Declarations and Companion Objects</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-null-safety/">Null Safety</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-nested-classes/">Nested and Inner Classes</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-native-overview/">Kotlin/Native</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-multiplatform/">Multiplatform Projects</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-multi-declarations/">Destructuring Declarations</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-lambdas/">Higher-Order Functions and Lambdas</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-kotlin-osgi/">Kotlin and OSGi</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-kotlin-doc/">Documenting Kotlin Code</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-kotlin-build-tools/">Kotlin Build Tools</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-keyword-reference/">Keywords and Operators</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-kapt/">Using kapt</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-js-to-kotlin-interop/">Calling Kotlin from JavaScript</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-js-reflection/">JavaScript Reflection</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-js-overview/">Kotlin for JavaScript</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-js-modules/">JavaScript Modules</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-js-interop/">Calling JavaScript from Kotlin</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-javascript-dce/">JavaScript DCE</a>
+        </li>
+        
+        
+        
+        <li class="current">
+          <a href="/news/2018/05/15/kotlinlang-java-to-kotlin-interop/">Calling Kotlin from Java</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-java-interop/">Calling Java from Kotlin</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-interfaces/">Interfaces</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-inline-functions/">Inline Functions and Reified Type Parameters</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-index/">Reference</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-idioms/">Idioms</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-generics/">Generics: in, out, where</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-functions/">Functions: infix, vararg, tailrec</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-faq/">FAQ</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-extensions/">Extensions</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-exceptions/">Exceptions: try, catch, finally, throw, Nothing</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-equality/">Equality</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-enum-classes/">Enum Classes</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-dynamic-type/">Dynamic Type</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-delegation/">Delegation</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-delegated-properties/">Delegated Properties</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-data-classes/">Data Classes</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-coroutines/">Coroutines</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-control-flow/">Control Flow: if, when, for, while</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-compiler-plugins/">Compiler Plugins</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-compatibility/">Compatibility</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-comparison-to-java/">Comparison to Java</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-collections/">Collections: List, Set, Map</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-coding-conventions/">Coding Conventions</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-classes/">Classes and Inheritance</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-basic-types/">Basic Types: Numbers, Strings, Arrays</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-basic-syntax/">Basic Syntax</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-annotations/">Annotations</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-android-overview/">Kotlin for Android</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/13/android-01/">Kotlin Programming Language</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/01/24/kotlinlang-gradle-for-kotlin-native/">Gradle for Kotlin/Native</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/01/23/kotlinlang-kotlin-native-with-clion/">Kotlin/Native with CLion</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/01/22/kotlinlang-working-with-klib/">Working with Kotlin/Native Libraries</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/01/09/kotlinlang-interop-with-c/">Interop with C Libraries</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2017/12/03/kotlinlang-basic-kotlin-native-app/">A Basic Kotlin/Native Application</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2017/07/31/kotlinlang-debugging-javascript/">Debugging Kotlin in browser</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2017/05/04/kotlinlang-getting-started/">Getting Started with IntelliJ IDEA</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2017/02/27/kotlinlang-working-with-javascript/">Working with JavaScript</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2016/12/03/gradle-tip/">Android Gradle Tips</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2016/11/10/kotlinlang-getting-started-eclipse/">Getting Started with Eclipse Neon</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2016/11/04/kotlinlang-getting-started-with-maven/">Getting Started with Kotlin and JavaScript with Maven</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2016/11/04/kotlinlang-getting-started-with-gradle/">Getting Started with Kotlin and JavaScript with Gradle</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2016/10/07/kotlinlang-calling-javascript-from-kotlin/">Calling JavaScript from Kotlin</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2016/09/30/kotlinlang-working-with-modules/">Working with Kotlin and JavaScript Modules</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2016/09/30/kotlinlang-getting-started-with-intellij-idea/">Getting Started with Kotlin and JavaScript with IntelliJ IDEA</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2016/09/29/kotlinlang-kotlin-to-javascript/">Kotlin to JavaScript</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2016/07/26/android-database-tip/">Android 의 Sqlite Tip</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2016/04/16/migration-to-retrofit2/">Retrofit2 로 전환</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2016/02/12/Android-and-automation/">안드로이드와 자동화 툴</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2015/11/26/%EB%8D%94-%EB%B9%A0%EB%A5%B8-Andriod-App-Build/">더 빠른 Android App Build</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2015/03/10/.androidannotations-%EC%99%80-MVP/">AndroidAnnotations 와 MVP</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2015/03/01/04.androidannotation-%EA%B3%BC-%ED%85%8C%EC%8A%A4%ED%8A%B8/">AndroidAnnotations 과 테스트</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2015/03/01/03.androidannotation-%EA%B3%BC-mvc/">AndroidAnnotations 과 MVC 패턴</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2015/03/01/02.android-%EC%99%80-annotation/">Android 와 Annotation</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2015/03/01/01.Android-mvc-mvvm-mvp/">Android 와 개발 패턴</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2015/02/02/kotlinlang-kotlin-and-ci/">Kotlin and Continuous Integration with TeamCity</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2014/09/23/kotlinlang-mixing-java-kotlin-intellij/">Mixing Java and Kotlin in one project</a>
+        </li>
+        
+        
+    </ul>
+  </aside>
+</div>
+
+
+      <div class="clear"></div>
+
+    </div>
+  </section>
+
+
+  <footer>
+  <div class="grid">
+    <div class="unit one-third center-on-mobiles">
+      <p>
+        © 2018 Laon Dreams
+      <br>Contacts: <a href="mailto:laondreams@gmail.com">laondreams@gmail.com</a></p>
+    </div>
+    <div class="unit two-thirds align-right center-on-mobiles">
+      <p>
+        Proudly hosted by
+        <a href="https://github.com">
+          <img src="/img/footer-logo.png" width="100" height="30" alt="GitHub • Social coding">
+        </a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+  <script>
+  var anchorForId = function (id) {
+    var anchor = document.createElement("a");
+    anchor.className = "header-link";
+    anchor.href      = "#" + id;
+    anchor.innerHTML = "<span class=\"sr-only\">Permalink</span><i class=\"fa fa-link\"></i>";
+    anchor.title = "Permalink";
+    return anchor;
+  };
+
+  var linkifyAnchors = function (level, containingElement) {
+    var headers = containingElement.getElementsByTagName("h" + level);
+    for (var h = 0; h < headers.length; h++) {
+      var header = headers[h];
+
+      if (typeof header.id !== "undefined" && header.id !== "") {
+        header.appendChild(anchorForId(header.id));
+      }
+    }
+  };
+
+  document.onreadystatechange = function () {
+    if (this.readyState === "complete") {
+      var contentBlock = document.getElementsByClassName("docs")[0] || document.getElementsByClassName("news")[0];
+      if (!contentBlock) {
+        return;
+      }
+      for (var level = 1; level <= 6; level++) {
+        linkifyAnchors(level, contentBlock);
+      }
+    }
+  };
+</script>
+
+  
+  <!-- Google Analytics (https://www.google.com/analytics) -->
+  <script>
+    !function(j,e,k,y,l,L){j.GoogleAnalyticsObject=y,j[y]||(j[y]=function(){
+    (j[y].q=j[y].q||[]).push(arguments)}),j[y].l=+new Date,l=e.createElement(k),
+    L=e.getElementsByTagName(k)[0],l.src='https://www.google-analytics.com/analytics.js',
+    L.parentNode.insertBefore(l,L)}(window,document,'script','ga');
+
+    ga('create', 'UA-119113988-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript"> docsearch({
+apiKey: '50fe39c839958dfad797000f33e2ec17',
+indexName: 'jekyllrb',
+inputSelector: '#docsearch-input',
+enhancedSearchInput: true,
+debug: false // Set debug to true if you want to inspect the dropdown
+});
+</script>
+
+</body>
+</html>

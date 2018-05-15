@@ -1,0 +1,1639 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="generator" content="Jekyll v3.8.1">
+  <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Laon Dreams • Simple, blog-aware, static sites" />
+  <link rel="alternate" type="application/atom+xml" title="Recent commits to Jekyll’s master branch" href="https://github.com/laondreams/laondreams/commits/master.atom">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic,900">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
+  <link rel="stylesheet" href="/css/screen.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>Using Gradle | Laon Dreams • Simple, blog-aware, static sites</title>
+<meta name="generator" content="Jekyll v3.8.1" />
+<meta property="og:title" content="Using Gradle" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Using Gradle" />
+<meta property="og:description" content="Using Gradle" />
+<link rel="canonical" href="http://localhost:4000/news/2018/05/15/kotlinlang-using-gradle/" />
+<meta property="og:url" content="http://localhost:4000/news/2018/05/15/kotlinlang-using-gradle/" />
+<meta property="og:site_name" content="Laon Dreams • Simple, blog-aware, static sites" />
+<meta property="og:image" content="http://localhost:4000/img/twitter-card.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-05-15T00:00:00+09:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@laondreams" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/news/2018/05/15/kotlinlang-using-gradle/","image":"http://localhost:4000/img/twitter-card.png","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/img/LaonDreams.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/news/2018/05/15/kotlinlang-using-gradle/"},"description":"Using Gradle","@type":"BlogPosting","headline":"Using Gradle","dateModified":"2018-05-15T00:00:00+09:00","datePublished":"2018-05-15T00:00:00+09:00","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <!--[if lt IE 9]>
+  <script src="/js/html5shiv.min.js"></script>
+  <script src="/js/respond.min.js"></script>
+  <![endif]-->
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-8484034453879329",
+          enable_page_level_ads: true
+      });
+  </script>
+</head>
+
+
+<body class="wrap">
+  <header>
+  <div class="flexbox">
+    <div class="center-on-mobiles">
+      <h1>
+        <a href="/" class="logo">
+          <span class="sr-only">Jekyll</span>
+          <img src="/img/LaonDreams.png" width="140" alt="LaonDreams Logo">
+        </a>
+      </h1>
+    </div>
+    <nav class="main-nav hide-on-mobiles">
+      <ul>
+  <li class="">
+    <a href="/">Home</a>
+  </li>
+  <li class="">
+    <a href="/docs/home/">Docs</a>
+  </li>
+  <li class="">
+    <a href="/news/">Posts</a>
+  </li>
+</ul>
+
+    </nav>
+    <div class="meta hide-on-mobiles">
+    </div>
+    <div class="meta hide-on-mobiles">
+    </div>
+    <div class="meta hide-on-mobiles">
+    </div>
+    <div class="meta hide-on-mobiles">
+    </div>
+  </div>
+  <nav class="mobile-nav show-on-mobiles">
+    <ul>
+  <li class="">
+    <a href="/">Home</a>
+  </li>
+  <li class="">
+    <a href="/docs/home/">Docs</a>
+  </li>
+  <li class="">
+    <a href="/news/">Posts</a>
+  </li>
+</ul>
+
+  </nav>
+</header>
+
+
+    <section class="news">
+    <div class="grid">
+
+      <div class="docs-nav-mobile unit whole show-on-mobiles">
+  <select onchange="if (this.value) window.location.href=this.value">
+    <option value="">Navigate the blog…</option>
+    <option value="/news/">Home</option>
+    <optgroup label="v1.x">
+      
+      <option value="/news/2018/05/15/kotlinlang-experimental-coroutines/">Using coroutines</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-command-line-library-js/">Creating a Kotlin JavaScript library with the Command Line Compiler</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-spring-boot-restful/">Creating a RESTful Web Service with Spring Boot</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-kotlin-android/">Getting started with Android and Kotlin</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-koans/">Kotlin Koans</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-index/">Tutorials</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-httpservlets/">Creating Web Applications with Http Servlets</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-edu-tools-learner/">Learning Kotlin with EduTools plugin</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-edu-tools-educator/">Teaching Kotlin with EduTools plugin</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-create-library-js/">Creating Kotlin/JavaScript library with IntelliJ IDEA</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-coroutines-basic-jvm/">Introduction to Kotlin Coroutines on the JVM</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-command-line/">Working with the Command Line Compiler</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-command-line-library-js/">Creating Kotlin/JavaScript library with the Command Line Compiler</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-build-tools/">Working with Build Tools</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-android-plugin/">Kotlin Android Extensions</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-android-frameworks/">Android Frameworks Using Annotation Processing</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-whatsnew12/">What's New in Kotlin 1.2</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-whatsnew11/">What's New in Kotlin 1.1</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-visibility-modifiers/">Visibility Modifiers</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-using-maven/">Using Maven</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-using-gradle/">Using Gradle</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-using-ant/">Using Ant</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-typecasts/">Type Checks and Casts: 'is' and 'as'</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-type-safe-builders/">Type-Safe Builders</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-type-aliases/">Type aliases (since 1.1)</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-this-expressions/">This expressions</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-server-overview/">Kotlin for Server Side</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-sealed-classes/">Sealed Classes</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-returns/">Returns and Jumps: break and continue</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-reflection/">Reflection</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-ranges/">Ranges</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-properties/">Properties and Fields: Getters, Setters, const, lateinit</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-packages/">Packages and Imports</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-operator-overloading/">Operator overloading</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-object-declarations/">Object Expressions, Object Declarations and Companion Objects</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-null-safety/">Null Safety</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-nested-classes/">Nested and Inner Classes</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-native-overview/">Kotlin/Native</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-multiplatform/">Multiplatform Projects</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-multi-declarations/">Destructuring Declarations</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-lambdas/">Higher-Order Functions and Lambdas</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-kotlin-osgi/">Kotlin and OSGi</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-kotlin-doc/">Documenting Kotlin Code</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-kotlin-build-tools/">Kotlin Build Tools</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-keyword-reference/">Keywords and Operators</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-kapt/">Using kapt</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-js-to-kotlin-interop/">Calling Kotlin from JavaScript</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-js-reflection/">JavaScript Reflection</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-js-overview/">Kotlin for JavaScript</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-js-modules/">JavaScript Modules</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-js-interop/">Calling JavaScript from Kotlin</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-javascript-dce/">JavaScript DCE</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-java-to-kotlin-interop/">Calling Kotlin from Java</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-java-interop/">Calling Java from Kotlin</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-interfaces/">Interfaces</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-inline-functions/">Inline Functions and Reified Type Parameters</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-index/">Reference</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-idioms/">Idioms</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-generics/">Generics: in, out, where</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-functions/">Functions: infix, vararg, tailrec</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-faq/">FAQ</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-extensions/">Extensions</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-exceptions/">Exceptions: try, catch, finally, throw, Nothing</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-equality/">Equality</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-enum-classes/">Enum Classes</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-dynamic-type/">Dynamic Type</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-delegation/">Delegation</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-delegated-properties/">Delegated Properties</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-data-classes/">Data Classes</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-coroutines/">Coroutines</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-control-flow/">Control Flow: if, when, for, while</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-compiler-plugins/">Compiler Plugins</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-compatibility/">Compatibility</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-comparison-to-java/">Comparison to Java</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-collections/">Collections: List, Set, Map</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-coding-conventions/">Coding Conventions</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-classes/">Classes and Inheritance</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-basic-types/">Basic Types: Numbers, Strings, Arrays</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-basic-syntax/">Basic Syntax</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-annotations/">Annotations</option>
+      
+      <option value="/news/2018/05/15/kotlinlang-android-overview/">Kotlin for Android</option>
+      
+      <option value="/news/2018/05/13/android-01/">Kotlin Programming Language</option>
+      
+      <option value="/news/2018/01/24/kotlinlang-gradle-for-kotlin-native/">Gradle for Kotlin/Native</option>
+      
+      <option value="/news/2018/01/23/kotlinlang-kotlin-native-with-clion/">Kotlin/Native with CLion</option>
+      
+      <option value="/news/2018/01/22/kotlinlang-working-with-klib/">Working with Kotlin/Native Libraries</option>
+      
+      <option value="/news/2018/01/09/kotlinlang-interop-with-c/">Interop with C Libraries</option>
+      
+      <option value="/news/2017/12/03/kotlinlang-basic-kotlin-native-app/">A Basic Kotlin/Native Application</option>
+      
+      <option value="/news/2017/07/31/kotlinlang-debugging-javascript/">Debugging Kotlin in browser</option>
+      
+      <option value="/news/2017/05/04/kotlinlang-getting-started/">Getting Started with IntelliJ IDEA</option>
+      
+      <option value="/news/2017/02/27/kotlinlang-working-with-javascript/">Working with JavaScript</option>
+      
+      <option value="/news/2016/12/03/gradle-tip/">Android Gradle Tips</option>
+      
+      <option value="/news/2016/11/10/kotlinlang-getting-started-eclipse/">Getting Started with Eclipse Neon</option>
+      
+      <option value="/news/2016/11/04/kotlinlang-getting-started-with-maven/">Getting Started with Kotlin and JavaScript with Maven</option>
+      
+      <option value="/news/2016/11/04/kotlinlang-getting-started-with-gradle/">Getting Started with Kotlin and JavaScript with Gradle</option>
+      
+      <option value="/news/2016/10/07/kotlinlang-calling-javascript-from-kotlin/">Calling JavaScript from Kotlin</option>
+      
+      <option value="/news/2016/09/30/kotlinlang-working-with-modules/">Working with Kotlin and JavaScript Modules</option>
+      
+      <option value="/news/2016/09/30/kotlinlang-getting-started-with-intellij-idea/">Getting Started with Kotlin and JavaScript with IntelliJ IDEA</option>
+      
+      <option value="/news/2016/09/29/kotlinlang-kotlin-to-javascript/">Kotlin to JavaScript</option>
+      
+      <option value="/news/2016/07/26/android-database-tip/">Android 의 Sqlite Tip</option>
+      
+      <option value="/news/2016/04/16/migration-to-retrofit2/">Retrofit2 로 전환</option>
+      
+      <option value="/news/2016/02/12/Android-and-automation/">안드로이드와 자동화 툴</option>
+      
+      <option value="/news/2015/11/26/%EB%8D%94-%EB%B9%A0%EB%A5%B8-Andriod-App-Build/">더 빠른 Android App Build</option>
+      
+      <option value="/news/2015/03/10/.androidannotations-%EC%99%80-MVP/">AndroidAnnotations 와 MVP</option>
+      
+      <option value="/news/2015/03/01/04.androidannotation-%EA%B3%BC-%ED%85%8C%EC%8A%A4%ED%8A%B8/">AndroidAnnotations 과 테스트</option>
+      
+      <option value="/news/2015/03/01/03.androidannotation-%EA%B3%BC-mvc/">AndroidAnnotations 과 MVC 패턴</option>
+      
+      <option value="/news/2015/03/01/02.android-%EC%99%80-annotation/">Android 와 Annotation</option>
+      
+      <option value="/news/2015/03/01/01.Android-mvc-mvvm-mvp/">Android 와 개발 패턴</option>
+      
+      <option value="/news/2015/02/02/kotlinlang-kotlin-and-ci/">Kotlin and Continuous Integration with TeamCity</option>
+      
+      <option value="/news/2014/09/23/kotlinlang-mixing-java-kotlin-intellij/">Mixing Java and Kotlin in one project</option>
+      
+    </optgroup>
+  </select>
+</div>
+
+
+      <div class="unit four-fifths">
+        <article>
+  <h2>
+    Using Gradle
+    <a href="/news/2018/05/15/kotlinlang-using-gradle/" class="header-link" title="Permalink">
+      <span class="sr-only">Permalink</span>
+      <i class="fa fa-link"></i>
+    </a>
+  </h2>
+  <span class="post-category">
+    <span class="label">
+      
+    </span>
+  </span>
+  <div class="post-meta">
+    <span class="post-date">
+      15 May 2018
+    </span>
+    
+    <a href="https://github.com/" class="post-author">
+      <img class="avatar avatar-small" alt="author" width="24" height="24" data-proofer-ignore="true" src="https://avatars3.githubusercontent.com/author?v=3&s=24" srcset="https://avatars3.githubusercontent.com/author?v=3&s=24 1x, https://avatars3.githubusercontent.com/author?v=3&s=48 2x, https://avatars3.githubusercontent.com/author?v=3&s=72 3x, https://avatars3.githubusercontent.com/author?v=3&s=96 4x" />
+      
+    </a>
+  </div>
+  <div class="post-content">
+    <h1 id="using-gradle">Using Gradle</h1>
+
+<p>In order to build Kotlin with Gradle you should <a href="#plugin-and-versions">set up the <em>kotlin-gradle</em> plugin</a>, <a href="#targeting-the-jvm">apply it</a> to your project and <a href="#configuring-dependencies">add <em>kotlin-stdlib</em> dependencies</a>. Those actions may also be performed automatically in IntelliJ IDEA by invoking the Tools | Kotlin | Configure Kotlin in Project action.</p>
+
+<h2 id="plugin-and-versions">Plugin and Versions</h2>
+
+<p>The <code class="highlighter-rouge">kotlin-gradle-plugin</code> compiles Kotlin sources and modules.</p>
+
+<p>The version of Kotlin to use is usually defined as the <code class="highlighter-rouge">kotlin_version</code> property:</p>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">buildscript</span> <span class="o">{</span>
+    <span class="n">ext</span><span class="o">.</span><span class="na">kotlin_version</span> <span class="o">=</span> <span class="s1">''</span>
+
+    <span class="n">repositories</span> <span class="o">{</span>
+        <span class="n">mavenCentral</span><span class="o">()</span>
+    <span class="o">}</span>
+
+    <span class="n">dependencies</span> <span class="o">{</span>
+        <span class="n">classpath</span> <span class="s2">"org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>This is not required when using Kotlin Gradle plugin 1.1.1 and above with the <a href="https://docs.gradle.org/current/userguide/plugins.html#sec:plugins_block">Gradle plugins DSL</a>, and with <a href="https://github.com/gradle/kotlin-dsl">Gradle Kotlin DSL</a>.</p>
+
+<h2 id="targeting-the-jvm">Targeting the JVM</h2>
+
+<p>To target the JVM, the Kotlin plugin needs to be applied:</p>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">apply</span> <span class="nl">plugin:</span> <span class="s2">"kotlin"</span>
+</code></pre></div></div>
+
+<p>Or, starting with Kotlin 1.1.1, the plugin can be applied using the <a href="https://docs.gradle.org/current/userguide/plugins.html#sec:plugins_block">Gradle plugins DSL</a>:</p>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">plugins</span> <span class="o">{</span>
+    <span class="n">id</span> <span class="s2">"org.jetbrains.kotlin.jvm"</span> <span class="n">version</span> <span class="s2">""</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>The <code class="highlighter-rouge">version</code> should be literal in this block, and it cannot be applied from another build script.</p>
+
+<p>With Gradle Kotlin DSL, apply the plugin as follows:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">plugins</span> <span class="p">{</span>
+    <span class="n">kotlin</span><span class="p">(</span><span class="s">"jvm"</span><span class="p">)</span> <span class="n">version</span> <span class="s">""</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Kotlin sources can be mixed with Java sources in the same folder, or in different folders. The default convention is using different folders:</p>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">project</span>
+    <span class="o">-</span> <span class="n">src</span>
+        <span class="o">-</span> <span class="n">main</span> <span class="o">(</span><span class="n">root</span><span class="o">)</span>
+            <span class="o">-</span> <span class="n">kotlin</span>
+            <span class="o">-</span> <span class="n">java</span>
+</code></pre></div></div>
+
+<p>The corresponding <em>sourceSets</em> property should be updated if not using the default convention:</p>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sourceSets</span> <span class="o">{</span>
+    <span class="n">main</span><span class="o">.</span><span class="na">kotlin</span><span class="o">.</span><span class="na">srcDirs</span> <span class="o">+=</span> <span class="s1">'src/main/myKotlin'</span>
+    <span class="n">main</span><span class="o">.</span><span class="na">java</span><span class="o">.</span><span class="na">srcDirs</span> <span class="o">+=</span> <span class="s1">'src/main/myJava'</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>With Gradle Kotlin DSL, configure source sets with <code class="highlighter-rouge">java.sourceSets { ... }</code> instead.</p>
+
+<h2 id="targeting-javascript">Targeting JavaScript</h2>
+
+<p>When targeting JavaScript, a different plugin should be applied:</p>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">apply</span> <span class="nl">plugin:</span> <span class="s2">"kotlin2js"</span>
+</code></pre></div></div>
+
+<p>This plugin only works for Kotlin files so it is recommended to keep Kotlin and Java files separate (if it’s the case that the same project contains Java files). As with
+targeting the JVM, if not using the default convention, we need to specify the source folder using <em>sourceSets</em>:</p>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sourceSets</span> <span class="o">{</span>
+    <span class="n">main</span><span class="o">.</span><span class="na">kotlin</span><span class="o">.</span><span class="na">srcDirs</span> <span class="o">+=</span> <span class="s1">'src/main/myKotlin'</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>In addition to the output JavaScript file, the plugin by default creates an additional JS file with binary descriptors.
+This file is required if you’re building a re-usable library that other Kotlin modules can depend on, and should be distributed together with the result of translation.
+The generation is controlled by the  <code class="highlighter-rouge">kotlinOptions.metaInfo</code> option:</p>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">compileKotlin2Js</span> <span class="o">{</span>
+    <span class="n">kotlinOptions</span><span class="o">.</span><span class="na">metaInfo</span> <span class="o">=</span> <span class="kc">true</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="targeting-android">Targeting Android</h2>
+
+<p>Android’s Gradle model is a little different from ordinary Gradle, so if we want to build an Android project written in Kotlin, we need
+<em>kotlin-android</em> plugin instead of <em>kotlin</em>:</p>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">buildscript</span> <span class="o">{</span>
+    <span class="n">ext</span><span class="o">.</span><span class="na">kotlin_version</span> <span class="o">=</span> <span class="s1">''</span>
+
+    <span class="o">...</span>
+
+    <span class="n">dependencies</span> <span class="o">{</span>
+        <span class="n">classpath</span> <span class="s2">"org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+<span class="n">apply</span> <span class="nl">plugin:</span> <span class="s1">'com.android.application'</span>
+<span class="n">apply</span> <span class="nl">plugin:</span> <span class="s1">'kotlin-android'</span>
+</code></pre></div></div>
+
+<p>Don’t forget to configure the <a href="#configuring-dependencies">standard library dependency</a>.</p>
+
+<h3 id="android-studio">Android Studio</h3>
+
+<p>If using Android Studio, the following needs to be added under android:</p>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">android</span> <span class="o">{</span>
+  <span class="o">...</span>
+
+  <span class="n">sourceSets</span> <span class="o">{</span>
+    <span class="n">main</span><span class="o">.</span><span class="na">java</span><span class="o">.</span><span class="na">srcDirs</span> <span class="o">+=</span> <span class="s1">'src/main/kotlin'</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>This lets Android Studio know that the kotlin directory is a source root, so when the project model is loaded into the IDE it will be properly recognized. Alternatively, you can put Kotlin classes in the Java source directory, typically located in <code class="highlighter-rouge">src/main/java</code>.</p>
+
+<h2 id="configuring-dependencies">Configuring Dependencies</h2>
+
+<p>In addition to the <code class="highlighter-rouge">kotlin-gradle-plugin</code> dependency shown above, you need to add a dependency on the Kotlin standard library:</p>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">repositories</span> <span class="o">{</span>
+    <span class="n">mavenCentral</span><span class="o">()</span>
+<span class="o">}</span>
+
+<span class="n">dependencies</span> <span class="o">{</span>
+    <span class="n">compile</span> <span class="s2">"org.jetbrains.kotlin:kotlin-stdlib"</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>If you target JavaScript, use <code class="highlighter-rouge">compile "org.jetbrains.kotlin:kotlin-stdlib-js"</code> instead.</p>
+
+<p>If you’re targeting JDK 7 or JDK 8, you can use extended versions of the Kotlin standard library which contain
+additional extension functions for APIs added in new JDK versions. Instead of <code class="highlighter-rouge">kotlin-stdlib</code>, use one of the
+following dependencies:</p>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">compile</span> <span class="s2">"org.jetbrains.kotlin:kotlin-stdlib-jdk7"</span>
+<span class="n">compile</span> <span class="s2">"org.jetbrains.kotlin:kotlin-stdlib-jdk8"</span>
+</code></pre></div></div>
+
+<p>With Gradle Kotlin DSL, the following notation for the dependencies is equivalent:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dependencies</span> <span class="p">{</span>
+    <span class="n">compile</span> <span class="n">kotlin</span><span class="p">(</span><span class="s">"stdlib"</span><span class="p">)</span>
+    <span class="c1">// or one of:</span>
+    <span class="n">compile</span> <span class="n">kotlin</span><span class="p">(</span><span class="s">"stdlib-jdk7"</span><span class="p">)</span>
+    <span class="n">compile</span> <span class="n">kotlin</span><span class="p">(</span><span class="s">"stdlib-jdk8"</span><span class="p">)</span> 
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>In Kotlin 1.1.x, use <code class="highlighter-rouge">kotlin-stdlib-jre7</code> and <code class="highlighter-rouge">kotlin-stdlib-jre8</code> instead.</p>
+
+<p>If your project uses <a href="/api/latest/jvm/stdlib/kotlin.reflect.full/index.html">Kotlin reflection</a> or testing facilities, you need to add the corresponding dependencies as well:</p>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">compile</span> <span class="s2">"org.jetbrains.kotlin:kotlin-reflect"</span>
+<span class="n">testCompile</span> <span class="s2">"org.jetbrains.kotlin:kotlin-test"</span>
+<span class="n">testCompile</span> <span class="s2">"org.jetbrains.kotlin:kotlin-test-junit"</span>
+</code></pre></div></div>
+
+<p>Or, with Gradle Kotlin DSL:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">compile</span><span class="p">(</span><span class="n">kotlin</span><span class="p">(</span><span class="s">"reflect"</span><span class="p">))</span>
+<span class="n">testCompile</span><span class="p">(</span><span class="n">kotlin</span><span class="p">(</span><span class="s">"test"</span><span class="p">))</span>
+<span class="n">testCompile</span><span class="p">(</span><span class="n">kotlin</span><span class="p">(</span><span class="s">"test-junit"</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>Starting with Kotlin 1.1.2, the dependencies with group <code class="highlighter-rouge">org.jetbrains.kotlin</code> are by default resolved with the version
+taken from the applied plugin. You can provide the version manually using the full dependency notation like
+<code class="highlighter-rouge">compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"</code>, or <code class="highlighter-rouge">kotlin("stdlib", kotlinVersion)</code> in Gradle Kotlin DSL.</p>
+
+<h2 id="annotation-processing">Annotation processing</h2>
+
+<p>See the description of <a href="kapt.html">Kotlin annotation processing tool</a> (<code class="highlighter-rouge">kapt</code>).</p>
+
+<h2 id="incremental-compilation">Incremental compilation</h2>
+
+<p>Kotlin supports optional incremental compilation in Gradle.
+Incremental compilation tracks changes of source files between builds so only files affected by these changes would be compiled.</p>
+
+<p>Starting with Kotlin 1.1.1, incremental compilation is enabled by default.</p>
+
+<p>There are several ways to override the default setting:</p>
+
+<ol>
+  <li>
+    <p>add <code class="highlighter-rouge">kotlin.incremental=true</code> or <code class="highlighter-rouge">kotlin.incremental=false</code> line either to a <code class="highlighter-rouge">gradle.properties</code> or to a <code class="highlighter-rouge">local.properties</code> file;</p>
+  </li>
+  <li>
+    <p>add <code class="highlighter-rouge">-Pkotlin.incremental=true</code> or <code class="highlighter-rouge">-Pkotlin.incremental=false</code> to Gradle command line parameters. Note that in this case the parameter should be added to each subsequent build, and any build with disabled incremental compilation invalidates incremental caches.</p>
+  </li>
+</ol>
+
+<p>Note, that the first build won’t be incremental.</p>
+
+<h2 id="coroutines-support">Coroutines support</h2>
+
+<p><a href="coroutines.html">Coroutines</a> support is an experimental feature in Kotlin 1.2, so the Kotlin compiler reports a warning when you use coroutines in your project.
+To turn off the warning, add the following block to your <code class="highlighter-rouge">build.gradle</code> file:</p>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">kotlin</span> <span class="o">{</span>
+    <span class="n">experimental</span> <span class="o">{</span>
+        <span class="n">coroutines</span> <span class="s1">'enable'</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Or, with Gradle Kotlin DSL:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nn">org.jetbrains.kotlin.gradle.dsl.Coroutines</span>
+<span class="c1">// ...</span>
+
+<span class="n">kotlin</span><span class="p">.</span><span class="n">experimental</span><span class="p">.</span><span class="n">coroutines</span> <span class="p">=</span> <span class="n">Coroutines</span><span class="p">.</span><span class="n">ENABLE</span>
+</code></pre></div></div>
+
+<h2 id="module-names">Module names</h2>
+
+<p>The Kotlin modules that the build produces are named accordingly to the <code class="highlighter-rouge">archivesBaseName</code> property of the project. If a project has a broad name like <code class="highlighter-rouge">lib</code> or <code class="highlighter-rouge">jvm</code>, which is common for subprojects, the Kotlin output files related to the module (<code class="highlighter-rouge">*.kotlin_module</code>) might clash with those from third-party modules with the same name. This causes problems when a project is packaged into a single archive (e.g. APK).</p>
+
+<p>To avoid this, consider setting a unique <code class="highlighter-rouge">archivesBaseName</code> manually:</p>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">archivesBaseName</span> <span class="o">=</span> <span class="s1">'myExampleProject_lib'</span>
+</code></pre></div></div>
+
+<p>With Gradle Kotlin DSL, it is:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">setProperty</span><span class="p">(</span><span class="s">"archivesBaseName"</span><span class="p">,</span> <span class="s">"myExampleProject_lib"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="gradle-build-cache-support-since-1220">Gradle Build Cache support (since 1.2.20)</h2>
+
+<p>The Kotlin plugin supports <a href="https://guides.gradle.org/using-build-cache/">Gradle Build Cache</a> (Gradle version 4.3 and above is required; caching is disabled with lower versions).</p>
+
+<p>The kapt annotation processing tasks are not cached by default since annotation processors run arbitrary code that may not necessarily transform the task inputs into the outputs, might access and modify the files that are not tracked by Gradle etc. To enable caching for kapt anyway, add the following lines to the build script:</p>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">kapt</span> <span class="o">{</span>
+    <span class="n">useBuildCache</span> <span class="o">=</span> <span class="kc">true</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>To disable the caching for all Kotlin tasks, set the system property flag <code class="highlighter-rouge">kotlin.caching.enabled</code> to <code class="highlighter-rouge">false</code> (run the build with the argument <code class="highlighter-rouge">-Dkotlin.caching.enabled=false</code>).</p>
+
+<h2 id="compiler-options">Compiler Options</h2>
+
+<p>To specify additional compilation options, use the <code class="highlighter-rouge">kotlinOptions</code> property of a Kotlin compilation task.</p>
+
+<p>When targeting the JVM, the tasks are called <code class="highlighter-rouge">compileKotlin</code> for production code and <code class="highlighter-rouge">compileTestKotlin</code>
+for test code. The tasks for custom source sets are called accordingly to the <code class="highlighter-rouge">compile&lt;Name&gt;Kotlin</code> pattern.</p>
+
+<p>The names of the tasks in Android Projects contain the <a href="https://developer.android.com/studio/build/build-variants.html">build variant</a> names and follow the pattern <code class="highlighter-rouge">compile&lt;BuildVariant&gt;Kotlin</code>, for example, <code class="highlighter-rouge">compileDebugKotlin</code>, <code class="highlighter-rouge">compileReleaseUnitTestKotlin</code>.</p>
+
+<p>When targeting JavaScript, the tasks are called <code class="highlighter-rouge">compileKotlin2Js</code> and <code class="highlighter-rouge">compileTestKotlin2Js</code> respectively, and <code class="highlighter-rouge">compile&lt;Name&gt;Kotlin2Js</code> for custom source sets.</p>
+
+<p>To configure a single task, use its name. Examples:</p>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">compileKotlin</span> <span class="o">{</span>
+    <span class="n">kotlinOptions</span><span class="o">.</span><span class="na">suppressWarnings</span> <span class="o">=</span> <span class="kc">true</span>
+<span class="o">}</span>
+
+<span class="n">compileKotlin</span> <span class="o">{</span>
+    <span class="n">kotlinOptions</span> <span class="o">{</span>
+        <span class="n">suppressWarnings</span> <span class="o">=</span> <span class="kc">true</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>With Gradle Kotlin DSL, get the task from the project’s <code class="highlighter-rouge">tasks</code> first:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nn">org.jetbrains.kotlin.gradle.tasks.KotlinCompile</span>
+<span class="c1">// ...</span>
+
+<span class="kd">val</span> <span class="py">kotlinCompile</span><span class="p">:</span> <span class="n">KotlinCompile</span> <span class="k">by</span> <span class="n">tasks</span>
+
+<span class="n">kotlinCompile</span><span class="p">.</span><span class="n">kotlinOptions</span><span class="p">.</span><span class="n">suppressWarnings</span> <span class="p">=</span> <span class="k">true</span>
+</code></pre></div></div>
+
+<p>Use the types <code class="highlighter-rouge">Kotlin2JsCompile</code> and <code class="highlighter-rouge">KotlinCommonCompile</code> for the JS and Common targets, accordingly.</p>
+
+<p>It is also possible to configure all Kotlin compilation tasks in the project:</p>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tasks</span><span class="o">.</span><span class="na">withType</span><span class="o">(</span><span class="n">org</span><span class="o">.</span><span class="na">jetbrains</span><span class="o">.</span><span class="na">kotlin</span><span class="o">.</span><span class="na">gradle</span><span class="o">.</span><span class="na">tasks</span><span class="o">.</span><span class="na">KotlinCompile</span><span class="o">).</span><span class="na">all</span> <span class="o">{</span>
+    <span class="n">kotlinOptions</span> <span class="o">{</span>
+        <span class="c1">// ...</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>A complete list of options for the Gradle tasks follows:</p>
+
+<h3 id="attributes-common-for-jvm-js-and-js-dce">Attributes common for JVM, JS, and JS DCE</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Possible values</th>
+      <th>Default value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">allWarningsAsErrors</code></td>
+      <td>Report an error if there are any warnings</td>
+      <td> </td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">suppressWarnings</code></td>
+      <td>Generate no warnings</td>
+      <td> </td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">verbose</code></td>
+      <td>Enable verbose logging output</td>
+      <td> </td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">freeCompilerArgs</code></td>
+      <td>A list of additional compiler arguments</td>
+      <td> </td>
+      <td>[]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="attributes-common-for-jvm-and-js">Attributes common for JVM and JS</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Possible values</th>
+      <th>Default value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">apiVersion</code></td>
+      <td>Allow to use declarations only from the specified version of bundled libraries</td>
+      <td>“1.0”, “1.1”, “1.2”, “1.3 (EXPERIMENTAL)”</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">languageVersion</code></td>
+      <td>Provide source compatibility with specified language version</td>
+      <td>“1.0”, “1.1”, “1.2”, “1.3 (EXPERIMENTAL)”</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="attributes-specific-for-jvm">Attributes specific for JVM</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Possible values</th>
+      <th>Default value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">javaParameters</code></td>
+      <td>Generate metadata for Java 1.8 reflection on method parameters</td>
+      <td> </td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">jdkHome</code></td>
+      <td>Path to JDK home directory to include into classpath, if differs from default JAVA_HOME</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">jvmTarget</code></td>
+      <td>Target version of the generated JVM bytecode (1.6 or 1.8), default is 1.6</td>
+      <td>“1.6”, “1.8”</td>
+      <td>“1.6”</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">noJdk</code></td>
+      <td>Don’t include Java runtime into classpath</td>
+      <td> </td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">noReflect</code></td>
+      <td>Don’t include Kotlin reflection implementation into classpath</td>
+      <td> </td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">noStdlib</code></td>
+      <td>Don’t include Kotlin runtime into classpath</td>
+      <td> </td>
+      <td>true</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="attributes-specific-for-js">Attributes specific for JS</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Possible values</th>
+      <th>Default value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">friendModulesDisabled</code></td>
+      <td>Disable internal declaration export</td>
+      <td> </td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">main</code></td>
+      <td>Whether a main function should be called</td>
+      <td>“call”, “noCall”</td>
+      <td>“call”</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">metaInfo</code></td>
+      <td>Generate .meta.js and .kjsm files with metadata. Use to create a library</td>
+      <td> </td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">moduleKind</code></td>
+      <td>Kind of a module generated by compiler</td>
+      <td>“plain”, “amd”, “commonjs”, “umd”</td>
+      <td>“plain”</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">noStdlib</code></td>
+      <td>Don’t use bundled Kotlin stdlib</td>
+      <td> </td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">outputFile</code></td>
+      <td>Output file path</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">sourceMap</code></td>
+      <td>Generate source map</td>
+      <td> </td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">sourceMapEmbedSources</code></td>
+      <td>Embed source files into source map</td>
+      <td>“never”, “always”, “inlining”</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">sourceMapPrefix</code></td>
+      <td>Prefix for paths in a source map</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">target</code></td>
+      <td>Generate JS files for specific ECMA version</td>
+      <td>“v5”</td>
+      <td>“v5”</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">typedArrays</code></td>
+      <td>Translate primitive arrays to JS typed arrays</td>
+      <td> </td>
+      <td>true</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="generating-documentation">Generating documentation</h2>
+
+<p>To generate documentation for Kotlin projects, use <a href="https://github.com/Kotlin/dokka">Dokka</a>;
+please refer to the <a href="https://github.com/Kotlin/dokka/blob/master/README.md#using-the-gradle-plugin">Dokka README</a>
+for configuration instructions. Dokka supports mixed-language projects and can generate output in multiple
+formats, including standard JavaDoc.</p>
+
+<h2 id="osgi">OSGi</h2>
+
+<p>For OSGi support see the <a href="kotlin-osgi.html">Kotlin OSGi page</a>.</p>
+
+<h2 id="using-gradle-kotlin-dsl">Using Gradle Kotlin DSL</h2>
+
+<p>When using <a href="https://github.com/gradle/kotlin-dsl">Gradle Kotlin DSL</a>, apply the Kotlin plugins using the <code class="highlighter-rouge">plugins { ... }</code> block. If you apply them with <code class="highlighter-rouge">apply { plugin(...) }</code> instead, you may encounter unresolved references to the extensions generated by Gradle Kotlin DSL. To resolve that, you can comment out the erroneous usages, run the Gradle task <code class="highlighter-rouge">kotlinDslAccessorsSnapshot</code>, then uncomment the usages back and rerun the build or reimport the project into the IDE.</p>
+
+<h2 id="examples">Examples</h2>
+
+<p>The following examples show different possibilities of configuring the Gradle plugin:</p>
+
+<ul>
+  <li><a href="https://github.com/JetBrains/kotlin-examples/tree/master/gradle/hello-world">Kotlin</a></li>
+  <li><a href="https://github.com/JetBrains/kotlin-examples/tree/master/gradle/mixed-java-kotlin-hello-world">Mixed Java and Kotlin</a></li>
+  <li><a href="https://github.com/JetBrains/kotlin-examples/tree/master/gradle/android-mixed-java-kotlin-project">Android</a></li>
+  <li><a href="https://github.com/JetBrains/kotlin/tree/master/libraries/tools/kotlin-gradle-plugin-integration-tests/src/test/resources/testProject/kotlin2JsProject">JavaScript</a></li>
+</ul>
+
+  </div>
+</article>
+
+      </div>
+
+      <div class="unit one-fifth hide-on-mobiles">
+  <aside>
+    <ul>
+      <li class="">
+        <a href="/news/">All Post</a>
+      </li>
+      <li class="">
+        <a href="/news/releases/">Kotlin Releases</a>
+      </li>
+    </ul>
+    <h4>Recent Releases</h4>
+    <ul>
+      
+    </ul>
+    <h4>Other Posts</h4>
+    <ul>
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-experimental-coroutines/">Using coroutines</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-command-line-library-js/">Creating a Kotlin JavaScript library with the Command Line Compiler</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-spring-boot-restful/">Creating a RESTful Web Service with Spring Boot</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-kotlin-android/">Getting started with Android and Kotlin</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-koans/">Kotlin Koans</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-index/">Tutorials</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-httpservlets/">Creating Web Applications with Http Servlets</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-edu-tools-learner/">Learning Kotlin with EduTools plugin</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-edu-tools-educator/">Teaching Kotlin with EduTools plugin</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-create-library-js/">Creating Kotlin/JavaScript library with IntelliJ IDEA</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-coroutines-basic-jvm/">Introduction to Kotlin Coroutines on the JVM</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-command-line/">Working with the Command Line Compiler</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-command-line-library-js/">Creating Kotlin/JavaScript library with the Command Line Compiler</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-build-tools/">Working with Build Tools</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-android-plugin/">Kotlin Android Extensions</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-android-frameworks/">Android Frameworks Using Annotation Processing</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-whatsnew12/">What's New in Kotlin 1.2</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-whatsnew11/">What's New in Kotlin 1.1</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-visibility-modifiers/">Visibility Modifiers</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-using-maven/">Using Maven</a>
+        </li>
+        
+        
+        
+        <li class="current">
+          <a href="/news/2018/05/15/kotlinlang-using-gradle/">Using Gradle</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-using-ant/">Using Ant</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-typecasts/">Type Checks and Casts: 'is' and 'as'</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-type-safe-builders/">Type-Safe Builders</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-type-aliases/">Type aliases (since 1.1)</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-this-expressions/">This expressions</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-server-overview/">Kotlin for Server Side</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-sealed-classes/">Sealed Classes</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-returns/">Returns and Jumps: break and continue</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-reflection/">Reflection</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-ranges/">Ranges</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-properties/">Properties and Fields: Getters, Setters, const, lateinit</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-packages/">Packages and Imports</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-operator-overloading/">Operator overloading</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-object-declarations/">Object Expressions, Object Declarations and Companion Objects</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-null-safety/">Null Safety</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-nested-classes/">Nested and Inner Classes</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-native-overview/">Kotlin/Native</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-multiplatform/">Multiplatform Projects</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-multi-declarations/">Destructuring Declarations</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-lambdas/">Higher-Order Functions and Lambdas</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-kotlin-osgi/">Kotlin and OSGi</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-kotlin-doc/">Documenting Kotlin Code</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-kotlin-build-tools/">Kotlin Build Tools</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-keyword-reference/">Keywords and Operators</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-kapt/">Using kapt</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-js-to-kotlin-interop/">Calling Kotlin from JavaScript</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-js-reflection/">JavaScript Reflection</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-js-overview/">Kotlin for JavaScript</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-js-modules/">JavaScript Modules</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-js-interop/">Calling JavaScript from Kotlin</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-javascript-dce/">JavaScript DCE</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-java-to-kotlin-interop/">Calling Kotlin from Java</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-java-interop/">Calling Java from Kotlin</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-interfaces/">Interfaces</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-inline-functions/">Inline Functions and Reified Type Parameters</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-index/">Reference</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-idioms/">Idioms</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-generics/">Generics: in, out, where</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-functions/">Functions: infix, vararg, tailrec</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-faq/">FAQ</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-extensions/">Extensions</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-exceptions/">Exceptions: try, catch, finally, throw, Nothing</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-equality/">Equality</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-enum-classes/">Enum Classes</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-dynamic-type/">Dynamic Type</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-delegation/">Delegation</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-delegated-properties/">Delegated Properties</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-data-classes/">Data Classes</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-coroutines/">Coroutines</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-control-flow/">Control Flow: if, when, for, while</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-compiler-plugins/">Compiler Plugins</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-compatibility/">Compatibility</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-comparison-to-java/">Comparison to Java</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-collections/">Collections: List, Set, Map</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-coding-conventions/">Coding Conventions</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-classes/">Classes and Inheritance</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-basic-types/">Basic Types: Numbers, Strings, Arrays</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-basic-syntax/">Basic Syntax</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-annotations/">Annotations</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/15/kotlinlang-android-overview/">Kotlin for Android</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/05/13/android-01/">Kotlin Programming Language</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/01/24/kotlinlang-gradle-for-kotlin-native/">Gradle for Kotlin/Native</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/01/23/kotlinlang-kotlin-native-with-clion/">Kotlin/Native with CLion</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/01/22/kotlinlang-working-with-klib/">Working with Kotlin/Native Libraries</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2018/01/09/kotlinlang-interop-with-c/">Interop with C Libraries</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2017/12/03/kotlinlang-basic-kotlin-native-app/">A Basic Kotlin/Native Application</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2017/07/31/kotlinlang-debugging-javascript/">Debugging Kotlin in browser</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2017/05/04/kotlinlang-getting-started/">Getting Started with IntelliJ IDEA</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2017/02/27/kotlinlang-working-with-javascript/">Working with JavaScript</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2016/12/03/gradle-tip/">Android Gradle Tips</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2016/11/10/kotlinlang-getting-started-eclipse/">Getting Started with Eclipse Neon</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2016/11/04/kotlinlang-getting-started-with-maven/">Getting Started with Kotlin and JavaScript with Maven</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2016/11/04/kotlinlang-getting-started-with-gradle/">Getting Started with Kotlin and JavaScript with Gradle</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2016/10/07/kotlinlang-calling-javascript-from-kotlin/">Calling JavaScript from Kotlin</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2016/09/30/kotlinlang-working-with-modules/">Working with Kotlin and JavaScript Modules</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2016/09/30/kotlinlang-getting-started-with-intellij-idea/">Getting Started with Kotlin and JavaScript with IntelliJ IDEA</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2016/09/29/kotlinlang-kotlin-to-javascript/">Kotlin to JavaScript</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2016/07/26/android-database-tip/">Android 의 Sqlite Tip</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2016/04/16/migration-to-retrofit2/">Retrofit2 로 전환</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2016/02/12/Android-and-automation/">안드로이드와 자동화 툴</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2015/11/26/%EB%8D%94-%EB%B9%A0%EB%A5%B8-Andriod-App-Build/">더 빠른 Android App Build</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2015/03/10/.androidannotations-%EC%99%80-MVP/">AndroidAnnotations 와 MVP</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2015/03/01/04.androidannotation-%EA%B3%BC-%ED%85%8C%EC%8A%A4%ED%8A%B8/">AndroidAnnotations 과 테스트</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2015/03/01/03.androidannotation-%EA%B3%BC-mvc/">AndroidAnnotations 과 MVC 패턴</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2015/03/01/02.android-%EC%99%80-annotation/">Android 와 Annotation</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2015/03/01/01.Android-mvc-mvvm-mvp/">Android 와 개발 패턴</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2015/02/02/kotlinlang-kotlin-and-ci/">Kotlin and Continuous Integration with TeamCity</a>
+        </li>
+        
+        
+        
+        <li class="">
+          <a href="/news/2014/09/23/kotlinlang-mixing-java-kotlin-intellij/">Mixing Java and Kotlin in one project</a>
+        </li>
+        
+        
+    </ul>
+  </aside>
+</div>
+
+
+      <div class="clear"></div>
+
+    </div>
+  </section>
+
+
+  <footer>
+  <div class="grid">
+    <div class="unit one-third center-on-mobiles">
+      <p>
+        &copy;&nbsp;2018 Laon Dreams
+      <br/>Contacts: <a href="mailto:laondreams@gmail.com">laondreams@gmail.com</a></p>
+    </div>
+    <div class="unit two-thirds align-right center-on-mobiles">
+      <p>
+        Proudly hosted by
+        <a href="https://github.com">
+          <img src="/img/footer-logo.png" width="100" height="30" alt="GitHub • Social coding">
+        </a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+  <script>
+  var anchorForId = function (id) {
+    var anchor = document.createElement("a");
+    anchor.className = "header-link";
+    anchor.href      = "#" + id;
+    anchor.innerHTML = "<span class=\"sr-only\">Permalink</span><i class=\"fa fa-link\"></i>";
+    anchor.title = "Permalink";
+    return anchor;
+  };
+
+  var linkifyAnchors = function (level, containingElement) {
+    var headers = containingElement.getElementsByTagName("h" + level);
+    for (var h = 0; h < headers.length; h++) {
+      var header = headers[h];
+
+      if (typeof header.id !== "undefined" && header.id !== "") {
+        header.appendChild(anchorForId(header.id));
+      }
+    }
+  };
+
+  document.onreadystatechange = function () {
+    if (this.readyState === "complete") {
+      var contentBlock = document.getElementsByClassName("docs")[0] || document.getElementsByClassName("news")[0];
+      if (!contentBlock) {
+        return;
+      }
+      for (var level = 1; level <= 6; level++) {
+        linkifyAnchors(level, contentBlock);
+      }
+    }
+  };
+</script>
+
+  
+  <!-- Google Analytics (https://www.google.com/analytics) -->
+  <script>
+    !function(j,e,k,y,l,L){j.GoogleAnalyticsObject=y,j[y]||(j[y]=function(){
+    (j[y].q=j[y].q||[]).push(arguments)}),j[y].l=+new Date,l=e.createElement(k),
+    L=e.getElementsByTagName(k)[0],l.src='https://www.google-analytics.com/analytics.js',
+    L.parentNode.insertBefore(l,L)}(window,document,'script','ga');
+
+    ga('create', 'UA-119113988-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript"> docsearch({
+apiKey: '50fe39c839958dfad797000f33e2ec17',
+indexName: 'jekyllrb',
+inputSelector: '#docsearch-input',
+enhancedSearchInput: true,
+debug: false // Set debug to true if you want to inspect the dropdown
+});
+</script>
+
+</body>
+</html>
